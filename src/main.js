@@ -1,0 +1,10 @@
+import './js/header/header';
+import './js/burger-menu/burger-menu';
+import './js/hero/hero';
+import './js/hero-slider/hero-slider';
+import './js/categories/categories';
+import './js/popular-recipes/popular-recipes';
+import './js/filters/filters';
+import './js/order-now/order-now';
+import './js/rating/rating';
+import './js/recipes/recipes';
