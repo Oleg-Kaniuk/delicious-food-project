@@ -1,0 +1,100 @@
+.hero-image-section {
+    display: none;
+    padding-top: 49px;
+    padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+    .hero-image-section {
+        display: block;
+        padding-top: 44px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .hero-image-section {
+        padding-top: 34px;
+        padding-bottom: 64px;
+    }
+}
+
+.hero-image {
+    background-image: url(../img/hero/hero-mobile.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: none;
+    height: 515px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+@media (min-device-pixel-retio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .hero-image {
+        background-image: url(../img/hero/hero-mobile@2x.webp);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .hero-image {
+        background-image: url(../img/hero/hero-tablet.webp);
+        max-width: 704px;
+        height: 356px;
+        display: block;
+    }
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        .hero-image {
+            background-image: url(../img/hero/hero-tablet@2x.webp);
+        }
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .hero-image {
+        background-image: url(../img/hero/hero-desktop.webp);
+        max-width: 1080px;
+        height: 356px;
+        display: block;
+    }
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        .hero-image {
+            background-image: url(../img/hero/hero-desktop@2x.webp);
+        }
+    }
+}
+
+.empty-favorites-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 264px;
+    /* height: 100vh; */
+    padding-top: 281px;
+    margin: 0 auto;
+}
+
+.empty-favorites-text {
+    font-weight: 400;
+    margin-top: 24px;
+    text-align: center;
+}
+
+@media screen and (min-width: 375px) {
+    .empty-favorites-container {
+        width: 335px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .empty-favorites-container {
+        width: 481px;
+        padding-top: 64px;
+    }
+}

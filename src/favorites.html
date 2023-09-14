@@ -21,6 +21,30 @@
         <load src="partials/categories.html" />
         <load src="partials/popular-recipes.html" />
         <load src="partials/filters.html" />
+
+        <h1 class="visually-hidden">Favorite recipes</h1>
+        <section class="section">
+            <div class="container">
+                <section class="hero-image-section">
+                    <div class="hero-image"></div>
+                </section>
+
+                <div class="categories">
+                    <ul class="categories-list"></ul>
+                </div>
+                <div class="favorite-recipes">
+                    <ul class="favorite-recipes-list"></ul>
+
+                </div>
+                <div class="empty-favorites-container">
+                    <svg width="68" height="58" viewBox="0 0 37 32">
+                            <use xlink:href="./img/icon-sprite.svg#icon-hat"></use>
+                          </svg>
+                    <p class="empty-favorites-text">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <load src="partials/order-now.html" />
@@ -28,6 +52,7 @@
     <load src="partials/recipes.html" />
 
     <script type="module" src="/main.js"></script>
+
 </body>
 
 </html>
