@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@font-face {
+  font-family: Inter;
+  src: url('Inter-Regular.ttf');
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('Inter-Medium.ttf');
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('Inter-SemiBold.ttf');
+}
