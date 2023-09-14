@@ -1,0 +1,70 @@
+.popular-recipes{
+width: 335px;
+height: 202px;
+background-color: aquamarine;
+}
+@media only screen and (min-width: 768px) {
+   .popular-recipes{
+   width: 176px;
+   height: 372px;
+   } 
+}
+@media only screen and (min-width: 1280px) {
+  .popular-recipes{
+   width: 235px;
+   height: 424px;
+  }
+}
+
+.title-popular-recipes{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.33;
+    color: var(--main-dark-text-color);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    
+}
+@media only screen and (min-width: 768px) {
+    .title-popular-recipes{
+        margin-bottom: 32px;
+}
+}
+@media only screen and (min-width: 1280px) {
+    .title-popular-recipes{
+        font-size: 24px;
+}
+}
+.img-popular{
+    border-radius: 8px;
+}
+.card-recipes{
+    display: flex;
+    /* overflow: hidden; */
+   margin-bottom: 24px;
+}
+.popular-title-description{
+    height: 64px;
+    margin-left: 16px;
+}
+
+.title-third {
+    font-weight: 600;
+    color:var(--main-dark-text-color);
+    margin-bottom: 8px; 
+     text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}
+.description{
+font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+    word-wrap:break-word;
+    width: 252px;
+    height: 41px;
+
+}
