@@ -8,4 +8,4 @@ import './js/filters/filters';
 import './js/order-now/order-now';
 import './js/rating/rating';
 import './js/recipes/recipes';
-import './js/favorites/favorites'
+import './js/favorites/favorites';
