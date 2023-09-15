@@ -1,18 +1,17 @@
 .popular-recipes{
 width: 335px;
-height: 202px;
-background-color: aquamarine;
+overflow: hidden;
 }
 @media only screen and (min-width: 768px) {
    .popular-recipes{
    width: 176px;
-   height: 372px;
+   
    } 
 }
 @media only screen and (min-width: 1280px) {
   .popular-recipes{
    width: 235px;
-   height: 424px;
+   
   }
 }
 
@@ -23,48 +22,100 @@ background-color: aquamarine;
     color: var(--main-dark-text-color);
     text-transform: uppercase;
     margin-bottom: 20px;
-    
 }
 @media only screen and (min-width: 768px) {
     .title-popular-recipes{
         margin-bottom: 32px;
+    }
 }
+.cards-popular-recipes{
+    width: 335px;
 }
-@media only screen and (min-width: 1280px) {
-    .title-popular-recipes{
-        font-size: 24px;
-}
-}
-.img-popular{
-    border-radius: 8px;
-}
+@media only screen and (min-width: 768px) {
+      .cards-popular-recipes{
+        width: 176px;
+    
+      }  
+    }
+
 .card-recipes{
     display: flex;
-    /* overflow: hidden; */
-   margin-bottom: 24px;
+    overflow: hidden; 
+    margin-bottom: 24px;
+    gap: 16px;
 }
+@media only screen and (min-width: 768px) {}
+.card-recipes{
+    gap: 8px;
+    margin-bottom: 16px;
+    
+}
+
+.img-popular{
+    border-radius: 8px;
+     width: 64px;
+     margin-bottom: 27px;
+}
+@media only screen and (min-width: 768px) {
+    .img-popular{
+        width: 48px;
+        margin-bottom: 35px;
+    }
+}
+
+
 .popular-title-description{
-    height: 64px;
-    margin-left: 16px;
+    width: 252px;
+    margin-bottom: 24px;
+    
 }
+@media only screen and (min-width: 768px) {
+   .popular-title-description{
+    width: 120px;
+    margin-bottom: 16px;
+   } 
+}
+@media only screen and (min-width: 1280px) {
+    .popular-title-description{
+    width: 155px;
+    margin-bottom: 32px;
+   } 
+}
+
 
 .title-third {
     font-weight: 600;
+    font-style: normal;
     color:var(--main-dark-text-color);
-    margin-bottom: 8px; 
-     text-overflow: ellipsis;
+    margin-bottom: 8px;
+    
     overflow: hidden;
-    white-space:nowrap;
-}
-.description{
-font-weight: 400;
-    font-size: 12px;
-    line-height: 1.33;
     text-overflow: ellipsis;
-    overflow: hidden;
-    white-space:nowrap;
-    word-wrap:break-word;
-    width: 252px;
-    height: 41px;
-
+    white-space: nowrap;
 }
+
+
+.popular-description {
+    font-weight: 400;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 1.33;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap; 
+   
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+@media only screen and (min-width: 768px) {
+    .popular-description{
+        font-size: 10px;
+        line-height: 1.4;
+        -webkit-line-clamp: 3;
+    }
+}
+
+
+ 

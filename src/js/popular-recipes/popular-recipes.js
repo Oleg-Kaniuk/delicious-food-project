@@ -1,28 +1,39 @@
-const popularRecipes = document.querySelector(".cards-popular-recipes");
-console.log(popularRecipes);
 
-//https://tasty-treats-backend.p.goit.global/api/recipes/popular	
+
+const popularRecipes = document.querySelector(".cards-popular-recipes");
+
 async function servicePopularRecipes() {
-    
-    const response = await fetch("https://tasty-treats-backend.p.goit.global/api/recipes/popular")
+    const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
+    const response = await fetch(`${BASE_URL}recipes/popular`);
     const recipes = await response.json();
-  return recipes;
+    return recipes;
 }
-    
+   
 servicePopularRecipes()
-    .then(recipes =>
-        createMarcupRecipes(recipes)
+    .then(recipes => {
+        createMarkupRecipes(recipes);
+         const cardPopularRecipes = document.querySelector(".card-recipes");
+         
+        cardPopularRecipes.addEventListener('click', onPopularRecipesClick)
         
+        
+    }
 )
-    
     .catch(error => console.log(error));
        
-function createMarcupRecipes(arr){
+
+function createMarkupRecipes(arr) {
     const markup = arr.map(({ preview, title, description }) => 
-        `<div class = "card-recipes"><div><img class ="img-popular" src="${preview}" alt="${title}" loading="lazy" width = "64"/></div> 
+        `<div class = "card-recipes"><div><img class ="img-popular img" src="${preview}" alt="${title}" loading="lazy" width = "64"/></div> 
           <div class="popular-title-description">
             <h3 class = "title-third">${title}</h3>
-            <p class = "description">${description}</p></div>
+           <div class = "description-container"><p class = "popular-description">${description}</p></div> 
+          </div>
         </div> `).join('')
     popularRecipes.innerHTML = markup;
-   }
+    
+}
+function onPopularRecipesClick() {
+   alert('ТУТ ПІДКЛЮЧИМО МОДАЛКУ З РЕЦЕПТОМ КОЛИ ВОНА БУДЕ ГОТОВА') 
+};
+   
