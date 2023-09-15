@@ -5,8 +5,7 @@ import './js/hero-slider/hero-slider';
 import './js/categories/categories';
 import './js/popular-recipes/popular-recipes';
 import './js/filters/filters';
+import './js/recipes/recipes';
 import './js/order-now/order-now';
 import './js/rating/rating';
-import './js/recipes/recipes';
-import './js/favorites/favorites';
 import './js/modal-recipe/modal-recipe'
