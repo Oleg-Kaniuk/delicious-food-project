@@ -2,30 +2,30 @@
 // Цей пошук потрібен лише для відмалювання, коли Діма доробить запит, то ми його видалимо
 
 
-const containerForRecipes = document.querySelector('.container-for-recipes')
+// const containerForRecipes = document.querySelector('.container-for-recipes')
 
 
-function fetchBreeds() {
-    const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+// function fetchBreeds() {
+//     const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
         
-  return fetch(`${BASE_URL}`)
-    .then((resp) => {
-    if (!resp.ok) {console.log('Oops! Something went wrong! Try reloading the page!')}
-    return resp.json();
-    })
-    .catch(() =>console.log('Oops! Something went wrong! Try reloading the page!'))
-}
+//   return fetch(`${BASE_URL}`)
+//     .then((resp) => {
+//     if (!resp.ok) {console.log('Oops! Something went wrong! Try reloading the page!')}
+//     return resp.json();
+//     })
+//     .catch(() =>console.log('Oops! Something went wrong! Try reloading the page!'))
+// }
 
-  fetchBreeds().then((data) => {console.log(data.results);
-    // const { _id, title, preview, description, rating } = data.results
-    containerForRecipes.innerHTML = createMarkupElForFilter(data.results)
-  }).catch(() => {
-    console.log('err');
-  })
+//   fetchBreeds().then((data) => {console.log(data.results);
+//     // const { _id, title, preview, description, rating } = data.results
+//     containerForRecipes.innerHTML = createMarkupElForFilter(data.results)
+//   }).catch(() => {
+//     console.log('err');
+//   })
 
 // важлива create функція
 
-function createMarkupElForFilter(arr) {
+export function createMarkupElForFilter(arr) {
   
  return arr.map(({ _id, title, preview, description, rating }) => 
  
