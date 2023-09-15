@@ -48,23 +48,27 @@ overflow: hidden;
     display: flex;
     overflow: hidden; 
     margin-bottom: 24px;
-    gap: 16px;
+    
 }
-@media only screen and (min-width: 768px) {}
-.card-recipes{
-    gap: 8px;
+@media only screen and (min-width: 768px) {
+    .card-recipes{
     margin-bottom: 16px;
     
 }
+}
+
 
 .img-popular{
     border-radius: 8px;
      width: 64px;
-     
+     object-fit: cover;
+     object-position: center;
+     margin-right: 16px;
 }
 @media only screen and (min-width: 768px) {
     .img-popular{
         width: 48px;
+        margin-right: 8px;
         
     }
 }
@@ -74,19 +78,18 @@ overflow: hidden;
 }
 .popular-title-description{
     width: 252px;
-    margin-bottom: 24px;
     
 }
 @media only screen and (min-width: 768px) {
    .popular-title-description{
     width: 120px;
-    margin-bottom: 16px;
+
    } 
 }
 @media only screen and (min-width: 1280px) {
     .popular-title-description{
     width: 155px;
-    margin-bottom: 32px;
+
    } 
 }
 
