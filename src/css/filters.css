@@ -10,6 +10,7 @@ row-gap: 14px;
 /* section input */
 /* ---------------------------------------------------- */
 .filter-container-input{
+position: relative;
 width: 100%;
 display: flex;
 }
@@ -26,8 +27,22 @@ max-height:68px ;
     border: 1px solid var(--filters-select-color);
     border-radius: 15px;
 
-    font-size: 12px;
-    line-height: 1.16;
+    font-size: 14px;
+    line-height: 1.29;
+}
+.filter-container-icon{
+    position: absolute;
+
+    top: 50%;
+    left: 18px;
+    height: 18px;
+
+    transform: translateY(-50%);
+}
+.filter-icon-input{
+    fill: var(--filters-main-color);
+    width: 18px;
+    height: 18px;
 }
 /* ------------------------------------------------------------*/
 /* section select*/ 
