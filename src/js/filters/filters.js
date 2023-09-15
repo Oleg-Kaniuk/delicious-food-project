@@ -1,11 +1,17 @@
-
-
+import axios from "axios"
+import debounce from "lodash.debounce"
+// import {createMarkupElForFilter} from './js/r'
 
 const elements ={
     timeSelect: document.querySelector('.js-time-select'),
     areaSelect: document.querySelector('.js-area-select'),
-    ingredientsSelect : document.querySelector('.js-ingredients-select')
+    ingredientsSelect : document.querySelector('.js-ingredients-select'),
+    inputFilter : document.querySelector('.js-input-filter'),
+    filterForm : document.querySelector('.js-filter-form')
 }
+
+elements.inputFilter.addEventListener('input', debounce(onInpitSearch, 300))
+
 // функція для рендеру select time
 marcupTime()
 function marcupTime() {
@@ -64,4 +70,18 @@ function markupIngredient(elem) {
     return elem.map(({name}) =>
     `<option value="">${name}</option>`
     ).join('')
+}
+
+
+// функція для відправки масива об'єктів для рендеру розмітки
+function onInpitSearch(event) {
+  console.log(event.target.value)
+serviceGetResult(event.target.value)
+.then(data => console.log(data.data.results))
+.catch(err => console.log(err))
+}
+// функція для пошуку по ключевому слову
+function serviceGetResult(value) {
+  const API_URL = `https://tasty-treats-backend.p.goit.global/api/recipes?title=${value.trim()}`
+  return axios.get(API_URL)
 }
