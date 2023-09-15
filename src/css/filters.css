@@ -1,0 +1,75 @@
+
+.filter-form{
+display: flex;
+flex-wrap: wrap;
+column-gap: 14px;
+row-gap: 14px;
+}
+
+/* ---------------------------------------------------- */
+/* section input */
+/* ---------------------------------------------------- */
+.filter-container-input{
+position: relative;
+width: 100%;
+display: flex;
+}
+.div-input{
+width: 100%;
+max-height:68px ;
+    /* min-width: 278px; */
+}
+.filter-input{
+    width:100%;
+
+    padding: 14px 18px 14px 48px;
+
+    border: 1px solid var(--filters-select-color);
+    border-radius: 15px;
+
+    font-size: 14px;
+    line-height: 1.29;
+}
+.filter-container-icon{
+    position: absolute;
+
+    top: 50%;
+    left: 18px;
+    height: 18px;
+
+    transform: translateY(-50%);
+}
+.filter-icon-input{
+    fill: var(--filters-main-color);
+    width: 18px;
+    height: 18px;
+}
+/* ------------------------------------------------------------*/
+/* section select*/ 
+/* ------------------------------------------------------------*/
+.filter-title{
+    font-size: 12px;
+    line-height: 1.16;
+    margin-bottom:8px ;
+}
+.filter-select{
+    max-height: 320px;
+    padding:14px 18px 14px 18px;
+
+    border: 1px solid var(--filters-select-color);
+    border-radius: 15px;
+
+    color: var( --filters-select-color);
+}
+@media screen and (min-width: 768px) {
+    .filter-container-input{
+        flex-wrap: wrap
+    }
+    .div-input{
+        width: 278px;
+    }
+    .filter-input{
+        width: 278px;
+    }
+}
+

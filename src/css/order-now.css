@@ -1,0 +1,165 @@
+.backdrop {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-main-hero-image-color);
+  /* transition: opacity , visibility  */
+}
+
+.modal-order-now {
+  position: absolute;
+  top: calc(50%);
+  left: calc(50%);
+  transform: translate(-50%, -50%);
+
+  padding: 28px 20px;
+  width: 295px;
+  height: 526px;
+  border-radius: 15px;
+  background: var(--dark-main-text-color);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  transition: transform var(--transition-dur-and-func);
+}
+
+@media only screen and (min-width: 768px) {
+  .modal-order-now {
+    padding: 40px;
+    width: 360px;
+    height: 552px;
+  }
+}
+
+.modal-close-btn-order {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  cursor: pointer;
+
+  transition: background-color var(--transition-dur-and-func);
+}
+
+@media only screen and (min-width: 768px) {
+  .modal-close-btn-order {
+    top: 14px;
+    right: 14px;
+  }
+}
+
+.modal-close-icon {
+  width: 20px;
+  height: 20px;
+
+  justify-content: center;
+  align-items: center;
+  stroke: var(--main-dark-text-color);
+}
+@media only screen and (min-width: 768px) {
+  .modal-close-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.modal-close-icon:hover,
+.modal-close-icon:focus {
+  stroke: var(--additional-text-color);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--filters-main-color);
+  line-height: 1.28;
+}
+
+.form-field,
+.modal-textarea {
+  width: 108px;
+  padding: 14px 169px 14px 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  font-style: normal;
+}
+
+@media only screen and (min-width: 768px) {
+  .form-field,
+  .modal-textarea {
+    width: 173px;
+  }
+}
+.form-field {
+  height: 18px;
+  margin-bottom: 16px;
+}
+@media only screen and (min-width: 768px) {
+  .form-field {
+    height: 20px;
+    margin-bottom: 18px;
+  }
+}
+
+.modal-textarea {
+  resize: none;
+  height: 72px;
+  margin-bottom: 40px;
+}
+
+.form-field:active,
+.modal-textarea:active {
+  border: 1px solid var(--additional-text-color);
+}
+@media only screen and (min-width: 768px) {
+  .form-field:focus,
+  .modal-textarea:focus,
+  .form-field:hover,
+  .modal-textarea:hover {
+    border: 1px solid var(--additional-text-color);
+  }
+}
+
+.modal-text {
+  margin-bottom: 28px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.22;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 768px) {
+  .modal-text {
+    margin-bottom: 40px;
+  }
+}
+
+.button-send-form {
+  display: flex;
+  padding: 15px 130px;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 14px;
+  border-radius: 15px;
+  background: #9bb537;
+  color: var(--main-light-text-color);
+}
+@media only screen and (min-width: 768px) {
+  .button-send-form {
+    padding: 16px 162.5px;
+  }
+}
+/* повністю приховуємо модалку, з умовою щоб читалка могла її прочитати */
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
