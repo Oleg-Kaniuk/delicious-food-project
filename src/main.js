@@ -9,3 +9,4 @@ import './js/order-now/order-now';
 import './js/rating/rating';
 import './js/recipes/recipes';
 import './js/favorites/favorites';
+import './js/modal-recipe/modal-recipe'
