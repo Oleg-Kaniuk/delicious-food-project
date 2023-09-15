@@ -1,14 +1,17 @@
 import axios from "axios"
 import debounce from "lodash.debounce"
-// import {createMarkupElForFilter} from './js/r'
+import { createMarkupElForFilter } from "/js/recipes/recipes.js"
 
 const elements ={
     timeSelect: document.querySelector('.js-time-select'),
     areaSelect: document.querySelector('.js-area-select'),
     ingredientsSelect : document.querySelector('.js-ingredients-select'),
     inputFilter : document.querySelector('.js-input-filter'),
-    filterForm : document.querySelector('.js-filter-form')
+    filterForm : document.querySelector('.js-filter-form'),
+    containerForRecipes: document.querySelector('.container-for-recipes')
 }
+// const containerForRecipes = document.querySelector('.container-for-recipes')
+
 
 elements.inputFilter.addEventListener('input', debounce(onInpitSearch, 300))
 
@@ -77,7 +80,12 @@ function markupIngredient(elem) {
 function onInpitSearch(event) {
   console.log(event.target.value)
 serviceGetResult(event.target.value)
-.then(data => console.log(data.data.results))
+.then(data => {
+  // console.log(data.data.results)
+  // createMarkupElForFilter(data.data.results)
+  elements.containerForRecipes.innerHTML = createMarkupElForFilter(data.data.results)
+
+})
 .catch(err => console.log(err))
 }
 // функція для пошуку по ключевому слову
