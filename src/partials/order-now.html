@@ -1,5 +1,5 @@
-<div class="backdrop">
-  <div class="modal-order-now visually-hidden">
+<div class="backdrop js-backdrop is-hidden">
+  <div class="modal-order-now">
     <button type="button" class="modal-close-btn-order">
       <svg class="modal-close-icon" width="20" height="20">
         <use href="./img/icon-sprite.svg#icon-x-close"></use>
@@ -8,16 +8,42 @@
     <h2 class="modal-text">Order now</h2>
     <form class="modal-form-order" name="modal_form">
       <label class="form-label" for="user_name">Name</label>
-      <input class="form-field" type="text" name="user_name" id="user_name" minlength="5" required min="10" autofocus />
+      <input
+        class="form-field"
+        type="text"
+        name="user_name"
+        id="user_name"
+        minlength="5"
+        required
+        min="10"
+        autofocus
+      />
 
       <label class="form-label" for="user_phone"> Phone number</label>
-      <input class="form-field" type="tel" name="user_phone" id="user_phone" required />
+      <input
+        class="form-field"
+        type="tel"
+        name="user_phone"
+        id="user_phone"
+        required
+      />
 
       <label class="form-label" for="user_mail_modal">Email</label>
-      <input class="form-field" type="email" name="user_mail_modal" id="user_mail_modal" required />
+      <input
+        class="form-field"
+        type="email"
+        name="user_mail_modal"
+        id="user_mail_modal"
+        required
+      />
 
       <label class="form-label" for="modal_comment">Comment</label>
-      <textarea class="modal-textarea" name="modal_comment" id="modal_comment" rows="6"></textarea>
+      <textarea
+        class="modal-textarea"
+        name="modal_comment"
+        id="modal_comment"
+        rows="6"
+      ></textarea>
 
       <button class="button-send-form">Send</button>
     </form>
