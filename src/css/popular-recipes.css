@@ -1,17 +1,23 @@
 .popular-recipes{
 width: 335px;
+height: 202px;
+margin-bottom: 40px;
 overflow: hidden;
 }
 @media only screen and (min-width: 768px) {
    .popular-recipes{
    width: 176px;
-   
+  height: 100%;
+  margin-right: 32px;
+  margin-bottom: 0;
+  padding-right: 0;
    } 
 }
 @media only screen and (min-width: 1280px) {
   .popular-recipes{
    width: 235px;
-   
+   margin-right: 64px;
+   margin-bottom: 0;
   }
 }
 
@@ -54,16 +60,18 @@ overflow: hidden;
 .img-popular{
     border-radius: 8px;
      width: 64px;
-     margin-bottom: 27px;
+     
 }
 @media only screen and (min-width: 768px) {
     .img-popular{
         width: 48px;
-        margin-bottom: 35px;
+        
     }
 }
+@media only screen and (min-width: 1280px) {
+    width: 64px;
 
-
+}
 .popular-title-description{
     width: 252px;
     margin-bottom: 24px;
