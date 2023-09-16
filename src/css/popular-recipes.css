@@ -58,23 +58,28 @@ overflow: hidden;
 }
 
 
-.img-popular{
+.img-popular {
     border-radius: 8px;
      width: 64px;
+     height: 64px;
      object-fit: cover;
      object-position: center;
      margin-right: 16px;
 }
 @media only screen and (min-width: 768px) {
-    .img-popular{
+    .img-popular {
         width: 48px;
+        height: 48px;
         margin-right: 8px;
         
     }
 }
 @media only screen and (min-width: 1280px) {
-    width: 64px;
-
+    .img-popular {
+      max-width: 64px; 
+      height: 64px; 
+      margin-right: 16px;
+    }
 }
 .popular-title-description{
     width: 252px;
