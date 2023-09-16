@@ -8,7 +8,9 @@ flex-wrap: wrap;
 column-gap: 14px;
 row-gap: 14px;
 }
-
+.filter-is-hidden{
+    display: none;
+}
 /* ---------------------------------------------------- */
 /* section input */
 /* ---------------------------------------------------- */
@@ -60,6 +62,18 @@ max-height:68px ;
     fill: var(--additional-text-color);
     transition: 300ms;
   }
+  .filter-close-input{
+    stroke: var(--dark-popular-recipes-color);
+
+    width: 18px;
+    height: 18px;
+
+    position: absolute;
+
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+  }
 /* ------------------------------------------------------------*/
 /* section select*/ 
 /* ------------------------------------------------------------*/
@@ -79,7 +93,7 @@ max-height:68px ;
 }
 .filter-select{
     width: 100%;
-    max-height: 320px;
+    max-height: 48px;
     padding:14px 18px 14px 18px;
 
     border: 1px solid var(--filters-select-color);
