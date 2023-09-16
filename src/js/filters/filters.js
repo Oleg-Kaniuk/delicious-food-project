@@ -1,5 +1,8 @@
 import axios from "axios"
 import debounce from "lodash.debounce"
+import SlimSelect from 'slim-select';
+// import "simplelightbox/dist/simple-lightbox.min.css";
+// import 'slim-select/dist/slimselect.css';
 import { createMarkupElForFilter } from "/js/recipes/recipes.js"
 
 const elements ={
@@ -22,7 +25,10 @@ function marcupTime() {
      const sef = `<option value="${i} min">${i} min</option>`
      elements.timeSelect.insertAdjacentHTML('beforeend', sef)
     }
-   }
+  //   new SlimSelect({
+  //     select: elements.timeSelect
+  //  })
+  }
 
 // функця для запиту на бек-енд: країни
 function serviceGetArea() {
