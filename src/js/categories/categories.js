@@ -9,8 +9,6 @@ const categoriesList = document.querySelector('.categories-list');
 const galleryEl = document.querySelector('.container-for-recipes');
 
 if (categoriesList) {
-    // Создаем кнопку для всех категорий
-
     // Функция для получения и отображения категорий
     const fetchCategories = async() => {
         try {
@@ -72,7 +70,6 @@ if (categoriesList) {
         try {
             const response = await axios.get(BASEURL_RECIPES);
             galleryEl.innerHTML = '';
-            // Використовуйте вашу функцію createMarkupElForFilter для створення розмітки
             galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
         } catch (error) {
             console.error(`Failed to fetch images: ${error}`);
@@ -90,13 +87,11 @@ if (categoriesList) {
 
         galleryEl.innerHTML = '';
         // Вызов функции для получения всех рецептов
-        fetchImages(); // Вам нужно определить функцию fetchImages
+        fetchImages();
     };
 
-    // Добавляем обработчики событий
     categoriesList.addEventListener('click', getRecipesByCategory);
     allCategoriesButton.addEventListener('click', handleAllCategoriesBtnClick);
 
-    // Инициируем загрузку категорий при загрузке страницы
     fetchCategories();
 }
