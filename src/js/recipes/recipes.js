@@ -75,57 +75,57 @@ export function createMarkupElForFilter(arr) {
    
 }
   
+let action = false;
 const KEY_FEEDBACK = 'saveCheckedFavorite';
 let arrLocalStor = [];
-let uniqueArrForLocalStor = [];
-
+let uniqueArrForLocalStor =JSON.parse(localStorage.getItem(KEY_FEEDBACK)) ?? [];
+let idCard;
 
 // console.log(iconSvg);
-containerForRecipes.addEventListener('change', onHeart)
+containerForRecipes.addEventListener('change', onClickHeart)
 
 
-function onHeart(e) {
+function onClickHeart(e) {
 // const iconSvg = document.querySelector('.icon-heart-svg');
   if (!e.target) {
       return
   }
-  let idCard;
+
+  if (e.target.value === 'on') {
+     e.target.value = 'off';
+  console.log("Я видаляю");
+    console.log('idCard', idCard);
+    let indexElCard = uniqueArrForLocalStor.indexOf(idCard);
+    console.log(indexElCard);
+    uniqueArrForLocalStor.splice(indexElCard, 1);
+    console.log(uniqueArrForLocalStor);
+      localStorage.setItem(KEY_FEEDBACK, JSON.stringify(uniqueArrForLocalStor));
+
+  } else {
+    console.log('Я додаю');
+
+
+
+
+  
   // if (e.target.contains('svg-active')) {
   //       delete(arrLocalStor[e.target.id]) }
   
   //якщо клікнуте
-  if (e.target.checked) {
+    if (e.target.checked) {
     
-    //  iconSvg.classList.add('svg-active');
-    e.target.value = 'on';
-    idCard = e.target.id
-    arrLocalStor.push(idCard);
-    console.log(e.target.value);
-    console.log(arrLocalStor);
-
-  } else if
-    (arrLocalStor.includes(idCard)) {
-    console.log('object');
-    let indexElCard = arrLocalStor.indexOf(idCard);
-    arrLocalStor.splice(indexElCard, 1);
-  }
+      //  iconSvg.classList.add('svg-active');
+      e.target.value = 'on';
+      idCard = e.target.id
+      arrLocalStor.push(idCard);
+      console.log(e.target.value);
+      console.log(arrLocalStor);
+    }
 
 
  uniqueArrForLocalStor = arrLocalStor.filter(
    (elem, index, array) => array.indexOf(elem) === index);
   console.log(uniqueArrForLocalStor);
   localStorage.setItem(KEY_FEEDBACK, JSON.stringify(uniqueArrForLocalStor));
- }
+ }}
 
- function selectButton(arr) {
-     let index = buttonArr.indexOf(btn);
-
-    if(index == -1) {
-        buttonArr.push(btn);
-    } else {
-        buttonArr.splice(index, 1);
-    }
-
-    console.log(buttonArr);
-
- }
