@@ -1,4 +1,3 @@
-
 // Цей пошук потрібен лише для відмалювання, коли Діма доробить запит, то ми його видалимо
 
 
@@ -7,7 +6,7 @@
 
 // function fetchBreeds() {
 //     const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
-        
+
 //   return fetch(`${BASE_URL}`)
 //     .then((resp) => {
 //     if (!resp.ok) {console.log('Oops! Something went wrong! Try reloading the page!')}
@@ -26,10 +25,10 @@
 // важлива create функція
 
 export function createMarkupElForFilter(arr) {
-  
- return arr.map(({ _id, title, preview, description, rating }) => 
- 
-     `<div class="blok-recipes id="${_id}">
+
+    return arr.map(({ _id, title, preview, description, rating }) =>
+
+        `<div class="blok-recipes id="${_id}">
         <div class="heart-icon">
   <svg class="icon-heart-svg" width="22" height="22">
     <use href="./img/icon-sprite.svg#icon-heart"></use>
@@ -69,8 +68,6 @@ export function createMarkupElForFilter(arr) {
   
   <button class="btn-blok-recipes-see" type="button">See recipe</button></div>
   </div>
-</div>`).join(''); 
-   
-}
-  
+</div>`).join('');
 
+}

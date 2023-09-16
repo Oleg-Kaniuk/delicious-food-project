@@ -5,4 +5,5 @@ import './js/categories/categories';
 import './js/recipes/recipes';
 import './js/order-now/order-now';
 import './js/rating/rating';
-import './js/modal-recipe/modal-recipe'
+import './js/modal-recipe/modal-recipe';
+import './js/pagination/pagination';
