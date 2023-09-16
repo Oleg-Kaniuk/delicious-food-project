@@ -1,87 +1,87 @@
 
-// Цей пошук потрібен лише для відмалювання, коли Діма доробить запит, то ми його видалимо
+// // Цей пошук потрібен лише для відмалювання, коли Діма доробить запит, то ми його видалимо
 
 
 const containerForRecipes = document.querySelector('.container-for-recipes')
 
 
-function fetchBreeds() {
-    const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+// function fetchBreeds() {
+//     const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
         
-  return fetch(`${BASE_URL}`)
-    .then((resp) => {
-    if (!resp.ok) {console.log('Oops! Something went wrong! Try reloading the page!')}
-    return resp.json();
-    })
-    .catch(() =>console.dir('Oops! Something went wrong! Try reloading the page!'))
-}
+//   return fetch(`${BASE_URL}`)
+//     .then((resp) => {
+//     if (!resp.ok) {console.log('Oops! Something went wrong! Try reloading the page!')}
+//     return resp.json();
+//     })
+//     .catch(() =>console.dir('Oops! Something went wrong! Try reloading the page!'))
+// }
 
-  fetchBreeds().then((data) => {
+//   fetchBreeds().then((data) => {
     
-    // const { _id, title, preview, description, rating } = data.results
-    containerForRecipes.innerHTML = createMarkupElForFilter(data.results)
+//     // const { _id, title, preview, description, rating } = data.results
+//     containerForRecipes.innerHTML = createMarkupElForFilter(data.results)
     
 
-          // те що копіювати
+//           // те що копіювати
 
-    console.log(containerForRecipes.children.length);
+//     console.log(containerForRecipes.children.length);
     
-    if (containerForRecipes.children.length) {
-      // console.log(containerForRecipes);
+//     if (containerForRecipes.children.length) {
+//       // console.log(containerForRecipes);
        
-      const iconSvg = document.querySelector('.icon-heart-svg');
-      const heartIconElem = document.querySelectorAll('.heart-icon-elem');
-      const KEY_FEEDBACK = 'saveCheckedFavorite';
-      let arrLocalStor = [];
-      let active = false;
+//       const iconSvg = document.querySelector('.icon-heart-svg');
+//       const heartIconElem = document.querySelectorAll('.heart-icon-elem');
+//       const KEY_FEEDBACK = 'saveCheckedFavorite';
+//       let arrLocalStor = [];
+//       let active = false;
 
-      //перебираємо елементи та вішаємо на кожного слухач подій 
-      heartIconElem.forEach(el => {
-        el.addEventListener('change', onClickHeart);
+//       //перебираємо елементи та вішаємо на кожного слухач подій 
+//       heartIconElem.forEach(el => {
+//         el.addEventListener('change', onClickHeart);
       
-        if (active === false) {
-          if (arrLocalStor.includes(e.target.id)) {
-            console.log(arrLocalStor.includes(e.target.id));
-            iconSvg.classList.remove('svg-active');
-            //  localStorage.removeItem(KEY_FEEDBACK)
-            delete (arrLocalStor[e.target.id]);
-            localStorage.setItem(KEY_FEEDBACK, JSON.stringify(arrLocalStor));
-            el.removeEventListener('change', onClickHeart)
-          }
-        }
+//         if (active === false) {
+//           if (arrLocalStor.includes(e.target.id)) {
+//             console.log(arrLocalStor.includes(e.target.id));
+//             iconSvg.classList.remove('svg-active');
+//             //  localStorage.removeItem(KEY_FEEDBACK)
+//             delete (arrLocalStor[e.target.id]);
+//             localStorage.setItem(KEY_FEEDBACK, JSON.stringify(arrLocalStor));
+//             el.removeEventListener('change', onClickHeart)
+//           }
+//         }
     
-        function onClickHeart(e) {
+//         function onClickHeart(e) {
         
       
-          if (e.currentTarget.checked) {
+//           if (e.currentTarget.checked) {
           
-            console.log(e.currentTarget.checked);
-            active = true;
+//             console.log(e.currentTarget.checked);
+//             active = true;
 
-            console.log(e.currentTarget);
-            arrLocalStor.push(e.target.id);
-            iconSvg.classList.add('svg-active');
+//             console.log(e.currentTarget);
+//             arrLocalStor.push(e.target.id);
+//             iconSvg.classList.add('svg-active');
         
-            localStorage.setItem(KEY_FEEDBACK, JSON.stringify(arrLocalStor));
-          }
+//             localStorage.setItem(KEY_FEEDBACK, JSON.stringify(arrLocalStor));
+//           }
 
          
          
-        }
+//         }
       
     
-      })
+//       })
     
       
-  // heartIconElem.addEventListener('change', onClickHeart);
+//   // heartIconElem.addEventListener('change', onClickHeart);
 
 
-      // SaveFavoritesToLocalStor()
+//       // SaveFavoritesToLocalStor()
 
-    }
-  }).catch(() => {
-    console.log('err');
-  })
+//     }
+//   }).catch(() => {
+//     console.log('err');
+//   })
 
 // важлива create функція
 
@@ -198,8 +198,50 @@ export function createMarkupElForFilter(arr) {
 //         }
 
 
+// const uniqueCourses = allCourses.filter(
+//   (course, index, array) => array.indexOf(course) === index);
 
 
 
 
+console.log(containerForRecipes.children.length)
+function addFavorite() {
+  console.log(containerForRecipes.children.length)
 
+  if (containerForRecipes.children.length) {
+    const iconSvg = document.querySelector('.icon-heart-svg');
+          const heartIconElem = document.querySelectorAll('.heart-icon-elem');
+          const KEY_FEEDBACK = 'saveCheckedFavorite';
+          let arrLocalStor = [];
+    let active = false;
+    console.log(heartIconElem);
+
+    //перебираємо елементи та вішаємо на кожного слухач подій 
+    heartIconElem.forEach(el => {
+      el.addEventListener('change', onClickHeart);
+      function onClickHeart(e) {
+        if (e.currentTarget.checked) {
+          console.log(e.currentTarget.checked);
+          active = true;
+          console.log(e.currentTarget);
+          arrLocalStor.push(e.target.id);
+          iconSvg.classList.add('svg-active');
+          localStorage.setItem(KEY_FEEDBACK, JSON.stringify(arrLocalStor));
+        } else {
+
+          if (arrLocalStor.includes(e.target.id)) {
+            console.log(arrLocalStor.includes(e.target.id));
+            iconSvg.classList.remove('svg-active');
+            //  localStorage.removeItem(KEY_FEEDBACK)
+            delete (arrLocalStor[e.target.id]);
+          }
+         
+        }
+
+      }
+    })
+      
+  }
+
+}
+addFavorite()
