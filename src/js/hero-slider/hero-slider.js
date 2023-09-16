@@ -35,7 +35,7 @@ onMastersEvents()
 function creatMarkup(data) {
     return data.map(({ cook, topic }) => `
   <!-- Slides -->
-    <div class="swiper-slide">
+    <li class="swiper-slide">
      <div class="slide-cont">
               <div class="slide-chef">
                 <img
@@ -45,6 +45,7 @@ function creatMarkup(data) {
                 />
               </div>
               <div class="slide-preview">
+      
                 <img
                   class="slide-preview-img"
                   src="${topic.previewUrl}"
@@ -61,6 +62,6 @@ function creatMarkup(data) {
                 />
               </div>
             </div>
-    </div>`).join('')
+    </li>`).join('')
 }
 
