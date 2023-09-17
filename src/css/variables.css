@@ -48,3 +48,7 @@ body {
   color: var(--main-dark-text-color);
   background-color: var(--primary-bg-color);
 }
+
+body.modal-open {
+  overflow: hidden;
+}
