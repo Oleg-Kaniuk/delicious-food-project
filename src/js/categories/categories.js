@@ -101,3 +101,6 @@ if (categoriesList) {
 
     fetchCategories();
 }
+
+
+

@@ -1,8 +1,6 @@
 .pagination-container{
-    width: 100%;
+    width: 335px;;
     margin-bottom: 80px;
-    padding-right: 21.5px;
-    padding-left: 21.5px;
     display: flex;
 }
 @media only screen and (min-width: 768px) {
@@ -36,6 +34,7 @@
     height: 40px;
     border-radius: 50%;
     background-color: var(--main-dark-text-color);
+   cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
     .first-btn-pag{
@@ -168,19 +167,33 @@
     height: 44px; 
     }
 }
-
+.pagination-icon{
+   display: flex;
+   align-items: center;
+   
+   
+    
+}
 .icon-pagination-left{
     fill: var(--main-light-text-color);
     justify-content: center;
-}
-.pagination-icon{
-    display: flex;
-    text-align: center;
-    /* width: 20px;
-    height: 20px; */
-    /* transform: scale(2); */
+    align-items: center;
     
 }
+.icon-left-one{
+   width: 20px;
+   height: 20px;
+   fill: var(--main-light-text-color);
+   margin-left: 0;
+
+
+}
+.icon-left-two{
+width: 20px;
+height: 20px;
+fill: var(--main-light-text-color);
+}
+
 
 .icon-pagination-right{
     fill: var(--main-dark-text-color);
