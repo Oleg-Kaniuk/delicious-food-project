@@ -1,17 +1,23 @@
 .popular-recipes{
 width: 335px;
+height: 202px;
+margin-bottom: 40px;
 overflow: hidden;
 }
 @media only screen and (min-width: 768px) {
    .popular-recipes{
    width: 176px;
-   
+  height: 100%;
+  margin-right: 32px;
+  margin-bottom: 0;
+  padding-right: 0;
    } 
 }
 @media only screen and (min-width: 1280px) {
   .popular-recipes{
    width: 235px;
-   
+   margin-right: 64px;
+   margin-bottom: 0;
   }
 }
 
@@ -42,43 +48,53 @@ overflow: hidden;
     display: flex;
     overflow: hidden; 
     margin-bottom: 24px;
-    gap: 16px;
+    
 }
-@media only screen and (min-width: 768px) {}
-.card-recipes{
-    gap: 8px;
+@media only screen and (min-width: 768px) {
+    .card-recipes{
     margin-bottom: 16px;
     
 }
+}
 
-.img-popular{
+
+.img-popular {
     border-radius: 8px;
      width: 64px;
-     margin-bottom: 27px;
+     height: 64px;
+     object-fit: cover;
+     object-position: center;
+     margin-right: 16px;
 }
 @media only screen and (min-width: 768px) {
-    .img-popular{
+    .img-popular {
         width: 48px;
-        margin-bottom: 35px;
+        height: 48px;
+        margin-right: 8px;
+        
     }
 }
-
-
+@media only screen and (min-width: 1280px) {
+    .img-popular {
+      max-width: 64px; 
+      height: 64px; 
+      margin-right: 16px;
+    }
+}
 .popular-title-description{
     width: 252px;
-    margin-bottom: 24px;
     
 }
 @media only screen and (min-width: 768px) {
    .popular-title-description{
     width: 120px;
-    margin-bottom: 16px;
+
    } 
 }
 @media only screen and (min-width: 1280px) {
     .popular-title-description{
     width: 155px;
-    margin-bottom: 32px;
+
    } 
 }
 

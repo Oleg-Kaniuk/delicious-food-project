@@ -12,19 +12,20 @@ async function servicePopularRecipes() {
 servicePopularRecipes()
     .then(recipes => {
         createMarkupRecipes(recipes);
-         const cardPopularRecipes = document.querySelector(".card-recipes");
-         
-        cardPopularRecipes.addEventListener('click', onPopularRecipesClick)
         
+        const cardPopularRecipes = document.querySelectorAll(".card-recipes");
+        cardPopularRecipes.forEach(function (card) {
+            card.addEventListener('click', onPopularRecipesClick);
+        });
         
-    }
-)
+    })
     .catch(error => console.log(error));
        
 
 function createMarkupRecipes(arr) {
     const markup = arr.map(({ preview, title, description }) => 
-        `<div class = "card-recipes"><div><img class ="img-popular img" src="${preview}" alt="${title}" loading="lazy" width = "64"/></div> 
+        `<div class = "card-recipes">
+        <div><img class ="img-popular" src="${preview}" alt="${title}" loading="lazy" width = "64" height = "64"/></div> 
           <div class="popular-title-description">
             <h3 class = "title-third">${title}</h3>
            <div class = "description-container"><p class = "popular-description">${description}</p></div> 

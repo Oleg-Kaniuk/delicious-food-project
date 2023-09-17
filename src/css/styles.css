@@ -4,7 +4,7 @@
   | default @import url()
   |============================
 */
-
+/* @import url('node_modules/modern-normalize/modern-normalize.css'); */
 @import url('./fonts.css');
 @import url('./variables.css');
 @import url('./reset.css');
@@ -22,3 +22,4 @@
 @import url('./recipes.css');
 @import url('./favorites.css');
 @import url('./modal-recipe.css');
+@import url('./pagination.css');

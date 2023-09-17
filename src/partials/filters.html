@@ -1,25 +1,28 @@
-<div class="container">
+<div class="filters-conteiner">
     <form class="js-filter-form filter-form">
         <div class="div-input">
             <p class="filter-title">Search</p>
             <div class="filter-container-input">
                 <input class="js-input-filter filter-input" type="text" placeholder="Enter Text">
-                <div class="filter-container-icon">
+                <!-- <div class="filter-container-icon"> -->
                     <svg class="filter-icon-input">
                         <use href="/img/icon-sprite.svg#icon-search" class="filters-use-icon"></use>
                     </svg>
-                </div>
+                    <svg class="js-icon-close filter-close-input filter-is-hidden">
+                        <use href="/img/icon-sprite.svg#icon-x-close"></use>
+                    </svg>
+                <!-- </div> -->
             </div>
         </div>
-        <div>
+        <div class="filter-container-time">
             <p class="filter-title">Time</p>
             <select class="js-time-select filter-time-select filter-select"></select>
         </div>
-        <div>
+        <div class="filter-container-area">
             <p class="filter-title">Area</p>
             <select class="js-area-select filter-area-select filter-select"></select>
         </div>
-        <div>
+        <div class="filter-container-ingredients">
             <p class="filter-title">Ingredients</p>
             <select class="js-ingredients-select filter-Ingredients-select filter-select"></select>
         </div>

@@ -1,0 +1,15 @@
+.main-container{
+
+}
+@media only screen and (min-width: 768px) {
+    .main-container{
+display: flex;
+}
+}
+
+.left-container{
+
+}
+.right-container{
+    
+}

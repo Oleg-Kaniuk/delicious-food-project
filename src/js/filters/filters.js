@@ -1,5 +1,8 @@
 import axios from "axios"
 import debounce from "lodash.debounce"
+import SlimSelect from 'slim-select';
+// import "simplelightbox/dist/simple-lightbox.min.css";
+// import 'slim-select/dist/slimselect.css'
 import { createMarkupElForFilter } from "/js/recipes/recipes.js"
 
 const elements ={
@@ -8,12 +11,14 @@ const elements ={
     ingredientsSelect : document.querySelector('.js-ingredients-select'),
     inputFilter : document.querySelector('.js-input-filter'),
     filterForm : document.querySelector('.js-filter-form'),
-    containerForRecipes: document.querySelector('.container-for-recipes')
+    containerForRecipes: document.querySelector('.container-for-recipes'),
+    iconClose : document.querySelector('.js-icon-close')
 }
 // const containerForRecipes = document.querySelector('.container-for-recipes')
 
-
+elements.inputFilter.addEventListener('input', onInputClose)
 elements.inputFilter.addEventListener('input', debounce(onInpitSearch, 300))
+elements.iconClose.addEventListener('click', onClickResetInput)
 
 // функція для рендеру select time
 marcupTime()
@@ -22,7 +27,10 @@ function marcupTime() {
      const sef = `<option value="${i} min">${i} min</option>`
      elements.timeSelect.insertAdjacentHTML('beforeend', sef)
     }
-   }
+  //   new SlimSelect({
+  //     select: elements.timeSelect
+  //  })
+  }
 
 // функця для запиту на бек-енд: країни
 function serviceGetArea() {
@@ -92,4 +100,20 @@ serviceGetResult(event.target.value)
 function serviceGetResult(value) {
   const API_URL = `https://tasty-treats-backend.p.goit.global/api/recipes?title=${value.trim()}`
   return axios.get(API_URL)
+}
+
+
+
+// функції для іконки стерання input
+function onInputClose(event){
+  if (event.target.value) {
+    elements.iconClose.classList.remove('filter-is-hidden')
+  } else{
+    elements.iconClose.classList.add('filter-is-hidden')
+  }
+}
+function onClickResetInput() {
+  // console.dir(elements.inputFilter);
+  elements.inputFilter.value = ''
+  elements.iconClose.classList.add('filter-is-hidden')
 }

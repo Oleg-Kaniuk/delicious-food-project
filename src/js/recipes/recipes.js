@@ -1,5 +1,7 @@
 
+
 // // Цей пошук потрібен лише для відмалювання, коли Діма доробить запит, то ми його видалимо
+
 
 
 const containerForRecipes = document.querySelector('.container-for-recipes')
@@ -7,7 +9,7 @@ const containerForRecipes = document.querySelector('.container-for-recipes')
 
 // function fetchBreeds() {
 //     const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
-        
+
 //   return fetch(`${BASE_URL}`)
 //     .then((resp) => {
 //     if (!resp.ok) {console.log('Oops! Something went wrong! Try reloading the page!')}
@@ -46,6 +48,7 @@ export function createMarkupElForFilter(arr) {
       </label>
 
        <img class="img-blok-recipes" src="${preview}" alt="${title}" />
+
  <div class="context-blok-recipes"> <h3 class="title-blok-recipes">${title}</h3>
   <p class="text-blok-recipes">${description}</p>
   <div class="num-stars-btn"><div class="blok-rating">
@@ -71,6 +74,7 @@ export function createMarkupElForFilter(arr) {
   
   <button class="btn-blok-recipes-see" type="button">See recipe</button></div>
   </div>
+
 </div>`).join(''); 
    
 }
@@ -128,4 +132,3 @@ function onClickHeart(e) {
   console.log(uniqueArrForLocalStor);
   localStorage.setItem(KEY_FEEDBACK, JSON.stringify(uniqueArrForLocalStor));
  }}
-
