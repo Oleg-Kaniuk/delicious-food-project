@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createMarkupElForFilter } from '/js/recipes/recipes.js';
 import { onCreateGoldStar } from '/js/recipes/recipes.js';
-// import { pagination } from '/js/pagination/pagination.js'
+import { pagination } from '/js/pagination/pagination.js'
 const BASEURL_CATEGORIES =
     'https://tasty-treats-backend.p.goit.global/api/categories';
 const BASEURL_RECIPES =
@@ -19,13 +19,10 @@ const getCardPerPage = () => {
     const windowWidth = document.documentElement.clientWidth;
 
     if (windowWidth < 768) {
-        console.log('small');
         return 'small';
     } else if (windowWidth < 1200) {
-        console.log('medium');
         return 'medium';
     } else {
-        console.log('large');
         return 'large';
     }
 };
@@ -47,6 +44,7 @@ export async function getRecipesByCategory(event) {
         });
         galleryEl.innerHTML = '';
         galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
+        onCreateGoldStar(response.data.results);
     } catch (error) {
         console.error(`Failed to fetch images: ${error}`);
     }
