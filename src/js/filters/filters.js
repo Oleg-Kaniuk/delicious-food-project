@@ -5,7 +5,7 @@ import SlimSelect from 'slim-select';
 // import 'slim-select/dist/slimselect.css'
 import { createMarkupElForFilter } from "/js/recipes/recipes.js"
 
-const elements ={
+ export const elements = {
     timeSelect: document.querySelector('.js-time-select'),
     areaSelect: document.querySelector('.js-area-select'),
     ingredientsSelect : document.querySelector('.js-ingredients-select'),
@@ -117,3 +117,5 @@ function onClickResetInput() {
   elements.inputFilter.value = ''
   elements.iconClose.classList.add('filter-is-hidden')
 }
+
+
