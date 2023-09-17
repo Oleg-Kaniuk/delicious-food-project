@@ -34,7 +34,8 @@ export function createMarkupElForFilter(arr) {
  return arr.map(({ _id, title, preview, description, rating }) => 
  
    `<div class="blok-recipes id="${_id}">
-       <input
+      
+   <input
         id="${_id}"
         type="checkbox"
         class="heart-icon-elem"
@@ -43,7 +44,7 @@ export function createMarkupElForFilter(arr) {
       />
       <label for="heart" aria-hidden="true" class="heart-icon-action">
         <svg class="icon-heart-svg" width="22" height="22">
-          <use href="./img/icon-sprite.svg#icon-heart"></use>
+          <use href="/img/icon-sprite.svg#icon-heart"></use>
         </svg>
       </label>
 
@@ -55,19 +56,19 @@ export function createMarkupElForFilter(arr) {
     <p class="text-number-blok-recipes">${rating}</p>
      <div class="stars">
      <svg class="star-icon" width="18" height="18">
-        <use href="./img/icon-sprite.svg#icon-star"></use>
+        <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
       <svg class="star-icon" width="18" height="18">
-        <use href="./img/icon-sprite.svg#icon-star"></use>
+        <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
       <svg class="star-icon" width="18" height="18">
-        <use href="./img/icon-sprite.svg#icon-star"></use>
+        <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
       <svg class="star-icon" width="18" height="18">
-        <use href="./img/icon-sprite.svg#icon-star"></use>
+        <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
       <svg class="star-icon" width="18" height="18">
-        <use href="./img/icon-sprite.svg#icon-star"></use>
+        <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
       </div>
       </div>
@@ -79,24 +80,27 @@ export function createMarkupElForFilter(arr) {
    
 }
   
-let action = false;
 const KEY_FEEDBACK = 'saveCheckedFavorite';
 let arrLocalStor = [];
 let uniqueArrForLocalStor =JSON.parse(localStorage.getItem(KEY_FEEDBACK)) ?? [];
 let idCard;
 
+// containerForRecipes.innerHTML = createMarkupElForFilter(uniqueArrForLocalStor)
+
 // console.log(iconSvg);
 containerForRecipes.addEventListener('change', onClickHeart)
 
-
 function onClickHeart(e) {
-// const iconSvg = document.querySelector('.icon-heart-svg');
+  console.log(e.currentTarget);
+  const iconSvg = document.querySelector('.heart-icon-action');
   if (!e.target) {
       return
   }
 
   if (e.target.value === 'on') {
-     e.target.value = 'off';
+    e.target.value = 'off';
+    iconSvg.children[0].classList.remove('svg-active')
+    
   console.log("Я видаляю");
     console.log('idCard', idCard);
     let indexElCard = uniqueArrForLocalStor.indexOf(idCard);
@@ -108,17 +112,13 @@ function onClickHeart(e) {
   } else {
     console.log('Я додаю');
 
-
-
-
-  
   // if (e.target.contains('svg-active')) {
   //       delete(arrLocalStor[e.target.id]) }
   
   //якщо клікнуте
     if (e.target.checked) {
     
-      //  iconSvg.classList.add('svg-active');
+      iconSvg.children[0].classList.add('svg-active');
       e.target.value = 'on';
       idCard = e.target.id
       arrLocalStor.push(idCard);
