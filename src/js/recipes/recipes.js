@@ -132,3 +132,20 @@ function onClickHeart(e) {
   console.log(uniqueArrForLocalStor);
   localStorage.setItem(KEY_FEEDBACK, JSON.stringify(uniqueArrForLocalStor));
  }}
+
+
+//  stars section
+
+export function onCreateGoldStar(arr) {
+ const starIcon= document.querySelectorAll('.star-icon')
+ let counter = 0;
+  arr.map(recipe => {
+      for (let i = 0; i < 5; i+=1) {
+          if (i < Math.floor(recipe.rating)) {
+              starIcon[counter].classList.add('star-color-icon')
+              
+          }
+          counter += 1;
+      }
+  })
+}

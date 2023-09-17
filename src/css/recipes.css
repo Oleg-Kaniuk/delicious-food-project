@@ -195,7 +195,10 @@
 
 .star-icon {
   z-index: 10;
-  fill: rgba(233, 53, 53);
+  fill: var(--primary-bg-color);
+}
+.star-color-icon{
+  fill: #eea10c;
 }
 
 @media only screen and (min-width: 768px) {
