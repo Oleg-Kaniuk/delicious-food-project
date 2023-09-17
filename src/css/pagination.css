@@ -55,7 +55,7 @@
 
 
 
-/* .pagination-container{
+.pagination-container{
     width: 335px;;
     margin-bottom: 80px;
     display: flex;
@@ -254,4 +254,15 @@ fill: var(--main-light-text-color);
 
 .icon-pagination-right{
     fill: var(--main-dark-text-color);
-} */
+}
+.page-button{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    /* background-color: var(--additional-text-color);  */
+    background-color: #fff;
+}
+.pagination-container{
+    width:100%;
+    /* background-color:aquamarine; */
+}
