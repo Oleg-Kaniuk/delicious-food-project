@@ -1,18 +1,25 @@
-.hero-slider {
-  width: 376px;
+.hero-container {
   overflow-x: hidden;
-  position: relative;
-  z-index: 99;
+}
+.hero-slider {
+  width: 375px;
   padding-right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+
+  padding-left: 20px;
 }
 @media only screen and (min-width: 768px) {
   .hero-slider {
     width: 768px;
+    padding-left: 32px;
   }
 }
 @media only screen and (min-width: 1280px) {
   .hero-slider {
-    width: 696px;
+    width: 702px;
+    padding-left: 0;
   }
 }
 .swiper {
@@ -32,17 +39,14 @@
     margin: 0;
   }
 }
-
-.my-swiper .swiper-pagination-bullet {
-  background-color: var(--main-dark-text-color);
+.swiper-pagination {
+  margin-top: 50px;
 }
 .my-swiper .swiper-pagination-bullet-active {
   margin-top: 20px;
   background-color: var(--additional-text-color);
 }
-.wrap {
-  /* padding-bottom: 30px; */
-}
+
 .slide-cont {
   display: flex;
   gap: 8px;
@@ -52,9 +56,9 @@
     gap: 16px;
   }
 }
+
+/* first card */
 .slide-chef {
-  /* border-radius: 15px;
-  background-color: var(--main-dark-text-color); */
   width: 80px;
   height: 280px;
 }
@@ -71,10 +75,7 @@
   object-fit: cover;
 }
 
-/* .hero-slider img {
-  border: 1px solid rgba(155, 181, 55, 0.3);
-  background: var(--main-dark-text-color);
-} */
+/* second card */
 .slide-preview {
   position: relative;
   width: 200px;
@@ -116,14 +117,23 @@
     margin-top: 67px;
   }
 }
-.preview-title {
-  margin-bottom: 8px;
+.preview-text {
   margin-top: 20px;
+}
+@media only screen and (min-width: 768px) {
+  .preview-text {
+    margin-top: 32px;
+  }
+}
+.preview-title {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 8px;
+  /* margin-top: 20px; */
   padding-left: 21px;
   padding-right: 21px;
   color: var(--light-main-hero-image-color);
   text-align: center;
-  font-family: Inter;
   font-size: 10px;
   font-style: normal;
   font-weight: 500;
@@ -161,7 +171,7 @@
   line-height: 14px;
 }
 
-/* third picture */
+/* third pcard */
 .slide-dish {
   overflow: hidden;
   width: 200px;
@@ -175,6 +185,7 @@
     height: 442px;
   }
 }
+
 .slide-dish-img {
   /* transform: translateX(50%); */
   display: block;
