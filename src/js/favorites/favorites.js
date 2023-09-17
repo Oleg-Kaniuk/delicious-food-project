@@ -1,22 +1,14 @@
-const favoriteRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
+import { createMarkupElForFilter } from '/js/recipes/recipes.js'
+import { KEY_FEEDBACK } from '/js/recipes/recipes.js'
 
-// Отримайте елементи DOM
-const favoriteRecipesList = document.querySelector('.favorite-recipes-list');
-const favoriteCategoriesList = document.querySelector('.categories-list');
-const noFavoriteRecipesMessage = document.querySelector('.empty-favorites-text');
-const favoriteHeroImg = document.querySelector('.hero-image')
-    // Перевірте, чи є рецепти у localStorage
-if (favoriteRecipes && favoriteRecipes.length > 0) {
-    // Якщо рецепти є, додайте їх до списку
-    favoriteRecipes.forEach(recipe => {
-        const li = document.createElement('li');
-        li.textContent = recipe;
-        favoriteRecipesList.appendChild(li);
-        favoriteHeroImg.style.display = 'block';
-    });
+const favList = document.querySelector('.favorite-recipes-list');
+const emptyFav = document.querySelector('empty-favorites-container')
+const favorite = JSON.parse(localStorage.getItem(KEY_FEEDBACK)) || [];
+
+if (favorite.lenght > 0) {
+    createMarkupElForFilter(favorite, favList);
+    emptyFav.style.display = "none";
 } else {
-    // Якщо рецептів немає, покажіть повідомлення
-    noFavoriteRecipesMessage.style.display = 'block';
-
-
+    console.error("Помилка");
+    emptyFav.style.display = "block";
 }
