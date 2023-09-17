@@ -14,14 +14,7 @@
 }
 .hero-main-text {
   align-self: center;
-
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media only screen and (min-width: 768px) {
-  .hero-main-text {
-  }
+  margin: 0;
 }
 
 .hero-title-span {
