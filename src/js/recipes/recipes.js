@@ -4,7 +4,7 @@
 
 
 
-const containerForRecipes = document.querySelector('.container-for-recipes')
+import {containerForRecipes} from '/js/filters/filters.js'
 
 
 // function fetchBreeds() {
@@ -79,10 +79,10 @@ export function createMarkupElForFilter(arr) {
 </div>`).join(''); 
    
 }
-  
-const KEY_FEEDBACK = 'saveCheckedFavorite';
+
+export const KEY_FEEDBACK = 'saveCheckedFavorite';
 let arrLocalStor = [];
-let uniqueArrForLocalStor =JSON.parse(localStorage.getItem(KEY_FEEDBACK)) ?? [];
+export let uniqueArrForLocalStor =JSON.parse(localStorage.getItem(KEY_FEEDBACK)) ?? [];
 let idCard;
 
 // containerForRecipes.innerHTML = createMarkupElForFilter(uniqueArrForLocalStor)
