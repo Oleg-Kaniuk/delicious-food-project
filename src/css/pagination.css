@@ -1,0 +1,257 @@
+/* .tui-pagination{
+    width: 335px;
+    width: 100%;
+    margin-bottom: 80px;
+    display: flex;
+}
+@media only screen and (min-width: 768px) {
+    .tui-pagination{
+    margin-bottom: 100px;
+    padding-right: 161px; 
+    padding-left: 161px;  
+
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .tui-pagination{
+    padding-right: 254px; 
+    padding-left: 580px;  
+
+    }
+}
+
+.tui-page-btn{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--main-dark-text-color);
+   cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
+    .tui-page-btn{
+       width:44px;
+    height: 44px; 
+    }
+}
+
+..tui-pagination .tui-is-selected, .tui-pagination strong {
+   width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--additional-text-color); 
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+    color: var( --main-dark-text-color);
+}
+@media only screen and (min-width: 768px) {
+    .tui-is-selected{
+       width:44px;
+    height: 44px; 
+    }
+}
+ */
+
+
+
+
+/* .pagination-container{
+    width: 335px;;
+    margin-bottom: 80px;
+    display: flex;
+}
+@media only screen and (min-width: 768px) {
+    .pagination-container{
+    margin-bottom: 100px;
+    padding-right: 161px; 
+    padding-left: 161px;  
+
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .pagination-container{
+    padding-right: 254px; 
+    padding-left: 580px;  
+
+    }
+}
+.left-btns-pag{
+    gap: 4px;
+    margin-right: 14px;
+    
+}
+@media only screen and (min-width: 768px) {
+    .left-btns-pag{
+        gap: 8px;
+        margin-right: 24px;
+    }
+}
+.first-btn-pag{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--main-dark-text-color);
+   cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
+    .first-btn-pag{
+       width:44px;
+    height: 44px; 
+    }
+}
+.second-btn-pag{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--main-dark-text-color);
+}
+@media only screen and (min-width: 768px) {
+    .second-btn-pag{
+       width:44px;
+    height: 44px; 
+    }
+}
+.middle-btns-pag{
+    display: flex;
+    gap: 8px;
+    margin-right: 14px;
+}
+@media only screen and (min-width: 768px) {
+    .middle-btns-pag{
+        gap: 10px;
+        margin-right: 24px;
+    }
+}
+.third-btn-pag{
+   width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--additional-text-color); 
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+    color: var( --main-dark-text-color);
+}
+@media only screen and (min-width: 768px) {
+    .third-btn-pag{
+       width:44px;
+    height: 44px; 
+    }
+}
+.fourth-btn-pag{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+    color: var( --main-dark-text-color);
+}
+@media only screen and (min-width: 768px) {
+    .fourth-btn-pag{
+       width:44px;
+    height: 44px; 
+    }
+}
+.fifth-btn-pag {
+    display: none;
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    border:1px solid var(--filters-select-color);
+    background-color: var(--primary-bg-color);
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+    color: var( --main-dark-text-color);
+}
+@media only screen and (min-width: 768px) {
+    .fifth-btn-pag{
+    display:block;
+    width:44px;
+    height: 44px; 
+    }
+}
+.sixth-btn-pag{
+   width:40px;
+    height: 40px;
+    border-radius: 50%;
+    border:1px solid var(--filters-select-color);
+    background-color: var(--primary-bg-color);
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+    color: var( --main-dark-text-color); 
+}
+@media only screen and (min-width: 768px) {
+    .sixth-btn-pag{
+        width:44px;
+    height: 44px;  
+    }
+}
+.right-btns-pag{
+    gap: 4px;
+}
+@media only screen and (min-width: 768px) {
+    .right-btns-pag{
+    gap: 8px;
+}
+}
+
+.seven-btn-pag{
+     width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--additional-text-color);
+}
+@media only screen and (min-width: 768px) {
+    .seven-btn-pag{
+       width:44px;
+    height: 44px; 
+    }
+}
+.eigth-btn-pag{
+   width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--additional-text-color); 
+}
+@media only screen and (min-width: 768px) {
+    .eigth-btn-pag{
+       width:44px;
+    height: 44px; 
+    }
+}
+.pagination-icon{
+   display: flex;
+   align-items: center;
+   
+   
+    
+}
+.icon-pagination-left{
+    fill: var(--main-light-text-color);
+    justify-content: center;
+    align-items: center;
+    
+}
+.icon-left-one{
+   width: 20px;
+   height: 20px;
+   fill: var(--main-light-text-color);
+   margin-left: 0;
+
+
+}
+.icon-left-two{
+width: 20px;
+height: 20px;
+fill: var(--main-light-text-color);
+}
+
+
+.icon-pagination-right{
+    fill: var(--main-dark-text-color);
+} */
