@@ -3,9 +3,9 @@ import debounce from "lodash.debounce"
 import SlimSelect from 'slim-select';
 // import "simplelightbox/dist/simple-lightbox.min.css";
 // import 'slim-select/dist/slimselect.css'
-import { createMarkupElForFilter } from "/js/recipes/recipes.js"
+import { createMarkupElForFilter, onCreateGoldStar} from "/js/recipes/recipes.js"
 
-const elements ={
+ export const elements = {
     timeSelect: document.querySelector('.js-time-select'),
     areaSelect: document.querySelector('.js-area-select'),
     ingredientsSelect : document.querySelector('.js-ingredients-select'),
@@ -92,7 +92,7 @@ serviceGetResult(event.target.value)
   // console.log(data.data.results)
   // createMarkupElForFilter(data.data.results)
   elements.containerForRecipes.innerHTML = createMarkupElForFilter(data.data.results)
-
+  onCreateGoldStar(data.data.results)
 })
 .catch(err => console.log(err))
 }
@@ -117,3 +117,5 @@ function onClickResetInput() {
   elements.inputFilter.value = ''
   elements.iconClose.classList.add('filter-is-hidden')
 }
+
+

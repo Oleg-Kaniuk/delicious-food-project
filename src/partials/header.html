@@ -2,10 +2,10 @@
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="./index.html" class="nav-link-home">Home</a>
+        <a href="./index.html" class="nav-link-home main-link active">Home</a>
       </li>
       <li class="nav-item">
-        <a href="./favorites.html" class="nav-link-favorites">Favorites</a>
+        <a href="./favorites.html" class="nav-link-favorites main-link">Favorites</a>
       </li>
     </ul>
   </nav>
@@ -18,7 +18,7 @@
 
     <!-- button cart -->
 
-    <button type="button" class="cart-btn" data-modal-open>
+    <button type="button" class="cart-btn">
       <a href="tel:+380730000000" class="cart">
         <svg class="icon-cart">
           <use href="/img/icon-sprite.svg#icon-cart"></use>
@@ -28,7 +28,8 @@
 
     <!-- button burger-menu -->
 
-    <button type="button" class="burger-menu-btn">
+    <button data-modal-open type="button" class="burger-menu-btn js-open-menu" aria-expanded="false"
+      aria-controls="mobile-menu">
       <svg class="icon-burger-menu">
         <use href="/img/icon-sprite.svg#icon-burger-menu"></use>
       </svg>

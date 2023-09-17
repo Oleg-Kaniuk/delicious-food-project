@@ -195,7 +195,10 @@
 
 .star-icon {
   z-index: 10;
-  fill: rgba(233, 53, 53);
+  fill: var(--primary-bg-color);
+}
+.star-color-icon{
+  fill: #eea10c;
 }
 
 @media only screen and (min-width: 768px) {
@@ -238,7 +241,7 @@
 
 .heart-icon-elem {
   z-index: 23;
-  /* opacity: 0; */
+  opacity: 0; /* це щоб сховати input (галочку)*/
   position: absolute;
   right: 0;
   top: 0;
@@ -247,7 +250,10 @@
   margin: 16px 16px 0 0;
   /* pointer-events: none; */
 }
-
+.heart-icon-elem:checked + .heart-icon-action {
+  fill: #f8f8f8;
+  opacity: 1;
+}
 .heart-icon-action {
   z-index: 24;
   margin: 16px 16px 0 0;
