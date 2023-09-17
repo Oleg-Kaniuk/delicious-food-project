@@ -1,10 +1,11 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
+
 const options = {
   totalItems: 0,
-  itemsPerPage: 20,
-  visiblePages: 5,
+  itemsPerPage: 6,
+  visiblePages: 2,
   page: 1,
   centerAlign: false,
   firstItemClassName: 'tui-first-child',
@@ -27,5 +28,7 @@ const options = {
   }
 };
 
-export const pagination = new Pagination('pagination', options);
 
+
+
+export const pagination = new Pagination('pagination', options);

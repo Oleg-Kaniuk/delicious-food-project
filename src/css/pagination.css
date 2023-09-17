@@ -1,4 +1,61 @@
-.pagination-container{
+/* .tui-pagination{
+    width: 335px;
+    width: 100%;
+    margin-bottom: 80px;
+    display: flex;
+}
+@media only screen and (min-width: 768px) {
+    .tui-pagination{
+    margin-bottom: 100px;
+    padding-right: 161px; 
+    padding-left: 161px;  
+
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .tui-pagination{
+    padding-right: 254px; 
+    padding-left: 580px;  
+
+    }
+}
+
+.tui-page-btn{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--main-dark-text-color);
+   cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
+    .tui-page-btn{
+       width:44px;
+    height: 44px; 
+    }
+}
+
+..tui-pagination .tui-is-selected, .tui-pagination strong {
+   width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--additional-text-color); 
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+    color: var( --main-dark-text-color);
+}
+@media only screen and (min-width: 768px) {
+    .tui-is-selected{
+       width:44px;
+    height: 44px; 
+    }
+}
+ */
+
+
+
+
+/* .pagination-container{
     width: 335px;;
     margin-bottom: 80px;
     display: flex;
@@ -197,4 +254,4 @@ fill: var(--main-light-text-color);
 
 .icon-pagination-right{
     fill: var(--main-dark-text-color);
-}
+} */

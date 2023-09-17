@@ -11,20 +11,26 @@ async function servicePopularRecipes() {
    
 servicePopularRecipes()
     .then(recipes => {
+        console.log(recipes);
         createMarkupRecipes(recipes);
         
         const cardPopularRecipes = document.querySelectorAll(".card-recipes");
         cardPopularRecipes.forEach(function (card) {
-            card.addEventListener('click', onPopularRecipesClick);
-        });
+            const id = card.dataset.recipeId;
+            console.log(id);
+            card.addEventListener('click', () => {
+                onPopularRecipesClick(id);
+ 
+            });
         
+        });
     })
     .catch(error => console.log(error));
        
 
 function createMarkupRecipes(arr) {
-    const markup = arr.map(({ preview, title, description }) => 
-        `<div class = "card-recipes">
+    const markup = arr.map(({ _id, preview, title, description }) => 
+        `<div class = "card-recipes" data-recipe-id = "${_id}">
         <div><img class ="img-popular" src="${preview}" alt="${title}" loading="lazy" width = "64" height = "64"/></div> 
           <div class="popular-title-description">
             <h3 class = "title-third">${title}</h3>
@@ -34,7 +40,9 @@ function createMarkupRecipes(arr) {
     popularRecipes.innerHTML = markup;
     
 }
-function onPopularRecipesClick() {
-   alert('ТУТ ПІДКЛЮЧИМО МОДАЛКУ З РЕЦЕПТОМ КОЛИ ВОНА БУДЕ ГОТОВА') 
+function onPopularRecipesClick(id) {
+ console.log(id);
+    
+    // openModal(id);
 };
    
