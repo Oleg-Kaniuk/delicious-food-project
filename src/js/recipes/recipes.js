@@ -4,7 +4,7 @@
 
 
 
-import {containerForRecipes} from '/js/filters/filters.js'
+import {elements} from '/js/filters/filters.js'
 
 
 // function fetchBreeds() {
@@ -88,7 +88,7 @@ let idCard;
 // containerForRecipes.innerHTML = createMarkupElForFilter(uniqueArrForLocalStor)
 
 // console.log(iconSvg);
-containerForRecipes.addEventListener('change', onClickHeart)
+elements.containerForRecipes.addEventListener('change', onClickHeart)
 
 function onClickHeart(e) {
   console.log(e.currentTarget);
