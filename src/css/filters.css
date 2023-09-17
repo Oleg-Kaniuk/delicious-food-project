@@ -1,6 +1,7 @@
 
 .filters-conteiner{
     max-width: 335px;
+    margin-bottom: 14px;
 }
 .filter-form{
 display: flex;
@@ -101,6 +102,27 @@ max-height:68px ;
 
     color: var( --filters-select-color);
 }
+.filter-div-reset{
+    display: flex;
+    max-height: 16px;
+    column-gap: 4px;
+    justify-content: flex-end
+}
+.filter-svg-reset{
+width: 16px;
+height: 16px;
+stroke: var(--additional-text-color);
+}
+.filter-reset-button{
+    padding: 0;
+    color: var(--filters-main-color);
+    font-size: 12px;
+    line-height: 1.33;
+}
+
+
+
+
 @media screen and (min-width: 768px) {
     .filters-conteiner{
         max-width: 496px;
