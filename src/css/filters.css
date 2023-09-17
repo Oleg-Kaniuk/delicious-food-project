@@ -8,6 +8,7 @@ display: flex;
 flex-wrap: wrap;
 column-gap: 14px;
 row-gap: 14px;
+margin-bottom: 14px;
 }
 .filter-is-hidden{
     display: none;
