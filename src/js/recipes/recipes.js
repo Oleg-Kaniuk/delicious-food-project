@@ -140,10 +140,9 @@ export function onCreateGoldStar(arr) {
  const starIcon= document.querySelectorAll('.star-icon')
  let counter = 0;
   arr.map(recipe => {
-    console.log(recipe)
       for (let i = 0; i < 5; i+=1) {
           if (i < Math.floor(recipe.rating)) {
-              starIcon[counter].classList.add('color-icon')
+              starIcon[counter].classList.add('star-color-icon')
               
           }
           counter += 1;
