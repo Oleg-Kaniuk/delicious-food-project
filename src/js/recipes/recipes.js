@@ -73,7 +73,7 @@ export function createMarkupElForFilter(arr) {
       </div>
       </div>
   
-  <button class="btn-blok-recipes-see" type="button">See recipe</button></div>
+  <button class="btn-blok-recipes-see" data-modal-open type="button">See recipe</button></div>
   </div>
 
 </div>`).join(''); 
@@ -149,3 +149,23 @@ export function onCreateGoldStar(arr) {
       }
   })
 }
+
+
+
+//  Відкриття модалки see recipe
+
+// import {modalSeeRecipe, Close} from '/js/modal-recipe'
+
+// const modalSeeRecipeBtn = document.querySelector('[data-modal-open]');
+
+// Close.addEventListener('click', toggleModalSeeRecipe)
+// modalSeeRecipeBtn.addEventListener('click', toggleModalSeeRecipe)
+
+// function toggleModalSeeRecipe() {
+//   console.log('Open modal or close');
+//    modalSeeRecipe.classList.toggle("is-hidden")
+// }
+
+
+
+
