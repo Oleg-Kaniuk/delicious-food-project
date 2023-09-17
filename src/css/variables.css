@@ -16,6 +16,8 @@ html {
 
   /* OTHER TEXT-COLOR */
 
+  --star-color: rgba(248, 248, 248, 10%);
+
   --dark-popular-recipes-color: rgba(5, 5, 5, 80%);
   --light-popular-recipes-color: rgba(255, 255, 255, 80%);
 
