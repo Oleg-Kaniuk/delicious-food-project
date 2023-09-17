@@ -10,15 +10,24 @@ const swiperwrap = document.querySelector('.swiper-wrapper')
 
 const mySwiper = new Swiper(".swiper", {
   slidesPerView: 1,
-  spaceBetween: 8,
-    // loop: true,
+  spaceBetween: 36,
+  breakpoints: {
+    768: {
+       spaceBetween:82,
+     }
+   },
+    loop: true,
     grabCursor: true,
     // freeMode: true,
     // spaceBetween:8,
   pagination: {
     el:'.swiper-pagination',
-      clickable: true,
-    type: 'bullets',
+    clickable: true,
+    // type: 'bullets',
+  },
+    keyboard: {
+    enabled: true,
+    onlyInViewport: true,
   },
 });
 
@@ -51,8 +60,10 @@ function creatMarkup(data) {
                   src="${topic.previewUrl}"
                   alt=""
                 />
+                <div class= "preview-text">
                 <h2 class="preview-title">${topic.name}</h2>
                 <p class="preview-country">${topic.area}</p>
+                </div>
               </div>
               <div class="slide-dish">
                 <img
