@@ -1,12 +1,48 @@
-<header class="header">
+<div class="container header-container">
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="./index.html" class="nav-link">Home</a>
+        <a href="./index.html" class="nav-link-home">Home</a>
       </li>
       <li class="nav-item">
-        <a href="./favorites.html" class="nav-link">Favorites</a>
+        <a href="./favorites.html" class="nav-link-favorites">Favorites</a>
       </li>
     </ul>
   </nav>
-</header>
+
+  <a class="logotype" href="./index.html">
+    <span class="tasty">tasty</span>treats.
+  </a>
+
+  <div class="icons">
+
+    <!-- button cart -->
+
+    <button type="button" class="cart-btn" data-modal-open>
+      <a href="tel:+380730000000" class="cart">
+        <svg class="icon-cart">
+          <use href="/img/icon-sprite.svg#icon-cart"></use>
+        </svg>
+      </a>
+    </button>
+
+    <!-- button burger-menu -->
+
+    <button type="button" class="burger-menu-btn">
+      <svg class="icon-burger-menu">
+        <use href="/img/icon-sprite.svg#icon-burger-menu"></use>
+      </svg>
+    </button>
+
+    <!-- button switcher -->
+
+    <button type="button" class="switcher-btn">
+      <svg class="icon-rectangle" width="46" height="20">
+        <use href="/img/icon-sprite.svg#icon-rectangle"></use>
+      </svg>
+      <svg class="icon-ellipse" width="19" height="19">
+        <use href="/img/icon-sprite.svg#icon-ellipse"></use>
+      </svg>
+    </button>
+  </div>
+</div>
