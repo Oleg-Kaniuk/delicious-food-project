@@ -214,98 +214,54 @@
   left: 0;
   color: #e2f609;
 } */
-/* heart________________________________ */
-
-.heart-icon {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
-  margin: 16px 16px 0 0;
-}
+/* ------------------------------------------- */
+/* heart-icon-action____________________________________*/
 
 .icon-heart-svg {
   z-index: 25;
-  stroke: #9bb537;
   position: absolute;
-  left: 0;
   top: 0;
-}
-.heart-icon-elem {
-  position: absolute;
   right: 0;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  opacity: 0;
-  height: 0;
-  width: 0;
 
   pointer-events: none;
-}
-.heart-icon-action {
-  z-index: 20;
+  stroke: #f8f8f8;
+  opacity: 0.5;
+  width: 22px;
+  height: 22px;
 
+  fill: #ddddcc00;
+}
+.svg-active {
+  fill: #f8f8f8;
+  opacity: 1;
+}
+
+.heart-icon-elem {
+  z-index: 23;
+  /* opacity: 0; */
   position: absolute;
   right: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  height: 22px;
+  width: 22px;
+  margin: 16px 16px 0 0;
+  /* pointer-events: none; */
+}
+
+.heart-icon-action {
+  z-index: 24;
+  margin: 16px 16px 0 0;
+
+  pointer-events: none;
+  /* opacity: 0; */
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 22px;
+  width: 22px;
   color: transparent;
   user-select: none;
-  background-color: #333;
+  /* background-color: #bdaeae00; */
   border-radius: inherit;
-  z-index: 1;
   cursor: pointer;
 }
-
-/* <div
-  class='theme-switch__control'
-  > <input
-  class='theme-switch__toggle'
-  type='checkbox'
-  name='theme'
-  id='theme-switch-toggle'
-  aria-label='Переключити між темною та світлою темою'
-  /
-  > <label
-  aria-hidden='true'
-  class='theme-switch__track'
-  for='theme-switch-toggle'
-  > </label
-  > <div
-  class='theme-switch__marker'
-  aria-hidden='true'
-  > </div
-  > </div
-  > .theme-switch__marker {
-  position: relative;
-  background-color: #fff;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  z-index: 2;
-  pointer-events: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  transform: translateX(3px);
-  transition: transform 250ms var(--timing-function);
-}
-
-
-.theme-switch__toggle:checked + .theme-switch__track {
-  background-color: #d3d3d4;
-}
-
-.theme-switch__toggle:checked ~ .theme-switch__marker {
-  transform: translateX(35px);
-}
-
-.theme-switch__toggle:focus + .theme-switch__track,
-.theme-switch__toggle:active + .theme-switch__track {
-  box-shadow: 0 0 0 3px #07f43a;
-} */
