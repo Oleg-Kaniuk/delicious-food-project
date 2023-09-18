@@ -7,9 +7,11 @@ const BASEURL_CATEGORIES =
 const BASEURL_RECIPES =
     'https://tasty-treats-backend.p.goit.global/api/recipes';
 
+export let evtCategories = ''
+export let evtStartMarkup = ''
 const allCategoriesButton = document.querySelector('.js-all-categories-button');
 const categoriesList = document.querySelector('.categories-list');
-const galleryEl = document.querySelector('.container-for-recipes');
+export const galleryEl = document.querySelector('.container-for-recipes');
 const cardsPerPage = {
     small: 6,
     medium: 8,
@@ -27,6 +29,7 @@ const getCardPerPage = () => {
     }
 };
 export async function getRecipesByCategory(event) {
+    evtCategories = event
     const buttons = document.querySelectorAll('.categories-list-element');
     buttons.forEach(button => {
         button.classList.remove('is-active');
@@ -77,6 +80,7 @@ if (categoriesList) {
                     limit: cardsPerPage[getCardPerPage()],
                 },
             });
+            evtStartMarkup = response.data.results
             galleryEl.innerHTML = '';
             galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
             onCreateGoldStar(response.data.results);
