@@ -55,7 +55,9 @@ export function createMarkupElForFilter(arr) {
 
 export const KEY_FEEDBACK = 'saveCheckedFavorite';
 
-elements.containerForRecipes.addEventListener('change', onClickHeart)
+if (elements.containerForRecipes) {
+  elements.containerForRecipes.addEventListener('change', onClickHeart)
+}
 
 function onClickHeart(e) {
 
@@ -95,21 +97,21 @@ function onClickHeart(e) {
 
 
 //  stars section
-
 export function onCreateGoldStar(arr) {
  const starIcon= document.querySelectorAll('.star-icon')
  let counter = 0;
   arr.map(recipe => {
       for (let i = 0; i < 5; i+=1) {
           if (i < Math.floor(recipe.rating)) {
+            if (starIcon) {
               starIcon[counter].classList.add('star-color-icon')
+            }
               
           }
           counter += 1;
       }
   })
 }
-
 
 
 //  Відкриття модалки see recipe
