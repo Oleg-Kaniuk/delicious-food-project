@@ -2,10 +2,14 @@
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-item">
-        <a href="./index.html" class="nav-link-home main-link active">Home</a>
+        <a href="./index.html" class="nav-link-home heder-active main-link"
+          >Home</a
+        >
       </li>
       <li class="nav-item">
-        <a href="./favorites.html" class="nav-link-favorites main-link">Favorites</a>
+        <a href="./favorites.html" class="nav-link-favorites main-link"
+          >Favorites</a
+        >
       </li>
     </ul>
   </nav>
@@ -15,7 +19,6 @@
   </a>
 
   <div class="icons">
-
     <!-- button cart -->
 
     <button type="button" class="cart-btn">
@@ -28,22 +31,42 @@
 
     <!-- button burger-menu -->
 
-    <button data-modal-open type="button" class="burger-menu-btn js-open-menu" aria-expanded="false"
-      aria-controls="mobile-menu">
+    <button
+      data-modal-open
+      type="button"
+      class="burger-menu-btn js-open-menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
       <svg class="icon-burger-menu">
         <use href="/img/icon-sprite.svg#icon-burger-menu"></use>
       </svg>
     </button>
 
     <!-- button switcher -->
-
-    <button type="button" class="switcher-btn">
+    <div class="theme-switch__control hed-switch">
+      <input
+        class="theme-switch__toggle"
+        type="checkbox"
+        name="theme"
+        id="theme-switch-toggle"
+        aria-label="Переключити між темною та світлою темою"
+      />
+      <label
+        aria-hidden="true"
+        class="theme-switch__track"
+        for="theme-switch-toggle"
+      >
+      </label>
+      <div aria-hidden="true" class="theme-switch__marker"></div>
+    </div>
+    <!-- <button type="button" class="switcher-btn header-switcher">
       <svg class="icon-rectangle" width="46" height="20">
         <use href="/img/icon-sprite.svg#icon-rectangle"></use>
       </svg>
       <svg class="icon-ellipse" width="19" height="19">
-        <use href="/img/icon-sprite.svg#icon-ellipse"></use>
+        <use class="ic-el" href="/img/icon-sprite.svg#icon-ellipse"></use>
       </svg>
-    </button>
+    </button> -->
   </div>
 </div>

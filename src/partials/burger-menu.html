@@ -1,28 +1,55 @@
 <div data-modal class="burger-menu js-menu-container" id="mobile-menu">
+  <button
+    data-modal-close
+    type="button"
+    class="burger-menu-close js-close-menu"
+  >
+    <svg class="burger-menu-icon" width="32" height="32">
+      <use href="/img/icon-sprite.svg#icon-x-close"></use>
+    </svg>
+  </button>
 
-    <button data-modal-close type="button" class="burger-menu-close js-close-menu">
-        <svg class="burger-menu-icon" width="32" height="32">
-            <use href="/img/icon-sprite.svg#icon-x-close"></use>
-        </svg>
-    </button>
+  <nav class="burger-menu-nav">
+    <ul class="burger-menu-nav-list">
+      <li class="burger-menu-nav-home">
+        <a
+          href="./index.html"
+          class="burger-menu-nav-link js-close-menu link burger-active"
+          >Home</a
+        >
+      </li>
+      <li class="burger-menu-nav-favorites">
+        <a
+          href="./favorites.html"
+          class="burger-menu-nav-link js-close-menu link"
+          >Favorites</a
+        >
+      </li>
+    </ul>
+  </nav>
 
-    <nav class="burger-menu-nav">
-        <ul class="burger-menu-nav-list">
-            <li class="burger-menu-nav-home">
-                <a href="./index.html" class="burger-menu-nav-link js-close-menu link">Home</a>
-            </li>
-            <li class="burger-menu-nav-favorites">
-                <a href="./favorites.html" class="burger-menu-nav-link js-close-menu link">Favorites</a>
-            </li>
-        </ul>
-    </nav>
-
-    <button type="button" class="switcher-btn">
-        <svg class="icon-rectangle" width="46" height="20">
-            <use href="/img/icon-sprite.svg#icon-rectangle"></use>
-        </svg>
-        <svg class="icon-ellipse" width="19" height="19">
-            <use href="/img/icon-sprite.svg#icon-ellipse"></use>
-        </svg>
-    </button>
+  <!-- <button type="button" class="switcher-btn switcher-burger-btn">
+    <svg class="icon-rectangle" width="46" height="20">
+      <use href="/img/icon-sprite.svg#icon-rectangle"></use>
+    </svg>
+    <svg class="icon-ellipse" width="19" height="19">
+      <use href="/img/icon-sprite.svg#icon-ellipse"></use>
+    </svg>
+  </button> -->
+  <div class="theme-switch__control switcher-burger-btn">
+    <input
+      class="theme-switch__toggle burg-toggle"
+      type="checkbox"
+      name="theme"
+      id="theme-switch-toggle"
+      aria-label="Переключити між темною та світлою темою"
+    />
+    <label
+      aria-hidden="true"
+      class="theme-switch__track burg-track"
+      for="theme-switch-toggle"
+    >
+    </label>
+    <div aria-hidden="true" class="theme-switch__marker burg-marker"></div>
+  </div>
 </div>

@@ -1,5 +1,6 @@
 
 import {elements} from '/js/filters/filters.js'
+import imgUrl from '../../img/icon-sprite.svg'
 
 
 export function createMarkupElForFilter(arr) {
@@ -17,7 +18,7 @@ export function createMarkupElForFilter(arr) {
       />
       <label for="${_id}" aria-hidden="true" class="heart-icon-action dark-theme">
         <svg class="icon-heart-svg dark-theme" width="22" height="22">
-          <use href="/img/icon-sprite.svg#icon-heart"></use>
+          <use href="${imgUrl}#icon-heart"></use>
         </svg>
       </label>
 
@@ -29,19 +30,19 @@ export function createMarkupElForFilter(arr) {
     <p class="text-number-blok-recipes dark-theme">${rating}</p>
      <div class="stars dark-theme">
      <svg class="star-icon dark-theme" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
+        <use href="${imgUrl}#icon-star"></use>
       </svg>
       <svg class="star-icon dark-theme" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
+        <use href="${imgUrl}#icon-star"></use>
       </svg>
       <svg class="star-icon dark-theme" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
+        <use href="${imgUrl}#icon-star"></use>
       </svg>
       <svg class="star-icon dark-theme" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
+        <use href="${imgUrl}#icon-star"></use>
       </svg>
       <svg class="star-icon dark-theme" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
+        <use href="${imgUrl}#icon-star"></use>
       </svg>
       </div>
       </div>

@@ -128,6 +128,7 @@
   .hero-btn:focus {
     background-color: #9bb537;
     color: #f8f8f8;
+    transition: var(--transition-dur-and-func);
   }
 }
 @media not (hover: hover) {
