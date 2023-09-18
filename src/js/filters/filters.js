@@ -13,13 +13,14 @@ import {getRecipesByCategory, evtCategories,evtStartMarkup, galleryEl} from '/js
     inputFilter : document.querySelector('.js-input-filter'),
     filterForm : document.querySelector('.js-filter-form'),
     containerForRecipes: document.querySelector('.container-for-recipes'),
-    iconClose : document.querySelector('.js-icon-close')
+    iconClose : document.querySelector('.js-icon-close'),
+    allResetButtonFilters : document.querySelector('.js-filters-reset')
 }
 // const containerForRecipes = document.querySelector('.container-for-recipes')
-
 elements.inputFilter.addEventListener('input', onInputClose)
 elements.inputFilter.addEventListener('input', debounce(onInpitSearch, 300))
 elements.iconClose.addEventListener('click', onClickResetInput)
+elements.allResetButtonFilters.addEventListener('click', onClickResetInputAll)
 
 // функція для рендеру select time
 marcupTime()
@@ -118,12 +119,20 @@ function onClickResetInput() {
   elements.iconClose.classList.add('filter-is-hidden')
   if (elements.inputFilter.value === '') {
     if (evtCategories === '') {
-      console.log(evtStartMarkup)
+      // console.log(evtStartMarkup)
       return galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
     }
-    console.log(evtCategories);
+    // console.log(evtCategories);
     getRecipesByCategory(evtCategories)
   }
 }
 
-
+function onClickResetInputAll() {
+  if (elements.inputFilter.value !== '') {
+    elements.inputFilter.value = ''
+    elements.iconClose.classList.add('filter-is-hidden')
+      if (evtCategories === '') {
+        return galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
+      }
+  }
+}
