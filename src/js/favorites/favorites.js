@@ -6,10 +6,11 @@ const emptyFav = document.querySelector('empty-favorites-container')
 const favorite = JSON.parse(localStorage.getItem(KEY_FEEDBACK)) || [];
 
 if (favorite.lenght > 0) {
-    createMarkupElForFilter(favorite, favList);
+ favList.insertAdjacentHTML('beforeend', createMarkupElForFilter(favorite));
+    
     emptyFav.style.display = "none";
 } else {
-    // console.error("Помилка");
+    console.error("Помилка");
     if (emptyFav) {
        emptyFav.style.display = "block"; 
     }
