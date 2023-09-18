@@ -195,9 +195,9 @@
 
 .star-icon {
   z-index: 10;
-  fill: var(--primary-bg-color);
+  fill: var(--star-color);
 }
-.star-color-icon{
+.star-color-icon {
   fill: #eea10c;
 }
 
@@ -208,16 +208,6 @@
   }
 }
 
-/* .stars::after {
-  content: ;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  color: #e2f609;
-} */
-/* ------------------------------------------- */
 /* heart-icon-action____________________________________*/
 
 .icon-heart-svg {
@@ -234,10 +224,10 @@
 
   fill: #ddddcc00;
 }
-.svg-active {
+/* .svg-active {
   fill: #f8f8f8;
   opacity: 1;
-}
+} */
 
 .heart-icon-elem {
   z-index: 23;
@@ -248,9 +238,11 @@
   height: 22px;
   width: 22px;
   margin: 16px 16px 0 0;
+  cursor: pointer;
   /* pointer-events: none; */
 }
-.heart-icon-elem:checked + .heart-icon-action {
+.heart-icon-elem:checked + .heart-icon-action > .icon-heart-svg {
+  /* stroke: #9bb537; */
   fill: #f8f8f8;
   opacity: 1;
 }
