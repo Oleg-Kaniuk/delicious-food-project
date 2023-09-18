@@ -1,5 +1,3 @@
-import {onCreateGoldStar} from "/js/recipes/recipes.js"
-
 
 async function allInfoRecipes(id) {
   const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
@@ -7,19 +5,17 @@ async function allInfoRecipes(id) {
   const recipes = await response.json();
   return recipes;
 }
-
 const modalClose = document.querySelector('.modal-close-recipe-btn');
 const modalWindow = document.querySelector('.recipe-info');
 export const backdropElem = document.querySelector('.recipe-backdrop');
 
-
-export function onModal(id){
- modalWindow.innerHTML=''
-allInfoRecipes(id)
-  .then(data => {
-    createMarkupInfoRecipes(data);
-  })
-  .catch(error => console.log(error));
+export function onModal(id) {
+  modalWindow.innerHTML = '';
+  allInfoRecipes(id)
+    .then(data => {
+      createMarkupInfoRecipes(data);
+    })
+    .catch(error => console.log(error));
 }
 function createMarkupInfoRecipes(arr) {
   const {
@@ -40,20 +36,20 @@ function createMarkupInfoRecipes(arr) {
 <div class ="block-info">
 <ul class="tags"></ul>
 <div class="block-time">
-<div class="rating"><p class="rating-value">${rating}</p><div class="star"></div>
-<svg class="star-icon" width="18" height="18">
+<div class="rating"><p class="rating-value">${rating}</p><div class="block-star"></div>
+<svg class="icon-star" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon" width="18" height="18">
+      <svg class="icon-star" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon" width="18" height="18">
+      <svg class="icon-star" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon" width="18" height="18">
+      <svg class="icon-star" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon" width="18" height="18">
+      <svg class="icon-star" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg></div>
 <div class="time">${time} min</div>
@@ -63,27 +59,27 @@ function createMarkupInfoRecipes(arr) {
 <p class = instructions>${instructions}</p>
 <button class="add-btn js-add-btn" type="button">Add to favorite</button>
 `;
-const markupMobile=`
+  const markupMobile = `
 <img class="modal-recipe-image" src="${thumb}" alt="${title}" max-width="295px" height="295px"></img>
 <h2 class= "modal-title">${area}</h2>
 <div class ="block-info">
 <div class="block-time">
-<div class="rating"><p class="rating-value">${rating}</p><div class="star"></div>
-<svg class="star-icon" width="18" height="18">
-      <use href="/img/icon-sprite.svg#icon-star"></use>
-    </svg>
-    <svg class="star-icon" width="18" height="18">
-      <use href="/img/icon-sprite.svg#icon-star"></use>
-    </svg>
-    <svg class="star-icon" width="18" height="18">
-      <use href="/img/icon-sprite.svg#icon-star"></use>
-    </svg>
-    <svg class="star-icon" width="18" height="18">
-      <use href="/img/icon-sprite.svg#icon-star"></use>
-    </svg>
-    <svg class="star-icon" width="18" height="18">
-      <use href="/img/icon-sprite.svg#icon-star"></use>
-    </svg></div>
+<div class="rating"><p class="rating-value">${rating}</p><div class="block-star"></div>
+<svg class="icon-star" width="18" height="18">
+        <use href="/img/icon-sprite.svg#icon-star"></use>
+      </svg>
+      <svg class="icon-star" width="18" height="18">
+        <use href="/img/icon-sprite.svg#icon-star"></use>
+      </svg>
+      <svg class="icon-star" width="18" height="18">
+        <use href="/img/icon-sprite.svg#icon-star"></use>
+      </svg>
+      <svg class="icon-star" width="18" height="18">
+        <use href="/img/icon-sprite.svg#icon-star"></use>
+      </svg>
+      <svg class="icon-star" width="18" height="18">
+        <use href="/img/icon-sprite.svg#icon-star"></use>
+      </svg></div>
 <div class="time">${time} min</div>
 </div>
 </div>
@@ -92,11 +88,13 @@ const markupMobile=`
 <p class = instructions>${instructions}</p>
 <button class="add-btn js-add-btn" type="button">Add to favorite</button>
 `;
-if (window.innerWidth > 768) {
-  modalWindow.insertAdjacentHTML('beforeend', markup)}
-  else{modalWindow.insertAdjacentHTML('beforeend', markupMobile)}
+  if (window.innerWidth > 768) {
+    modalWindow.insertAdjacentHTML('beforeend', markup);
+  } else {
+    modalWindow.insertAdjacentHTML('beforeend', markupMobile);
+  }
 
-const creatIngredients = document.querySelector('.ingredients');
+  const creatIngredients = document.querySelector('.ingredients');
   const markupIngradient = ingredients
     .map(
       ({ name, measure }) =>
@@ -110,6 +108,7 @@ const creatIngredients = document.querySelector('.ingredients');
     .map(tag => `<li class ="title-tags"><p>#${tag}</p></li>`)
     .join('');
   creatTags.innerHTML = markupTags;
+  onGoldStar(arr);
 }
 
 backdropElem.addEventListener('click', onclickBackdrop);
@@ -118,8 +117,6 @@ document.addEventListener('keydown', onClickEscape);
 
 async function onCloseBtn() {
   backdropElem.classList.add('is-hidden-recipe-backdrop');
-
-   
 }
 
 function onclickBackdrop(evt) {
@@ -132,7 +129,20 @@ function onclickBackdrop(evt) {
 function onClickEscape(evt) {
   if (evt.code === 'Escape') {
     backdropElem.classList.toggle('is-hidden-recipe-backdrop');
-    document.removeEventListener("keydown", onClickEscape) 
+    document.removeEventListener('keydown', onClickEscape);
   }
+}
 
+function onGoldStar(arr) {
+  const iconStar = document.querySelectorAll('.icon-star');
+  let counter = 0;
+  for (let i = 0; i < 5; i += 1) {
+    console.log(arr.rating);
+    if (i < Math.floor(arr.rating)) {
+      if (iconStar) {
+        iconStar[counter].classList.add('star-icon-active');
+      }
+    }
+    counter += 1;
+  }
 }
