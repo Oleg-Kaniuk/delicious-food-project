@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { createMarkupElForFilter } from '/js/recipes/recipes.js';
 import { onCreateGoldStar } from '/js/recipes/recipes.js';
-import { pagination } from '/js/pagination/pagination.js'
 const BASEURL_CATEGORIES =
     'https://tasty-treats-backend.p.goit.global/api/categories';
 const BASEURL_RECIPES =
@@ -46,12 +45,14 @@ export async function getRecipesByCategory(event) {
             },
         });
         galleryEl.innerHTML = '';
+
         galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
         onCreateGoldStar(response.data.results);
     } catch (error) {
         console.error(`Failed to fetch images: ${error}`);
     }
 }
+
 if (categoriesList) {
     const fetchCategories = async() => {
         try {
@@ -83,7 +84,7 @@ if (categoriesList) {
             evtStartMarkup = response.data.results
             if (galleryEl) {
                 galleryEl.innerHTML = '';
-                galleryEl.innerHTML = createMarkupElForFilter(response.data.results);   
+                galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
                 onCreateGoldStar(response.data.results);
             }
         } catch (error) {
