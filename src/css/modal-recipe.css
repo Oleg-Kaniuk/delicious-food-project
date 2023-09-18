@@ -18,21 +18,20 @@
   left: calc(50%);
   transform: translate(-50%, -50%);
   overflow-y: auto;
-  
-  padding: 28px 20px;
-width: 335px;
- /* height: 500px; */
+  padding: 40px 20px;
+width: 295px;
+ max-height: 841px;
   border-radius: 15px;
   background: var(--dark-main-text-color);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-  transition: transform var(--transition-dur-and-func);
+  /* transition: transform var(--transition-dur-and-func); */
 }
 
 @media only screen and (min-width: 768px) {
   .recipe-modal {
-    padding: 32px;
-    width: 467px;
+  width: 467px;
+  padding: 32px 32px;
   }
 }
 
@@ -83,21 +82,32 @@ width: 335px;
   pointer-events: none;
   visibility: hidden;
 }
+.youtube {
+  margin: 40px 20px 0;
 
-.youtube{
- width: 295px;
- height: 295px;
- border-radius: 8px;
- margin-bottom: 14px;
+  border-radius: 8px;
 }
 
-@media only screen and (min-width: 768px) {
-  .youtube {
+
+  .modal-recipe-image {
+    /* width: 295px;
+    height: 295px; */
+border-radius: 8px;
+margin-bottom: 14px; 
+
+  }
+ 
+
+  @media only screen and (min-width: 768px) {
+  .modal-recipe-image {
     width: 467px;
     height: 250px;
-    /* margin-bottom: 40px; */
-  }
+    margin-bottom: 16px;
+    display: block;
+    object-fit: cover;
 }
+}
+
 
 .modal-title{
   margin-bottom: 14px;
@@ -157,12 +167,20 @@ width: 335px;
 
 .tags{
   display: flex;
+  flex-wrap: wrap;
  gap: 4px;
- 
+ margin-bottom: 24px;
+}
+@media only screen and (min-width: 768px) {
+  .tags{
+    margin-bottom: 0;
+  }
 }
 
+
 .title-tags{
-  /* display: block; */
+
+  
   border: 1px solid #05050533;
   border-radius: 35px;
   Padding:8px 16px;
@@ -175,6 +193,7 @@ width: 335px;
   display: flex;
   text-align: center ;
   Padding:8px 16px;
+ 
 }
 
 .time{
@@ -197,10 +216,15 @@ display: flex;
 flex-wrap: wrap;
 gap:10px;
 flex-direction: column;
-margin-bottom: 32px;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
+margin-bottom: 40px;
+}
+@media only screen and (min-width: 768px) {
+  .ingredients{
+margin-bottom: 32px;
+  }
 }
 
 .title-ingredients{
