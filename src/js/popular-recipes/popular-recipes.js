@@ -11,13 +11,10 @@ async function servicePopularRecipes() {
    
 servicePopularRecipes()
     .then(recipes => {
-        console.log(recipes);
         createMarkupRecipes(recipes);
-        
         const cardPopularRecipes = document.querySelectorAll(".card-recipes");
         cardPopularRecipes.forEach(function (card) {
             const id = card.dataset.recipeId;
-            console.log(id);
             card.addEventListener('click', () => {
                 onPopularRecipesClick(id);
  
@@ -30,11 +27,11 @@ servicePopularRecipes()
 
 function createMarkupRecipes(arr) {
     const markup = arr.map(({ _id, preview, title, description }) => 
-        `<div class = "card-recipes" data-recipe-id = "${_id}">
+        `<div class = "card-recipes dark-theme" data-recipe-id = "${_id}">
         <div><img class ="img-popular" src="${preview}" alt="${title}" loading="lazy" width = "64" height = "64"/></div> 
-          <div class="popular-title-description">
-            <h3 class = "title-third">${title}</h3>
-           <div class = "description-container"><p class = "popular-description">${description}</p></div> 
+          <div class="popular-title-description dark-theme">
+            <h3 class = "title-third dark-theme">${title}</h3>
+           <div class = "description-container dark-theme"><p class = "popular-description dark-theme">${description}</p></div> 
           </div>
         </div> `).join('')
     popularRecipes.innerHTML = markup;
