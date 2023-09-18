@@ -5,7 +5,7 @@ const BASEURL_CATEGORIES =
     'https://tasty-treats-backend.p.goit.global/api/categories';
 const BASEURL_RECIPES =
     'https://tasty-treats-backend.p.goit.global/api/recipes';
-
+export let responseFromCategoryFunction = null;
 export let evtCategories = ''
 export let evtStartMarkup = ''
 const allCategoriesButton = document.querySelector('.js-all-categories-button');
@@ -48,6 +48,7 @@ export async function getRecipesByCategory(event) {
 
         galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
         onCreateGoldStar(response.data.results);
+        responseFromCategoryFunction = response.data.results;
     } catch (error) {
         console.error(`Failed to fetch images: ${error}`);
     }
