@@ -9,6 +9,9 @@ if (favorite.lenght > 0) {
     createMarkupElForFilter(favorite, favList);
     emptyFav.style.display = "none";
 } else {
-    console.error("Помилка");
-    emptyFav.style.display = "block";
+    // console.error("Помилка");
+    if (emptyFav) {
+       emptyFav.style.display = "block"; 
+    }
+    
 }

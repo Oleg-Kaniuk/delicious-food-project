@@ -81,9 +81,11 @@ if (categoriesList) {
                 },
             });
             evtStartMarkup = response.data.results
-            galleryEl.innerHTML = '';
-            galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
-            onCreateGoldStar(response.data.results);
+            if (galleryEl) {
+                galleryEl.innerHTML = '';
+                galleryEl.innerHTML = createMarkupElForFilter(response.data.results);   
+                onCreateGoldStar(response.data.results);
+            }
         } catch (error) {
             console.error(`Failed to fetch images: ${error}`);
         }
