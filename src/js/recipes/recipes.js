@@ -1,8 +1,7 @@
 
 import {elements} from '/js/filters/filters.js'
 import imgUrl from '../../img/icon-sprite.svg'
-import { backdropElem} from "/js/modal-recipe/modal-recipe.js"
-import { onModal} from "/js/modal-recipe/modal-recipe.js"
+
 
 
 export function createMarkupElForFilter(arr) {
@@ -71,38 +70,18 @@ function onClickHeart(e) {
   const idCard = e.target.id 
  
   if (e.target.checked) {
-    for (const el of uniqueArrForLocalStor) {
-      if (e.target.id === el) {
-        console.log(e.target);
-        e.target.nextElementSibling.classList.add('svg-active')
-        
-        const searchSvg = [...e.target.nextElementSibling.children]
-        console.log(searchSvg);
-       searchSvg.classList.add('svg-active')
-      }
-      
-    }
-    // console.log(e.target.nextElementSibling);
-    
+       
     if (!uniqueArrForLocalStor.includes(idCard)) {
       uniqueArrForLocalStor.push(idCard);
-      // iconSvg.classList.add('svg-active')
-          // iconSvg.children[0].classList.add('svg-active')
-
+    
       localStorage.setItem(KEY_FEEDBACK, JSON.stringify(uniqueArrForLocalStor));
     }
   }
   
   if (!e.target.checked) {
 
-    // iconSvg.classList.remove('svg-active')
-  // iconSvg.children[0].classList.remove('svg-active')
-
-    
-  // console.log("Я видаляю");
-    const indexElCard = uniqueArrForLocalStor.indexOf(idCard);
+     const indexElCard = uniqueArrForLocalStor.indexOf(idCard);
     uniqueArrForLocalStor.splice(indexElCard, 1);
-    // console.log(uniqueArrForLocalStor);
       localStorage.setItem(KEY_FEEDBACK, JSON.stringify(uniqueArrForLocalStor));
 
   } 
@@ -124,22 +103,6 @@ export function onCreateGoldStar(arr) {
           counter += 1;
       }
   })
-}
-
-
-//  Відкриття модалки see recipe
-
-
-const modalSeeRecipeBtn = document.querySelector('.btn-blok-recipes-see');
-console.log(modalSeeRecipeBtn);
-if (modalSeeRecipeBtn) {
-  modalSeeRecipeBtn.addEventListener('click', toggleModalSeeRecipe)
-
-}
-
-function toggleModalSeeRecipe(id) {
-   backdropElem.classList.remove('is-hidden-recipe-backdrop')
- onModal(id)
 }
 
 

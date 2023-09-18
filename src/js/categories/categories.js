@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { backdropElem} from "/js/modal-recipe/modal-recipe.js"
+import { onModal} from "/js/modal-recipe/modal-recipe.js"
 import { createMarkupElForFilter } from '/js/recipes/recipes.js';
 import { onCreateGoldStar } from '/js/recipes/recipes.js';
 const BASEURL_CATEGORIES =
@@ -48,6 +50,18 @@ export async function getRecipesByCategory(event) {
 
         galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
         onCreateGoldStar(response.data.results);
+        //  модалка  рецепт
+        const cardsRecipesBtn = document.querySelectorAll(".btn-blok-recipes-see");
+        console.log(...cardsRecipesBtn);
+        [...cardsRecipesBtn].forEach(function (card) {
+            console.log(card.id);
+            const id = card.id;
+            card.addEventListener('click', () => {
+                onRecipeClick(id);
+ 
+            });
+        
+        });
         responseFromCategoryFunction = response.data.results;
     } catch (error) {
         console.error(`Failed to fetch images: ${error}`);
@@ -68,6 +82,18 @@ if (categoriesList && allCategoriesButton && galleryEl) {
                 galleryEl.innerHTML = '';
                 galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
                 onCreateGoldStar(response.data.results);
+                 //  модалка  рецепт
+        const cardsRecipesBtn = document.querySelectorAll(".btn-blok-recipes-see");
+        console.log(...cardsRecipesBtn);
+        [...cardsRecipesBtn].forEach(function (card) {
+            console.log(card.id);
+            const id = card.id;
+            card.addEventListener('click', () => {
+                onRecipeClick(id);
+ 
+            });
+        
+        });
             }
         } catch (error) {
             console.error(`Failed to fetch images: ${error}`);
@@ -114,3 +140,9 @@ if (categoriesList && allCategoriesButton && galleryEl) {
 } else {
     console.log("error");
 }
+        //  модалка  рецепт
+onRecipeClick
+function onRecipeClick(id) {
+backdropElem.classList.remove('is-hidden-recipe-backdrop')
+ onModal(id)
+};
