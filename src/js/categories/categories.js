@@ -55,8 +55,6 @@ export async function getRecipesByCategory(event) {
 }
 
 if (categoriesList && allCategoriesButton && galleryEl) {
-
-
     const fetchImages = async() => {
         try {
             const response = await axios.get(BASEURL_RECIPES, {
@@ -93,6 +91,8 @@ if (categoriesList && allCategoriesButton && galleryEl) {
             console.error(error);
         }
     };
+
+
     const handleAllCategoriesBtnClick = () => {
         const buttons = document.querySelectorAll('.categories-list-element');
         buttons.forEach(button => {
