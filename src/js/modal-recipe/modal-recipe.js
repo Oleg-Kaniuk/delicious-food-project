@@ -8,16 +8,9 @@ async function allInfoRecipes(id) {
   return recipes;
 }
 
-const modalForRecipe = document.querySelector('.recipe-modal');
 const modalClose = document.querySelector('.modal-close-recipe-btn');
 const modalWindow = document.querySelector('.recipe-info');
 export const backdropElem = document.querySelector('.recipe-backdrop');
-// const modalOpen = document.querySelector('.recipe-backdrop');
-
-
-const recipeSee = document.querySelector('.blok-recipes')
-console.log(recipeSee);
-
 
 
 export function onModal(id){
@@ -28,7 +21,6 @@ allInfoRecipes(id)
   })
   .catch(error => console.log(error));
 }
-
 function createMarkupInfoRecipes(arr) {
   const {
     _id,
@@ -44,7 +36,7 @@ function createMarkupInfoRecipes(arr) {
   } = arr;
 
   const markup = `<h2 class= "modal-title">${area}</h2>
-<div class="video"><iframe class = "youtube" src="${youtube}" frameborder="0" allowfullscreen></iframe></div>
+  <img class="modal-recipe-image" src="${thumb}" alt="${title}" max-width="295px" height="295px"></img>
 <div class ="block-info">
 <ul class="tags"></ul>
 <div class="block-time">
@@ -70,9 +62,39 @@ function createMarkupInfoRecipes(arr) {
 <ul class ="ingredients"></ul>
 <p class = instructions>${instructions}</p>
 <button class="add-btn js-add-btn" type="button">Add to favorite</button>
-<button class="add-btn js-add-btn" type="button">Give a rating</button>
 `;
-  modalWindow.insertAdjacentHTML('beforeend', markup);
+const markupMobile=`
+<img class="modal-recipe-image" src="${thumb}" alt="${title}" max-width="295px" height="295px"></img>
+<h2 class= "modal-title">${area}</h2>
+<div class ="block-info">
+<div class="block-time">
+<div class="rating"><p class="rating-value">${rating}</p><div class="star"></div>
+<svg class="star-icon" width="18" height="18">
+      <use href="/img/icon-sprite.svg#icon-star"></use>
+    </svg>
+    <svg class="star-icon" width="18" height="18">
+      <use href="/img/icon-sprite.svg#icon-star"></use>
+    </svg>
+    <svg class="star-icon" width="18" height="18">
+      <use href="/img/icon-sprite.svg#icon-star"></use>
+    </svg>
+    <svg class="star-icon" width="18" height="18">
+      <use href="/img/icon-sprite.svg#icon-star"></use>
+    </svg>
+    <svg class="star-icon" width="18" height="18">
+      <use href="/img/icon-sprite.svg#icon-star"></use>
+    </svg></div>
+<div class="time">${time} min</div>
+</div>
+</div>
+<ul class ="ingredients"></ul>
+<ul class="tags"></ul>
+<p class = instructions>${instructions}</p>
+<button class="add-btn js-add-btn" type="button">Add to favorite</button>
+`;
+if (window.innerWidth > 768) {
+  modalWindow.insertAdjacentHTML('beforeend', markup)}
+  else{modalWindow.insertAdjacentHTML('beforeend', markupMobile)}
 
 const creatIngredients = document.querySelector('.ingredients');
   const markupIngradient = ingredients
@@ -88,15 +110,7 @@ const creatIngredients = document.querySelector('.ingredients');
     .map(tag => `<li class ="title-tags"><p>#${tag}</p></li>`)
     .join('');
   creatTags.innerHTML = markupTags;
-
-
 }
-
-// openSee.addEventListener("click", onClickOpenSee)
-
-// function onClickOpenSee(){
-//   modalOpen.classList.remove('is-hidden-recipe-backdrop')
-// }
 
 backdropElem.addEventListener('click', onclickBackdrop);
 modalClose.addEventListener('click', onCloseBtn);
@@ -111,6 +125,7 @@ async function onCloseBtn() {
 function onclickBackdrop(evt) {
   if (evt.target === backdropElem) {
     backdropElem.classList.toggle('is-hidden-recipe-backdrop');
+    backdropElem.removeEventListener('click', onclickBackdrop);
   }
 }
 
