@@ -6,7 +6,7 @@ overflow: hidden;
 }
 @media only screen and (min-width: 768px) {
    .popular-recipes{
-   width: 176px;
+   width: 166px;
   height: 100%;
   margin-right: 32px;
   margin-bottom: 0;
@@ -15,7 +15,7 @@ overflow: hidden;
 }
 @media only screen and (min-width: 1280px) {
   .popular-recipes{
-   width: 235px;
+   width: 221px;
    margin-right: 64px;
    margin-bottom: 0;
   }
@@ -35,15 +35,9 @@ overflow: hidden;
     }
 }
 .cards-popular-recipes{
-    width: 335px;
     cursor: pointer;
 }
-@media only screen and (min-width: 768px) {
-      .cards-popular-recipes{
-        width: 176px;
-    
-      }  
-    }
+
 
 .card-recipes{
     display: flex;
