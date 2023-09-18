@@ -224,10 +224,10 @@
 
   fill: #ddddcc00;
 }
-/* .svg-active {
+.svg-active {
   fill: #f8f8f8;
   opacity: 1;
-} */
+}
 
 .heart-icon-elem {
   z-index: 23;
@@ -246,6 +246,7 @@
   fill: #f8f8f8;
   opacity: 1;
 }
+
 .heart-icon-action {
   z-index: 24;
   margin: 16px 16px 0 0;
