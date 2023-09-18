@@ -1,9 +1,9 @@
 const heroModalBtn = document.querySelector('.js-hero-btn')
 const backdrop = document.querySelector('.js-backdrop')
 
+if(heroModalBtn){heroModalBtn.addEventListener('click', heroModalOpen)}
 
-heroModalBtn.addEventListener('click', heroModalOpen)
 
 function heroModalOpen(evt) {
-    backdrop.classList.remove("is-hidden")
+   return backdrop.classList.remove("is-hidden")
 }

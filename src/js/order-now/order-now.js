@@ -6,13 +6,23 @@ const modalOrderNow = document.querySelector('.modal-order-now')
 
 
 // клік на btnClose
-modalCloseBtnOrder.addEventListener('click', onBtnClose);
+if (modalCloseBtnOrder) {
+  modalCloseBtnOrder.addEventListener('click', onBtnClose);
+}
 // клік на backdropEl
-backdropEl.addEventListener('click', onclickBackdrop);
+if (backdropEl) {
+  backdropEl.addEventListener('click', onclickBackdrop);
+
+}
 // клік на Escape
-document.addEventListener("keydown", onClickEscape);
+if (document) {
+  document.addEventListener("keydown", onClickEscape);
+
+}
 // клік на Send
-formOrder.addEventListener('submit', onClickSend);
+if (formOrder) {
+  formOrder.addEventListener('submit', onClickSend);
+}
 
 
 function onBtnClose() {
