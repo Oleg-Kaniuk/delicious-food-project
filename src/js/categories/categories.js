@@ -54,7 +54,25 @@ export async function getRecipesByCategory(event) {
     }
 }
 
-if (categoriesList) {
+if (categoriesList && allCategoriesButton && galleryEl) {
+    const fetchImages = async() => {
+        try {
+            const response = await axios.get(BASEURL_RECIPES, {
+                params: {
+                    page: 1,
+                    limit: cardsPerPage[getCardPerPage()],
+                },
+            });
+            evtStartMarkup = response.data.results
+            if (galleryEl) {
+                galleryEl.innerHTML = '';
+                galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
+                onCreateGoldStar(response.data.results);
+            }
+        } catch (error) {
+            console.error(`Failed to fetch images: ${error}`);
+        }
+    };
     const fetchCategories = async() => {
         try {
             const response = await axios.get(BASEURL_CATEGORIES);
@@ -74,24 +92,7 @@ if (categoriesList) {
         }
     };
 
-    const fetchImages = async() => {
-        try {
-            const response = await axios.get(BASEURL_RECIPES, {
-                params: {
-                    page: 1,
-                    limit: cardsPerPage[getCardPerPage()],
-                },
-            });
-            evtStartMarkup = response.data.results
-            if (galleryEl) {
-                galleryEl.innerHTML = '';
-                galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
-                onCreateGoldStar(response.data.results);
-            }
-        } catch (error) {
-            console.error(`Failed to fetch images: ${error}`);
-        }
-    };
+
 
     const handleAllCategoriesBtnClick = () => {
         const buttons = document.querySelectorAll('.categories-list-element');
@@ -100,7 +101,8 @@ if (categoriesList) {
         });
         allCategoriesButton.classList.add('is-active');
         galleryEl.innerHTML = '';
-        fetchImages();
+        evtCategories = '';
+        fetchImages(evtCategories);
     };
 
     window.addEventListener('resize', fetchImages);
