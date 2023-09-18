@@ -4,7 +4,7 @@ import SlimSelect from 'slim-select';
 // import "simplelightbox/dist/simple-lightbox.min.css";
 // import 'slim-select/dist/slimselect.css'
 import { createMarkupElForFilter, onCreateGoldStar} from "/js/recipes/recipes.js"
-import {getRecipesByCategory, evtCategories,evtStartMarkup, galleryEl} from '/js/categories/categories.js'
+import {getRecipesByCategory, evtCategories,evtStartMarkup, galleryEl,responseFromCategoryFunction} from '/js/categories/categories.js'
 
  export const elements = {
     timeSelect: document.querySelector('.js-time-select'),
@@ -87,7 +87,7 @@ function markupArea(elem) {
 // функції для рендеру select Ingredients
 serviceGetIngredients()
 .then(data => {
-  console.log(data.data);
+  // console.log(data.data);
   if (elements.ingredientsSelect) {
     elements.ingredientsSelect.innerHTML = markupIngredient(data.data)
   }
@@ -115,7 +115,12 @@ serviceGetResult(event.target.value)
 }
 // функція для пошуку по ключевому слову
 function serviceGetResult(value) {
-  const API_URL = `https://tasty-treats-backend.p.goit.global/api/recipes?title=${value.trim()}`
+  console.log(evtCategories)
+if (evtCategories === '') {
+  const API_URL = `https://tasty-treats-backend.p.goit.global/api/recipes?&title=${value.trim()}`
+  return axios.get(API_URL)
+}
+  const API_URL = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${evtCategories.target.textContent}&title=${value.trim()}`
   return axios.get(API_URL)
 }
 
