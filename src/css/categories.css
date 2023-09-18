@@ -91,11 +91,7 @@
     }
 }
 
-.categories-list:hover,
-.categories-list:focus {
-    color: var(--additional-text-color);
-}
-
-.categories-list-element.is-active {
+.categories-list-element:hover,
+.categories-list-element:focus {
     color: var(--additional-text-color);
 }

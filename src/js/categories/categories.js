@@ -54,25 +54,8 @@ export async function getRecipesByCategory(event) {
     }
 }
 
-if (categoriesList) {
-    const fetchCategories = async() => {
-        try {
-            const response = await axios.get(BASEURL_CATEGORIES);
-            const categories = response.data;
-            const categoryButtons = categories
-                .map(
-                    category =>
-                    `<li>
-                <button class="categoreis-list-element">${category.name}</button>
-                </li>`
-                )
-                .join('');
-            categoriesList.innerHTML = categoryButtons;
-            fetchImages();
-        } catch (error) {
-            console.error(error);
-        }
-    };
+if (categoriesList && allCategoriesButton && galleryEl) {
+
 
     const fetchImages = async() => {
         try {
@@ -92,15 +75,34 @@ if (categoriesList) {
             console.error(`Failed to fetch images: ${error}`);
         }
     };
-
+    const fetchCategories = async() => {
+        try {
+            const response = await axios.get(BASEURL_CATEGORIES);
+            const categories = response.data;
+            const categoryButtons = categories
+                .map(
+                    category =>
+                    `<li>
+                <button class="categoreis-list-element">${category.name}</button>
+                </li>`
+                )
+                .join('');
+            categoriesList.innerHTML = categoryButtons;
+            fetchImages();
+        } catch (error) {
+            console.error(error);
+        }
+    };
     const handleAllCategoriesBtnClick = () => {
         const buttons = document.querySelectorAll('.categories-list-element');
         buttons.forEach(button => {
             button.classList.remove('is-active');
+
         });
         allCategoriesButton.classList.add('is-active');
         galleryEl.innerHTML = '';
-        fetchImages();
+        evtCategories = '';
+        fetchImages(evtCategories);
     };
 
     window.addEventListener('resize', fetchImages);
@@ -108,6 +110,7 @@ if (categoriesList) {
 
     categoriesList.addEventListener('click', getRecipesByCategory);
     allCategoriesButton.addEventListener('click', handleAllCategoriesBtnClick);
-
     fetchCategories();
+} else {
+    console.log("error");
 }
