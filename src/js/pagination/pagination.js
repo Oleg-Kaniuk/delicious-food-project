@@ -35,7 +35,7 @@ const pagination = new Pagination('pagination', options);
  console.log(pagination);
 
 let totalItems;
-const page = pagination.getCurrentPage();//початова сторінка з опцій
+const page = pagination.getCurrentPage();//почкатова сторінка з опцій
 console.log(page);
 
 async function fetchData() {
