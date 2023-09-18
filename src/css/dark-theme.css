@@ -1,0 +1,114 @@
+.dark-theme {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+.dark-theme .main-link {
+  color: #fff;
+}
+.dark-theme .logotype {
+  color: #fff;
+}
+.dark-theme .icon-cart {
+  fill: #fff;
+}
+.dark-theme .icon-cart:hover,
+.dark-theme .icon-cart:focus {
+  fill: var(--additional-text-color);
+}
+.dark-theme .burger-menu-btn {
+  stroke: #fff;
+}
+.dark-theme .burger-active {
+  color: var(--additional-text-color);
+}
+.dark-theme .burger-menu {
+  background-color: #050505;
+}
+.dark-theme .hero-title {
+  color: #fff;
+}
+.dark-theme .hero-text {
+  color: #fff;
+}
+.dark-theme .hero-btn {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+.dark-theme .modal-order-now {
+  background-color: #050505;
+}
+.dark-theme .form-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .form-field {
+  background-color: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark-theme .modal-textarea {
+  background-color: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark-theme .modal-close-icon {
+  stroke: #fff;
+}
+.dark-theme .slide-preview {
+  border: 1px solid rgba(155, 181, 55, 0.3);
+}
+
+/* ...filters */
+.dark-theme .filter-input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark-theme .filter-icon-input {
+  fill: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .filter-select {
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark-theme .filter-title {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .filter-reset-button {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark-theme .all-categories-button {
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-theme .categories-list-element {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.dark-theme .title-popular-recipes {
+  color: #fff;
+}
+.dark-theme .title-third {
+  color: #fff;
+}
+
+.dark-theme .popular-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-theme .recipe-modal {
+  background-color: #050505;
+}
+.dark-theme .button__close {
+  stroke: #fff;
+}
+.dark-theme .modal-title {
+  color: #fff;
+}
+.dark-theme .instructions {
+  color: rgba(255, 255, 255, 0.8);
+}
+.dark-theme .add-btn {
+  background-color: #050505;
+  color: #fff;
+}
+
+.dark-theme .nav-link-favorites {
+}
