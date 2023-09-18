@@ -4,6 +4,7 @@ import SlimSelect from 'slim-select';
 // import "simplelightbox/dist/simple-lightbox.min.css";
 // import 'slim-select/dist/slimselect.css'
 import { createMarkupElForFilter, onCreateGoldStar} from "/js/recipes/recipes.js"
+import {getRecipesByCategory, evtCategories,evtStartMarkup, galleryEl} from '/js/categories/categories.js'
 
  export const elements = {
     timeSelect: document.querySelector('.js-time-select'),
@@ -86,7 +87,7 @@ function markupIngredient(elem) {
 
 // функція для відправки масива об'єктів для рендеру розмітки
 function onInpitSearch(event) {
-  console.log(event.target.value)
+  // console.log(event.target.value)
 serviceGetResult(event.target.value)
 .then(data => {
   // console.log(data.data.results)
@@ -113,9 +114,16 @@ function onInputClose(event){
   }
 }
 function onClickResetInput() {
-  // console.dir(elements.inputFilter);
   elements.inputFilter.value = ''
   elements.iconClose.classList.add('filter-is-hidden')
+  if (elements.inputFilter.value === '') {
+    if (evtCategories === '') {
+      console.log(evtStartMarkup)
+      return galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
+    }
+    console.log(evtCategories);
+    getRecipesByCategory(evtCategories)
+  }
 }
 
 
