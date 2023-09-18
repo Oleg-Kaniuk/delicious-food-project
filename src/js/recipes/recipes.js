@@ -1,9 +1,6 @@
 
 import {elements} from '/js/filters/filters.js'
 import imgUrl from '../../img/icon-sprite.svg'
-import { backdropElem} from "/js/modal-recipe/modal-recipe.js"
-import { onModal} from "/js/modal-recipe/modal-recipe.js"
-
 
 export function createMarkupElForFilter(arr) {
   
@@ -127,20 +124,6 @@ export function onCreateGoldStar(arr) {
 }
 
 
-//  Відкриття модалки see recipe
-
-
-const modalSeeRecipeBtn = document.querySelector('.btn-blok-recipes-see');
-console.log(modalSeeRecipeBtn);
-if (modalSeeRecipeBtn) {
-  modalSeeRecipeBtn.addEventListener('click', toggleModalSeeRecipe)
-
-}
-
-function toggleModalSeeRecipe(id) {
-   backdropElem.classList.remove('is-hidden-recipe-backdrop')
- onModal(id)
-}
 
 
 
