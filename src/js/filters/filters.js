@@ -45,33 +45,34 @@ function marcupTime() {
 
 // функця для запиту на бек-енд: країни
 function serviceGetArea() {
-    return fetch("https://tasty-treats-backend.p.goit.global/api/areas")
+    return axios("https://tasty-treats-backend.p.goit.global/api/areas")
     // перевірка чи щось прийшло з бек-енда
-    .then((resp) => {
-              if (!resp.ok) {
-                throw new Error(resp.statusText);
-              }
-              return resp.json();
-            })
+    // .then((resp) => {
+    //           if (!resp.ok) {
+    //             throw new Error(resp.statusText);
+    //           }
+    //           return resp.json();
+    //         })
 
 }
 
 // функця для запиту на бек-енд: інградієнти
 function serviceGetIngredients() {
-    return fetch ("https://tasty-treats-backend.p.goit.global/api/ingredients")
-    .then((resp) => {
-        if (!resp.ok) {
-          throw new Error(resp.statusText);
-        }
-        return resp.json();
-      })
+    return axios("https://tasty-treats-backend.p.goit.global/api/ingredients")
+    // .then((resp) => {
+    //     if (!resp.ok) {
+    //       throw new Error(resp.statusText);
+    //     }
+    //     console.log(resp);
+    //     return resp;
+    //   })
 }
 
 // функції для рендеру select area
 serviceGetArea()
 .then(data => {
   if (elements.areaSelect) {
-    elements.areaSelect.innerHTML = markupArea(data)
+    elements.areaSelect.innerHTML = markupArea(data.data)
   }
 })
 .catch(err => console.log(err))
@@ -86,8 +87,9 @@ function markupArea(elem) {
 // функції для рендеру select Ingredients
 serviceGetIngredients()
 .then(data => {
+  console.log(data.data);
   if (elements.ingredientsSelect) {
-    elements.ingredientsSelect.innerHTML = markupIngredient(data)
+    elements.ingredientsSelect.innerHTML = markupIngredient(data.data)
   }
 })
 .catch(err => console.log(err))
