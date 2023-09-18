@@ -1,6 +1,8 @@
 
 import {elements} from '/js/filters/filters.js'
 import imgUrl from '../../img/icon-sprite.svg'
+import { backdropElem} from "/js/modal-recipe/modal-recipe.js"
+import { onModal} from "/js/modal-recipe/modal-recipe.js"
 
 
 export function createMarkupElForFilter(arr) {
@@ -47,7 +49,7 @@ export function createMarkupElForFilter(arr) {
       </div>
       </div>
   
-  <button class="btn-blok-recipes-see dark-theme" type="button">See recipe</button></div>
+  <button id="${_id}" class="btn-blok-recipes-see dark-theme" data-modal-open-recipe type="button">See recipe</button></div>
   </div>
 
 </div>`).join(''); 
@@ -66,12 +68,22 @@ function onClickHeart(e) {
   
   // const iconSvg = document.querySelector('.icon-heart-svg');
   // const iconSvg = document.querySelector('.heart-icon-action');
-
-  // console.log(iconSvg);
-
   const idCard = e.target.id 
  
   if (e.target.checked) {
+    for (const el of uniqueArrForLocalStor) {
+      if (e.target.id === el) {
+        console.log(e.target);
+        e.target.nextElementSibling.classList.add('svg-active')
+        
+        const searchSvg = [...e.target.nextElementSibling.children]
+        console.log(searchSvg);
+       searchSvg.classList.add('svg-active')
+      }
+      
+    }
+    // console.log(e.target.nextElementSibling);
+    
     if (!uniqueArrForLocalStor.includes(idCard)) {
       uniqueArrForLocalStor.push(idCard);
       // iconSvg.classList.add('svg-active')
@@ -117,17 +129,18 @@ export function onCreateGoldStar(arr) {
 
 //  Відкриття модалки see recipe
 
-// import {modalSeeRecipe, Close} from '/js/modal-recipe'
 
-// const modalSeeRecipeBtn = document.querySelector('[data-modal-open]');
+const modalSeeRecipeBtn = document.querySelector('.btn-blok-recipes-see');
+console.log(modalSeeRecipeBtn);
+if (modalSeeRecipeBtn) {
+  modalSeeRecipeBtn.addEventListener('click', toggleModalSeeRecipe)
 
-// Close.addEventListener('click', toggleModalSeeRecipe)
-// modalSeeRecipeBtn.addEventListener('click', toggleModalSeeRecipe)
+}
 
-// function toggleModalSeeRecipe() {
-//   console.log('Open modal or close');
-//    modalSeeRecipe.classList.toggle("is-hidden")
-// }
+function toggleModalSeeRecipe(e) {
+   backdropElem.classList.remove('is-hidden-recipe-backdrop')
+ onModal(id)
+}
 
 
 
