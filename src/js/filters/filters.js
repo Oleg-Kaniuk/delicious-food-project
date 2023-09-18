@@ -17,17 +17,26 @@ import {getRecipesByCategory, evtCategories,evtStartMarkup, galleryEl} from '/js
     allResetButtonFilters : document.querySelector('.js-filters-reset')
 }
 // const containerForRecipes = document.querySelector('.container-for-recipes')
-elements.inputFilter.addEventListener('input', onInputClose)
-elements.inputFilter.addEventListener('input', debounce(onInpitSearch, 300))
-elements.iconClose.addEventListener('click', onClickResetInput)
-elements.allResetButtonFilters.addEventListener('click', onClickResetInputAll)
+if (elements.inputFilter) {
+  elements.inputFilter.addEventListener('input', onInputClose)
+  elements.inputFilter.addEventListener('input', debounce(onInpitSearch, 300))
+}
+if (elements.iconClose) {
+  elements.iconClose.addEventListener('click', onClickResetInput)
+}
+if (elements.allResetButtonFilters) {
+  elements.allResetButtonFilters.addEventListener('click', onClickResetInputAll)
+}
 
 // функція для рендеру select time
 marcupTime()
 function marcupTime() {
     for (let i = 5; i <= 120; i+=5) {
      const sef = `<option value="${i} min">${i} min</option>`
-     elements.timeSelect.insertAdjacentHTML('beforeend', sef)
+     if (elements.timeSelect) {
+      elements.timeSelect.insertAdjacentHTML('beforeend', sef)
+     }
+     
     }
   //   new SlimSelect({
   //     select: elements.timeSelect
@@ -61,7 +70,9 @@ function serviceGetIngredients() {
 // функції для рендеру select area
 serviceGetArea()
 .then(data => {
+  if (elements.areaSelect) {
     elements.areaSelect.innerHTML = markupArea(data)
+  }
 })
 .catch(err => console.log(err))
 
@@ -75,7 +86,9 @@ function markupArea(elem) {
 // функції для рендеру select Ingredients
 serviceGetIngredients()
 .then(data => {
+  if (elements.ingredientsSelect) {
     elements.ingredientsSelect.innerHTML = markupIngredient(data)
+  }
 })
 .catch(err => console.log(err))
 
