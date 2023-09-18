@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createMarkupElForFilter } from '/js/recipes/recipes.js';
 import { onCreateGoldStar } from '/js/recipes/recipes.js';
-// import { pagination } from '/js/pagination/pagination.js'
+//import { pagination } from '/js/pagination/pagination.js'
 const BASEURL_CATEGORIES =
     'https://tasty-treats-backend.p.goit.global/api/categories';
 const BASEURL_RECIPES =
