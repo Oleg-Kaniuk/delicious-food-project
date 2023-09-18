@@ -9,47 +9,47 @@ export function createMarkupElForFilter(arr) {
   
  return arr.map(({ _id, title, preview, description, rating }) => 
  
-   `<div class="blok-recipes dark-theme" id="${_id}">
+   `<div class="blok-recipes " id="${_id}">
       
       <input
         id="${_id}"
         type="checkbox"
-        class="heart-icon-elem dark-theme"
+        class="heart-icon-elem "
         name="heart-icon"
         
       />
-      <label for="${_id}" aria-hidden="true" class="heart-icon-action dark-theme">
-        <svg class="icon-heart-svg dark-theme" width="22" height="22">
+      <label for="${_id}" aria-hidden="true" class="heart-icon-action ">
+        <svg class="icon-heart-svg " width="22" height="22">
           <use href="${imgUrl}#icon-heart"></use>
         </svg>
       </label>
 
-       <img class="img-blok-recipes dark-theme" src="${preview}" alt="${title}" />
+       <img class="img-blok-recipes " src="${preview}" alt="${title}" />
 
- <div class="context-blok-recipes dark-theme"> <h3 class="title-blok-recipes dark-theme">${title}</h3>
-  <p class="text-blok-recipes dark-theme">${description}</p>
-  <div class="num-stars-btn dark-theme"><div class="blok-rating">
-    <p class="text-number-blok-recipes dark-theme">${rating}</p>
-     <div class="stars dark-theme">
-     <svg class="star-icon dark-theme" width="18" height="18">
+ <div class="context-blok-recipes "> <h3 class="title-blok-recipes">${title}</h3>
+  <p class="text-blok-recipes">${description}</p>
+  <div class="num-stars-btn "><div class="blok-rating">
+    <p class="text-number-blok-recipes ">${rating}</p>
+     <div class="stars ">
+     <svg class="star-icon " width="18" height="18">
         <use href="${imgUrl}#icon-star"></use>
       </svg>
-      <svg class="star-icon dark-theme" width="18" height="18">
+      <svg class="star-icon" width="18" height="18">
         <use href="${imgUrl}#icon-star"></use>
       </svg>
-      <svg class="star-icon dark-theme" width="18" height="18">
+      <svg class="star-icon " width="18" height="18">
         <use href="${imgUrl}#icon-star"></use>
       </svg>
-      <svg class="star-icon dark-theme" width="18" height="18">
+      <svg class="star-icon" width="18" height="18">
         <use href="${imgUrl}#icon-star"></use>
       </svg>
-      <svg class="star-icon dark-theme" width="18" height="18">
+      <svg class="star-icon" width="18" height="18">
         <use href="${imgUrl}#icon-star"></use>
       </svg>
       </div>
       </div>
   
-  <button id="${_id}" class="btn-blok-recipes-see dark-theme" data-modal-open-recipe type="button">See recipe</button></div>
+  <button id="${_id}" class="btn-blok-recipes-see" type="button">See recipe</button></div>
   </div>
 
 </div>`).join(''); 
@@ -137,7 +137,7 @@ if (modalSeeRecipeBtn) {
 
 }
 
-function toggleModalSeeRecipe(e) {
+function toggleModalSeeRecipe(id) {
    backdropElem.classList.remove('is-hidden-recipe-backdrop')
  onModal(id)
 }
