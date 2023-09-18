@@ -36,6 +36,7 @@ overflow: hidden;
 }
 .cards-popular-recipes{
     width: 335px;
+    cursor: pointer;
 }
 @media only screen and (min-width: 768px) {
       .cards-popular-recipes{
