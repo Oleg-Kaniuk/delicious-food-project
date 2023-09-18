@@ -93,11 +93,11 @@ if (categoriesList && allCategoriesButton && galleryEl) {
     };
 
 
-
     const handleAllCategoriesBtnClick = () => {
         const buttons = document.querySelectorAll('.categories-list-element');
         buttons.forEach(button => {
             button.classList.remove('is-active');
+
         });
         allCategoriesButton.classList.add('is-active');
         galleryEl.innerHTML = '';
@@ -110,6 +110,7 @@ if (categoriesList && allCategoriesButton && galleryEl) {
 
     categoriesList.addEventListener('click', getRecipesByCategory);
     allCategoriesButton.addEventListener('click', handleAllCategoriesBtnClick);
-
     fetchCategories();
+} else {
+    console.log("error");
 }
