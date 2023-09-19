@@ -1,55 +1,39 @@
 const modalCloseBtnOrder = document.querySelector('.modal-close-btn-order');
-const backdropEl = document.querySelector('.backdrop');
+const backdropElNow = document.querySelector('.backdrop');
 const formOrder = document.querySelector('.modal-form-order');
 
 const modalOrderNow = document.querySelector('.modal-order-now')
 
 
 // клік на btnClose
-if (modalCloseBtnOrder) {
-  modalCloseBtnOrder.addEventListener('click', onBtnClose);
-}
+  modalCloseBtnOrder.addEventListener('click', onBtnCloseNow);
+
 // клік на backdropEl
-if (backdropEl) {
-  backdropEl.addEventListener('click', onclickBackdrop);
+  backdropElNow.addEventListener('click', onClickBackdropNow);
 
-}
 // клік на Escape
-if (document) {
-  document.addEventListener("keydown", onClickEscape);
+  document.addEventListener("keydown", onClickEscapeNow);
 
-}
 // клік на Send
-if (formOrder) {
-  formOrder.addEventListener('submit', onClickSend);
+ formOrder.addEventListener('submit', onClickSendNow);
+
+function onBtnCloseNow() {
+  backdropElNow.classList.toggle('is-hidden');
 }
 
-
-function onBtnClose() {
-  backdropEl.classList.add('is-hidden');
-// modalCloseBtnOrder.removeEventListener('click', onBtnClose);
+function onClickBackdropNow(e) {
+   if (e.target===backdropElNow) {
+   backdropElNow.classList.toggle('is-hidden');
+}
 }
 
-function onclickBackdrop(e) {
-  
- if (e.target===backdropEl) {
-   backdropEl.classList.toggle('is-hidden');
-  backdropEl.removeEventListener('click', onclickBackdrop);
-}
-
- 
-}
-
-function onClickEscape(e) {
+function onClickEscapeNow(e) {
   if (e.code === "Escape") {
- backdropEl.classList.toggle('is-hidden')
-
-    console.log("Closing window...");
-    document.removeEventListener("keydown", onClickEscape) } //  знімаємо слухача на Escape
- 
+    backdropElNow.classList.add('is-hidden')
+  }
 }
 
-function onClickSend(evt) {
+function onClickSendNow(evt) {
 
   evt.preventDefault();  
 
@@ -68,10 +52,7 @@ function onClickSend(evt) {
       })
       
       formOrder.reset()   //очищаємо поле
-      formOrder.removeEventListener('submit', onClickSend);
-         backdropEl.classList.toggle('is-hidden');
+         backdropElNow.classList.toggle('is-hidden');
 
   }
-  
-   
 }

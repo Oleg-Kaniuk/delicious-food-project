@@ -52,9 +52,7 @@ export async function getRecipesByCategory(event) {
         onCreateGoldStar(response.data.results);
         //  модалка  рецепт
         const cardsRecipesBtn = document.querySelectorAll(".btn-blok-recipes-see");
-        console.log(...cardsRecipesBtn);
         [...cardsRecipesBtn].forEach(function (card) {
-            console.log(card.id);
             const id = card.id;
             card.addEventListener('click', () => {
                 onRecipeClick(id);
@@ -84,9 +82,7 @@ if (categoriesList && allCategoriesButton && galleryEl) {
                 onCreateGoldStar(response.data.results);
                  //  модалка  рецепт
         const cardsRecipesBtn = document.querySelectorAll(".btn-blok-recipes-see");
-        console.log(...cardsRecipesBtn);
         [...cardsRecipesBtn].forEach(function (card) {
-            console.log(card.id);
             const id = card.id;
             card.addEventListener('click', () => {
                 onRecipeClick(id);
