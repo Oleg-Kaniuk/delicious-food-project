@@ -1,9 +1,12 @@
 .container-for-recipes {
+  margin-bottom: 40px;
   display: block;
 }
 
 @media only screen and (min-width: 768px) {
   .container-for-recipes {
+    margin-bottom: 64px;
+
     width: 496px;
     display: flex;
     flex-wrap: wrap;
@@ -242,11 +245,10 @@
   cursor: pointer;
   /* pointer-events: none; */
 }
-.heart-icon-elem:checked + .heart-icon-action > .icon-heart-svg {
-  /* stroke: #9bb537; */
+/* .heart-icon-elem:checked + .heart-icon-action > .icon-heart-svg {
   fill: #f8f8f8;
   opacity: 1;
-}
+} */
 
 .heart-icon-action {
   z-index: 24;
