@@ -1,7 +1,7 @@
 
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { createMarkupElForFilter } from '/js/recipes/recipes.js';
+import { createMarkupElForFilter, onCreateGoldStar} from "/js/recipes/recipes.js"
 
 const containerForRecipes = document.querySelector(".container-for-recipes");
 const paginationContainer = document.querySelector("#pagination");
@@ -65,6 +65,7 @@ function renderEvt(page) {
     pagePagination++;
     containerForRecipes.innerHTML = createMarkupElForFilter(recipes.results);
     console.log(recipes.results);
+    onCreateGoldStar(recipes.results);
   })
         .catch(error => console.log(error));
 }
