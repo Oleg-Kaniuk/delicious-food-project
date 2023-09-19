@@ -5,8 +5,8 @@
 
 
 .tui-pagination{
-   width: 335px;
-    width: 100%;
+    width: 335px;
+    height: 40px;
     margin-bottom: 80px;
     display: flex; 
 }

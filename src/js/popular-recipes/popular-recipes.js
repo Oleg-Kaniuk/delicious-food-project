@@ -31,7 +31,7 @@ function createMarkupRecipes(arr) {
         <div><img class ="img-popular" src="${preview}" alt="${title}" loading="lazy" width = "64" height = "64"/></div> 
           <div class="popular-title-description ">
             <h3 class = "title-third ">${title}</h3>
-           <div class = "description-container "><p class = "popular-description dark-theme">${description}</p></div> 
+           <div class = "description-container "><p class = "popular-description">${description}</p></div> 
           </div>
         </div> `).join('')
     popularRecipes.innerHTML = markup;
