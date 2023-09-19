@@ -50,6 +50,12 @@ overflow: hidden;
         height: 316px;
     }
 }
+@media only screen and (min-width: 768px) {
+    .cards-popular-recipes{
+        height: 364px;
+    }
+}
+
 
 
 .card-recipes{
@@ -62,6 +68,13 @@ overflow: hidden;
 @media only screen and (min-width: 768px) {
     .card-recipes{
     margin-bottom: 16px;
+    
+}
+}
+@media only screen and (min-width: 1280px) {
+    .card-recipes{
+        height: 67px;
+    margin-bottom: 32px;
     
 }
 }
