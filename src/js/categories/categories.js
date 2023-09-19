@@ -18,7 +18,6 @@ const cardsPerPage = {
     medium: 8,
     large: 9,
 };
-const getLocalStorageId = JSON.parse(localStorage.getItem('saveCheckedFavorite')) ?? [];
 const getCardPerPage = () => {
     const windowWidth = document.documentElement.clientWidth;
 
@@ -49,7 +48,7 @@ export async function getRecipesByCategory(event) {
         });
         galleryEl.innerHTML = '';
 
-        galleryEl.innerHTML = createMarkupElForFilter(response.data.results, getLocalStorageId);
+        galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
         onCreateGoldStar(response.data.results);
         //  модалка  рецепт
         const cardsRecipesBtn = document.querySelectorAll(".btn-blok-recipes-see");
@@ -79,7 +78,7 @@ if (categoriesList && allCategoriesButton && galleryEl) {
             evtStartMarkup = response.data.results
             if (galleryEl) {
                 galleryEl.innerHTML = '';
-                galleryEl.innerHTML = createMarkupElForFilter(response.data.results, getLocalStorageId);
+                galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
                 onCreateGoldStar(response.data.results);
                  //  модалка  рецепт
         const cardsRecipesBtn = document.querySelectorAll(".btn-blok-recipes-see");
