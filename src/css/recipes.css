@@ -228,10 +228,10 @@
 
   fill: #ddddcc00;
 }
-.svg-active {
+/* .svg-active {
   fill: #f8f8f8;
   opacity: 1;
-}
+} */
 
 .heart-icon-elem {
   z-index: 23;
@@ -245,10 +245,10 @@
   cursor: pointer;
   /* pointer-events: none; */
 }
-/* .heart-icon-elem:checked + .heart-icon-action > .icon-heart-svg {
+.heart-icon-elem:checked + label.heart-icon-action > .icon-heart-svg {
   fill: #f8f8f8;
   opacity: 1;
-} */
+}
 
 .heart-icon-action {
   z-index: 24;
