@@ -1,10 +1,7 @@
-/* tui-pagination"><a href="#" class="tui-page-btn tui-first"><span class="tui-ico-first">first</span></a><a href="#" class="tui-page-btn tui-prev"><span class="tui-ico-prev">prev</span></a><a href="#" class="tui-page-btn tui-first-child">1</a><a href="#" class="tui-page-btn">2</a><a href="#" class="tui-page-btn">3</a><strong class="tui-page-btn tui-is-selected">4</strong><a href="#" class="tui-page-btn">5</a><a href="#" class="tui-page-btn tui-next-is-ellip tui-last-child"><span class="tui-ico-ellip">...</span></a><a href="#" class="tui-page-btn tui-next"><span class="tui-ico-next">next</span></a><a href="#" class="tui-page-btn tui-last"><span class="tui-ico-last">last</span></a></div>
-<a href="#" class="tui-page-btn tui-first"><span class="tui-ico-first">first</span></a>
-<a href="#" class="tui-page-btn tui-prev"><span class="tui-ico-prev">prev</span></a><a href="#" class="tui-page-btn tui-first-child">1</a>
-<a href="#" class="tui-page-btn">2</a> */
 
 
-.tui-pagination{
+
+/* .tui-pagination{
     width: 335px;
     height: 40px;
     margin-bottom: 80px;
@@ -29,7 +26,7 @@
     width:40px;
     height: 40px;
     border:none;
-}
+} */
 /* .tui-page-btn{
     width:40px;
     height: 40px;
