@@ -9,7 +9,7 @@ const paginationContainer = document.querySelector("#pagination");
 const options = { 
      totalItems: 0,
      itemsPerPage: 6,
-     visiblePages: 2,
+     visiblePages: 3,
      page: 1,
   centerAlign: true,
   //функція що відслідковує кліки та змінює поточну сторінку та викликає fetchData() для нової сторінки
