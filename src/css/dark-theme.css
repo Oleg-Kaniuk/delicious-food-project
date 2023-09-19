@@ -1,22 +1,25 @@
 .dark-theme {
   background-color: #1e1e1e;
-  color: #fff;
+  color: var(----dark-main-text-color);
 }
 .dark-theme .main-link {
-  color: #fff;
+  color: var(----dark-main-text-color);
+}
+.dark-theme .main-link.heder-active {
+  color: var(--additional-text-color);
 }
 .dark-theme .logotype {
-  color: #fff;
+  color: var(----dark-main-text-color);
 }
 .dark-theme .icon-cart {
-  fill: #fff;
+  fill: var(----dark-main-text-color);
 }
 .dark-theme .icon-cart:hover,
 .dark-theme .icon-cart:focus {
   fill: var(--additional-text-color);
 }
 .dark-theme .burger-menu-btn {
-  stroke: #fff;
+  stroke: var(----dark-main-text-color);
 }
 .dark-theme .burger-active {
   color: var(--additional-text-color);
@@ -25,14 +28,14 @@
   background-color: #050505;
 }
 .dark-theme .hero-title {
-  color: #fff;
+  color: var(----dark-main-text-color);
 }
 .dark-theme .hero-text {
-  color: #fff;
+  color: var(----dark-main-text-color);
 }
 .dark-theme .hero-btn {
   background-color: #1e1e1e;
-  color: #fff;
+  color: var(----dark-main-text-color);
 }
 .dark-theme .modal-order-now {
   background-color: #050505;
@@ -49,7 +52,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .dark-theme .modal-close-icon {
-  stroke: #fff;
+  stroke: var(----dark-main-text-color);
 }
 .dark-theme .slide-preview {
   border: 1px solid rgba(155, 181, 55, 0.3);
@@ -78,15 +81,17 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.dark-theme .categories-list-element {
+.dark-theme .categoreis-list-element {
   color: rgba(255, 255, 255, 0.3);
 }
-
+.dark-theme .all-categores-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.18);
+}
 .dark-theme .title-popular-recipes {
-  color: #fff;
+  color: var(----dark-main-text-color);
 }
 .dark-theme .title-third {
-  color: #fff;
+  color: var(----dark-main-text-color);
 }
 
 .dark-theme .popular-description {
@@ -97,18 +102,26 @@
   background-color: #050505;
 }
 .dark-theme .button__close {
-  stroke: #fff;
+  stroke: var(----dark-main-text-color);
 }
 .dark-theme .modal-title {
-  color: #fff;
+  color: var(----dark-main-text-color);
 }
 .dark-theme .instructions {
   color: rgba(255, 255, 255, 0.8);
 }
 .dark-theme .add-btn {
   background-color: #050505;
-  color: #fff;
+  color: var(----dark-main-text-color);
 }
 
 .dark-theme .nav-link-favorites {
+}
+
+.dark-theme .blok-recipes {
+  background-image: radial-gradient(
+    1deg,
+    #050505 4.82%,
+    rgba(5, 5, 5, 0) 108.72%
+  );
 }
