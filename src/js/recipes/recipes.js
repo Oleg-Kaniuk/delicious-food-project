@@ -3,16 +3,22 @@ import {elements} from '/js/filters/filters.js'
 import imgUrl from '../../img/icon-sprite.svg'
 
 
-export function createMarkupElForFilter(arr , localStorageIds) {
-  
+export function createMarkupElForFilter(arr) {
+
+  //  беремо дані зі сховища, так вони будуть актуальні 
+  const localStorageIds = JSON.parse(localStorage.getItem('saveCheckedFavorite')) ?? [];
   return arr.map(({ _id, title, preview, description, rating }) => {
-    console.log(localStorageIds);
-    console.log(_id);
+   
        const isIdInLocalStorage = localStorageIds.includes(_id);
  
        const labelClass = isIdInLocalStorage
       ? 'heart-icon-action  svg-active'
       : 'heart-icon-action ';
+      // додаємо змінну в залежності від значення якої будемо додавати атрибут
+    // checked на інпут, додаватись він буде якщо такий id вже є у сховищі
+    // а отже користувач вже обрав цю страву
+    const isChecked = isIdInLocalStorage
+
     
   return  `<div class="blok-recipes " id="${_id}">
       
@@ -21,6 +27,7 @@ export function createMarkupElForFilter(arr , localStorageIds) {
         type="checkbox"
         class="heart-icon-elem "
         name="heart-icon"
+        ${isChecked ? 'checked' : ''} 
         
       />
       <label for="${_id}" aria-hidden="true" class="${labelClass} ">
@@ -70,8 +77,6 @@ function onClickHeart(e) {
 
   const uniqueArrForLocalStor = JSON.parse(localStorage.getItem('saveCheckedFavorite')) ?? [];
   
-  // const iconSvg = document.querySelector('.icon-heart-svg');
-  // const iconSvg = document.querySelector('.heart-icon-action');
   const idCard = e.target.id 
  
   if (e.target.checked) {
