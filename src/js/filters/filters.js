@@ -144,7 +144,8 @@ function onClickResetInput() {
   if (elements.inputFilter.value === '') {
     if (evtCategories === '') {
       // console.log(evtStartMarkup)
-      return galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup, OPLocalStorageId)
+      galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup, OPLocalStorageId)
+      return onCreateGoldStar(evtStartMarkup) 
     }
     // console.log(evtCategories);
     getRecipesByCategory(evtCategories)
@@ -152,11 +153,15 @@ function onClickResetInput() {
 }
 
 function onClickResetInputAll() {
-  if (elements.inputFilter.value !== '') {
-    elements.inputFilter.value = ''
-    elements.iconClose.classList.add('filter-is-hidden')
-      if (evtCategories === '') {
-        return galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup, OPLocalStorageId)
-      }
+  elements.inputFilter.value = ''
+  elements.iconClose.classList.add('filter-is-hidden')
+  if (elements.inputFilter.value === '') {
+    if (evtCategories === '') {
+      // console.log(evtStartMarkup)
+      galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup, OPLocalStorageId)
+      return onCreateGoldStar(evtStartMarkup)
+    }
+    // console.log(evtCategories);
+    getRecipesByCategory(evtCategories)
   }
 }
