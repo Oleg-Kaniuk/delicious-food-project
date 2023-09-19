@@ -177,7 +177,9 @@
 .icon-ellipse.move-left {
   transform: translateX(0);
 } */
-.theme-switch__control.hed-switch {
+
+/* important */
+.theme-switch__control {
   display: none;
 }
 @media only screen and (min-width: 768px) {
@@ -189,7 +191,7 @@
     width: 46px;
     height: 20px;
     border-radius: 20px;
-    padding: 2px 0;
+    padding: 1px 0;
   }
 }
 
@@ -225,8 +227,7 @@
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  transform: translateX(3px);
+  transform: translateX(1px);
   transition: var(--transition-dur-and-func);
 }
 .theme-switch__toggle:checked + .theme-switch__track {
@@ -237,7 +238,5 @@
   transition: var(--transition-dur-and-func);
   transform: translateX(27px);
 }
-/* .theme-switch__toggle:focus + .theme-switch__track,
-.theme-switch__toggle:active + .theme-switch__track {
-  box-shadow: 0 0 0 3px #2196f3;
-} */
+
+/* not */

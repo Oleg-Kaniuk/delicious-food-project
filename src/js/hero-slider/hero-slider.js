@@ -1,12 +1,15 @@
 import axios from 'axios';
 import Swiper from 'swiper/bundle';
 // import styles bundle
+// import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css/bundle';
 
 // Swiper.use([Pagination, Navigation])
 
 
 const swiperwrap = document.querySelector('.swiper-wrapper')
+
+
 
 const mySwiper = new Swiper(".swiper", {
   slidesPerView: 1,
@@ -23,7 +26,7 @@ const mySwiper = new Swiper(".swiper", {
   pagination: {
     el:'.swiper-pagination',
     clickable: true,
-    // type: 'bullets',
+    type: 'bullets',
   },
     keyboard: {
     enabled: true,
@@ -33,10 +36,15 @@ const mySwiper = new Swiper(".swiper", {
 
 console.log(mySwiper)
 async function onMastersEvents() {
-    const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api'
+  const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+  try {
     const response = await axios(`${BASE_URL}/events`)
     const data = creatMarkup(response.data)
-  swiperwrap.insertAdjacentHTML('beforeend',data)
+    swiperwrap.insertAdjacentHTML('beforeend', data)
+  }
+  catch (error) {
+    console.error(error)
+  }
 }
 onMastersEvents()
 
