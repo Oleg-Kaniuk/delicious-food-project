@@ -67,7 +67,7 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <button class="add-btn js-add-rating" type="button">Give a rating</button>
 `;
   const markupMobile = `
-<img class="modal-recipe-image" src="${thumb}" alt="${title}" max-width="295px" height="295px"></img>
+  ${youtubeWatch ? youtubeEmbed : imgData}
 <h2 class= "modal-title">${area}</h2>
 <div class ="block-info">
 <div class="block-time">
