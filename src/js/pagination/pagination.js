@@ -1,7 +1,7 @@
 
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { createMarkupElForFilter } from '/js/recipes/recipes.js';
+import { createMarkupElForFilter, onCreateGoldStar} from "/js/recipes/recipes.js"
 
 const containerForRecipes = document.querySelector(".container-for-recipes");
 const paginationContainer = document.querySelector("#pagination");
@@ -17,7 +17,7 @@ const options = {
     const clickedPage = event.page;
     if (pagePagination !== clickedPage) {
       pagePagination = clickedPage;
-      fetchData(pagePagination)
+      fetchData(pagePagination);
     }
       },
 };
@@ -25,11 +25,25 @@ const pagination = new Pagination(paginationContainer, options);
  console.log(pagination);
 
 let totalItems;
-const page = pagination.getCurrentPage();//почaткатова сторінка з опцій
-
+let page = pagination.getCurrentPage();//почaткатова сторінка з опцій
 
 let pagePagination = 1; // початкова сторінка
-const itemsPerPage = 6; //на сторінці
+let itemsPerPage = 6; //на сторінці
+
+const getCardPerPage = () => {
+    const windowWidth = document.documentElement.clientWidth;
+       
+    if (windowWidth < 768) {
+      itemsPerPage;
+      
+    } else if (windowWidth < 1200) {
+      itemsPerPage = 8;
+      
+    } else {
+      itemsPerPage = 9;
+      
+    }
+};
 
 async function fetchData(pagePagination) {
     const BASEURL_RECIPES =
@@ -58,13 +72,14 @@ renderfirstPage(page);
 
 //генерує наступну сторінку 
 function renderEvt(page) {
+  getCardPerPage();
   console.log(page);
-  fetchData(page)
+  fetchData(page,)
   .then(recipes => {
     console.log(recipes);
     pagePagination++;
     containerForRecipes.innerHTML = createMarkupElForFilter(recipes.results);
-    console.log(recipes.results);
+    onCreateGoldStar(recipes.results);
   })
         .catch(error => console.log(error));
 }
