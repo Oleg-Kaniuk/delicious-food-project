@@ -10,6 +10,7 @@ const modalWindow = document.querySelector('.recipe-info');
 export const backdropElem = document.querySelector('.recipe-backdrop');
 
 export function onModal(id) {
+  backdropElem.classList.remove('is-hidden-recipe-backdrop')
   modalWindow.innerHTML = '';
   allInfoRecipes(id)
     .then(data => {
@@ -102,7 +103,6 @@ function createMarkupInfoRecipes(arr) {
     )
     .join('');
   creatIngredients.innerHTML = markupIngradient;
-  console.log(arr);
   const creatTags = document.querySelector('.tags');
   const markupTags = tags
     .map(tag => `<li class ="title-tags"><p>#${tag}</p></li>`)
@@ -137,10 +137,9 @@ function onGoldStar(arr) {
   const iconStar = document.querySelectorAll('.icon-star');
   let counter = 0;
   for (let i = 0; i < 5; i += 1) {
-    console.log(arr.rating);
     if (i < Math.floor(arr.rating)) {
       if (iconStar) {
-        iconStar[counter].classList.add('star-icon-active');
+       const y = iconStar[counter].classList.add('star-icon-active');
       }
     }
     counter += 1;

@@ -1,4 +1,4 @@
-import { backdropElem} from "/js/modal-recipe/modal-recipe.js"
+
 import { onModal} from "/js/modal-recipe/modal-recipe.js"
 const popularRecipes = document.querySelector(".cards-popular-recipes");
 
@@ -38,7 +38,6 @@ function createMarkupRecipes(arr) {
     
 }
 function onPopularRecipesClick(id) {
-backdropElem.classList.remove('is-hidden-recipe-backdrop')
  onModal(id)
 };
    
