@@ -34,6 +34,14 @@ overflow: hidden;
         margin-bottom: 32px;
     }
 }
+@media only screen and (min-width: 1280px) {
+    .title-popular-recipes{
+        font-size: 24px;
+        line-height: 1.17;
+    }
+
+}
+
 .cards-popular-recipes{
     cursor: pointer;
 }
@@ -97,6 +105,8 @@ overflow: hidden;
 .title-third {
     font-weight: 600;
     font-style: normal;
+    font-size: 14px;
+    line-height: 1.29;
     color:var(--main-dark-text-color);
     margin-bottom: 8px;
     
@@ -127,6 +137,7 @@ overflow: hidden;
         -webkit-line-clamp: 3;
     }
 }
+
 
 
  
