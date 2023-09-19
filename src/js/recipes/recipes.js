@@ -3,12 +3,18 @@ import {elements} from '/js/filters/filters.js'
 import imgUrl from '../../img/icon-sprite.svg'
 
 
-
-export function createMarkupElForFilter(arr) {
+export function createMarkupElForFilter(arr , localStorageIds) {
   
- return arr.map(({ _id, title, preview, description, rating }) => 
+  return arr.map(({ _id, title, preview, description, rating }) => {
+    console.log(localStorageIds);
+    console.log(_id);
+       const isIdInLocalStorage = localStorageIds.includes(_id);
  
-   `<div class="blok-recipes " id="${_id}">
+       const labelClass = isIdInLocalStorage
+      ? 'heart-icon-action  svg-active'
+      : 'heart-icon-action ';
+    
+  return  `<div class="blok-recipes " id="${_id}">
       
       <input
         id="${_id}"
@@ -17,7 +23,7 @@ export function createMarkupElForFilter(arr) {
         name="heart-icon"
         
       />
-      <label for="${_id}" aria-hidden="true" class="heart-icon-action ">
+      <label for="${_id}" aria-hidden="true" class="${labelClass} ">
         <svg class="icon-heart-svg " width="22" height="22">
           <use href="${imgUrl}#icon-heart"></use>
         </svg>
@@ -51,11 +57,10 @@ export function createMarkupElForFilter(arr) {
   <button id="${_id}" class="btn-blok-recipes-see" type="button">See recipe</button></div>
   </div>
 
-</div>`).join(''); 
+</div>`}).join(''); 
    
 }
 
-export const KEY_FEEDBACK = 'saveCheckedFavorite';
 
 if (elements.containerForRecipes) {
   elements.containerForRecipes.addEventListener('change', onClickHeart)
@@ -63,7 +68,7 @@ if (elements.containerForRecipes) {
 
 function onClickHeart(e) {
 
-  const uniqueArrForLocalStor = JSON.parse(localStorage.getItem(KEY_FEEDBACK)) ?? [];
+  const uniqueArrForLocalStor = JSON.parse(localStorage.getItem('saveCheckedFavorite')) ?? [];
   
   // const iconSvg = document.querySelector('.icon-heart-svg');
   // const iconSvg = document.querySelector('.heart-icon-action');
@@ -74,7 +79,7 @@ function onClickHeart(e) {
     if (!uniqueArrForLocalStor.includes(idCard)) {
       uniqueArrForLocalStor.push(idCard);
     
-      localStorage.setItem(KEY_FEEDBACK, JSON.stringify(uniqueArrForLocalStor));
+      localStorage.setItem('saveCheckedFavorite', JSON.stringify(uniqueArrForLocalStor));
     }
   }
   
@@ -82,7 +87,7 @@ function onClickHeart(e) {
 
      const indexElCard = uniqueArrForLocalStor.indexOf(idCard);
     uniqueArrForLocalStor.splice(indexElCard, 1);
-      localStorage.setItem(KEY_FEEDBACK, JSON.stringify(uniqueArrForLocalStor));
+      localStorage.setItem('saveCheckedFavorite', JSON.stringify(uniqueArrForLocalStor));
 
   } 
  }

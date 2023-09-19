@@ -6,6 +6,9 @@ import SlimSelect from 'slim-select';
 import { createMarkupElForFilter, onCreateGoldStar} from "/js/recipes/recipes.js"
 import {getRecipesByCategory, evtCategories,evtStartMarkup, galleryEl,responseFromCategoryFunction} from '/js/categories/categories.js'
 
+const OPLocalStorageId = JSON.parse(localStorage.getItem('saveCheckedFavorite')) ?? [];
+console.log(OPLocalStorageId);
+
  export const elements = {
     timeSelect: document.querySelector('.js-time-select'),
     areaSelect: document.querySelector('.js-area-select'),
@@ -108,7 +111,8 @@ serviceGetResult(event.target.value)
 .then(data => {
   // console.log(data.data.results)
   // createMarkupElForFilter(data.data.results)
-  elements.containerForRecipes.innerHTML = createMarkupElForFilter(data.data.results)
+  elements.containerForRecipes.innerHTML = createMarkupElForFilter(data.data.results, OPLocalStorageId)
+
   onCreateGoldStar(data.data.results)
 })
 .catch(err => console.log(err))
@@ -140,7 +144,7 @@ function onClickResetInput() {
   if (elements.inputFilter.value === '') {
     if (evtCategories === '') {
       // console.log(evtStartMarkup)
-      return galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
+      return galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup, OPLocalStorageId)
     }
     // console.log(evtCategories);
     getRecipesByCategory(evtCategories)
@@ -152,7 +156,7 @@ function onClickResetInputAll() {
     elements.inputFilter.value = ''
     elements.iconClose.classList.add('filter-is-hidden')
       if (evtCategories === '') {
-        return galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
+        return galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup, OPLocalStorageId)
       }
   }
 }
