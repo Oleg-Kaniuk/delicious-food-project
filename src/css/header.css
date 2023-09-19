@@ -2,9 +2,6 @@
   display: none;
 }
 
-.switcher-btn {
-  display: none;
-}
 .main-link:hover,
 .main-link:focus {
   color: var(--additional-text-color);
@@ -108,12 +105,20 @@
     line-height: 1.11;
     letter-spacing: -0.72px;
   }
+  .icons {
+    gap: 18px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
   .header-container {
+    /* ///// */
+
     padding-top: 40px;
     padding-bottom: 40px;
+  }
+  .icons {
+    gap: 24px;
   }
 }
 
@@ -222,7 +227,7 @@
   pointer-events: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   transform: translateX(3px);
-  transition: transform 250ms var(--timing-function);
+  transition: var(--transition-dur-and-func);
 }
 .theme-switch__toggle:checked + .theme-switch__track {
   transition: var(--transition-dur-and-func);

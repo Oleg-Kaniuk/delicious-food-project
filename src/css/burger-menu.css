@@ -50,11 +50,6 @@
   font-size: 12px;
 }
 
-/* .switcher-btn {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-} */
 .switcher-burger-btn.switcher-burger-btn {
   align-items: center;
   width: 46px;
@@ -65,7 +60,7 @@
   bottom: 20px;
   left: 20px;
 }
-.theme-switch__toggle.burg-toggle {
+/* .theme-switch__toggle.burg-toggle {
   position: absolute;
   left: 0;
   top: 0;
@@ -101,11 +96,10 @@
   transform: translateX(3px);
   transition: transform 250ms var(--timing-function);
 }
-.theme-switch__toggle.burg-toggle:checked + .theme-switch__track.burg-track {
-  transition: var(--transition-dur-and-func);
+.burg-toggle:checked + .burg-track {
   background-color: var(--additional-text-color);
 }
-.theme-switch__toggle.burg-toggle:checked ~ .theme-switch__marker {
+.burg-toggle:checked ~ .burg-marker {
   transition: var(--transition-dur-and-func);
   transform: translateX(27px);
-}
+} */
