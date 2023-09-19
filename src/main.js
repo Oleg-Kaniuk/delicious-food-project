@@ -10,3 +10,4 @@ import './js/order-now/order-now';
 import './js/rating/rating';
 import './js/modal-recipe/modal-recipe';
 import './js/pagination/pagination';
+import './js/dark-theme/dark-theme';
