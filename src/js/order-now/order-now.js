@@ -1,9 +1,22 @@
 const modalCloseBtnOrder = document.querySelector('.modal-close-btn-order');
-const backdropElNow = document.querySelector('.backdrop');
+const backdropElNow = document.querySelector('.js-backdrop-order');
 const formOrder = document.querySelector('.modal-form-order');
 
 const modalOrderNow = document.querySelector('.modal-order-now')
 
+
+const heroModalBtn = document.querySelector('.js-hero-btn')
+const backdrop = document.querySelector('.js-backdrop-order')
+
+heroModalBtn.addEventListener('click', heroModalOpen)
+
+
+function heroModalOpen(evt) {
+  // клік на Escape
+
+  backdrop.classList.toggle("is-hidden")
+    document.addEventListener("keydown", onClickEscapeNow);
+}
 
 // клік на btnClose
   modalCloseBtnOrder.addEventListener('click', onBtnCloseNow);
@@ -11,8 +24,7 @@ const modalOrderNow = document.querySelector('.modal-order-now')
 // клік на backdropEl
   backdropElNow.addEventListener('click', onClickBackdropNow);
 
-// клік на Escape
-  document.addEventListener("keydown", onClickEscapeNow);
+
 
 // клік на Send
  formOrder.addEventListener('submit', onClickSendNow);
@@ -23,13 +35,16 @@ function onBtnCloseNow() {
 
 function onClickBackdropNow(e) {
    if (e.target===backdropElNow) {
-   backdropElNow.classList.toggle('is-hidden');
+     backdropElNow.classList.toggle('is-hidden');
+      // backdropElNow.removeEventListener('click', onClickBackdropNow);
 }
 }
 
 function onClickEscapeNow(e) {
+  console.log(e)
   if (e.code === "Escape") {
     backdropElNow.classList.add('is-hidden')
+     document.removeEventListener("keydown", onClickEscapeNow)
   }
 }
 
@@ -52,7 +67,9 @@ function onClickSendNow(evt) {
       })
       
       formOrder.reset()   //очищаємо поле
-         backdropElNow.classList.toggle('is-hidden');
+       formOrder.removeEventListener('submit', onClickSendNow);
+      backdropElNow.classList.toggle('is-hidden');
+      
 
   }
 }
