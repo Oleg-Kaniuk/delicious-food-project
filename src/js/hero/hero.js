@@ -1,24 +1,29 @@
-// const heroModalBtn = document.querySelector('.js-hero-btn')
-// const backdrop = document.querySelector('.js-backdrop')
+const heroModalBtn = document.querySelector('.js-hero-btn')
+const backdrop = document.querySelector('.js-backdrop-order')
 
-// if(heroModalBtn){heroModalBtn.addEventListener('click', heroModalOpen)}
+heroModalBtn.addEventListener('click', heroModalOpen)
 
 
-// function heroModalOpen(evt) {
-//    return backdrop.classList.remove("is-hidden")
-// }
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector("[data-modal-open-order]"),
-    closeModalBtn: document.querySelector("[data-modal-close-order]"),
-    modal: document.querySelector("[data-modal-order]"),
-  };
+function heroModalOpen(evt) {
+   backdrop.classList.toggle("is-hidden")
+}
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
 
-  function toggleModal() {
-    document.body.classList.toggle("modal-open");
-    refs.modal.classList.toggle("is-hidden");
-  }
-})();
+
+
+
+// (() => {
+//   const refs = {
+//     openModalBtn: document.querySelector("[data-modal-open-order]"),
+//     closeModalBtn: document.querySelector("[data-modal-close-order]"),
+//     modal: document.querySelector("[data-modal-order]"),
+//   };
+
+//   refs.openModalBtn.addEventListener("click", toggleModal);
+//   refs.closeModalBtn.addEventListener("click", toggleModal);
+
+//   function toggleModal() {
+//     document.body.classList.toggle("modal-open");
+//     refs.modal.classList.toggle("is-hidden");
+//   }
+// })();
