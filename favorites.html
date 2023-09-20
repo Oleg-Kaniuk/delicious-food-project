@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/delicious-food-project/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites delicious food</title>
+    <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css">
+    
+  <script type="module" crossorigin src="/delicious-food-project/assets/favorites-9798b289.js"></script>
+  <link rel="modulepreload" crossorigin href="/delicious-food-project/assets/vanilla-back-to-top-189d52b9.js">
+  <link rel="stylesheet" href="/delicious-food-project/assets/vanilla-back-to-top-77203059.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-section">
+  <div class="container header-container">
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link-home heder-active main-link"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="./favorites.html" class="nav-link-favorites main-link"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <a class="logotype" href="./index.html">
+      <span class="tasty">tasty</span>treats.
+    </a>
+
+    <div class="icons">
+      <!-- button cart -->
+
+      <button type="button" class="cart-btn">
+        <a href="tel:+380730000000" class="cart">
+          <svg class="icon-cart">
+            <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-cart"></use>
+          </svg>
+        </a>
+      </button>
+
+      <!-- button burger-menu -->
+
+      <button
+        data-modal-open
+        type="button"
+        class="burger-menu-btn js-open-menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="icon-burger-menu">
+          <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-burger-menu"></use>
+        </svg>
+      </button>
+
+      <!-- button switcher -->
+      <div class="theme-switch__control hed-switch">
+        <input
+          class="theme-switch__toggle"
+          type="checkbox"
+          name="theme"
+          id="theme-switch-toggle"
+          aria-label="Переключити між темною та світлою темою"
+        />
+        <label
+          aria-hidden="true"
+          class="theme-switch__track"
+          for="theme-switch-toggle"
+        >
+        </label>
+        <div aria-hidden="true" class="theme-switch__marker"></div>
+      </div>
+
+      <!-- <button type="button" class="switcher-btn header-switcher">
+      <svg class="icon-rectangle" width="46" height="20">
+        <use href="/img/icon-sprite.svg#icon-rectangle"></use>
+      </svg>
+      <svg class="icon-ellipse" width="19" height="19">
+        <use class="ic-el" href="/img/icon-sprite.svg#icon-ellipse"></use>
+      </svg>
+    </button> -->
+    </div>
+  </div>
+</div>
+
+        <div data-modal class="burger-menu js-menu-container" id="mobile-menu">
+  <button data-modal-close type="button" class="burger-menu-close js-close-menu">
+    <svg class="burger-menu-icon" width="32" height="32">
+      <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-x-close"></use>
+    </svg>
+  </button>
+
+  <nav class="burger-menu-nav">
+    <ul class="burger-menu-nav-list">
+      <li class="burger-menu-nav-home">
+        <a href="./index.html" class="burger-menu-nav-link js-close-menu link burger-active">Home</a>
+      </li>
+      <li class="burger-menu-nav-favorites">
+        <a href="./favorites.html" class="burger-menu-nav-link js-close-menu link">Favorites</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- <button type="button" class="switcher-btn switcher-burger-btn">
+    <svg class="icon-rectangle" width="46" height="20">
+      <use href="/img/icon-sprite.svg#icon-rectangle"></use>
+    </svg>
+    <svg class="icon-ellipse" width="19" height="19">
+      <use href="/img/icon-sprite.svg#icon-ellipse"></use>
+    </svg>
+  </button> -->
+
+  <!-- switcher-button- -->
+  <div class="theme-switch__control burger-switch">
+    <input
+      class="theme-switch__toggle"
+      type="checkbox"
+      name="theme"
+      id="theme-switch-toggle"
+      aria-label="Переключити між темною та світлою темою"
+    />
+    <label
+      aria-hidden="true"
+      class="theme-switch__track"
+      for="theme-switch-toggle"
+    >
+
+    </label>
+    <div aria-hidden="true" class="theme-switch__marker"></div>
+  </div>
+</div>
+    </header>
+
+    <main>
+
+        <!-- 
+        <button type="button" class="all-categories-button js-all-categories-button">All categories</button>
+<div class="all-categores-container">
+    <ul class="categories-list"></ul>
+</div> -->
+
+        <h1 class="visually-hidden">Favorite recipes</h1>
+        <section class="section">
+            <div class="container">
+                <section class="hero-image-section">
+                    <div class="hero-image"></div>
+                </section>
+
+                <div class="categories">
+                    <ul class="categories-list"></ul>
+                </div>
+                <div class="favorite-recipes">
+                    <ul class="favorite-recipes-list"></ul>
+
+                </div>
+                <div class="empty-favorites-container">
+                    <svg width="68" height="58" viewBox="0 0 37 32">
+                        <use xlink:href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-hat"></use>
+                    </svg>
+                    <p class="empty-favorites-text">It appears that you haven't added any recipes to your favorites yet.
+                        To get started, you can add recipes that you like to your favorites for easier access in the
+                        future.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <!-- <div id="pagination" class="tui-pagination"></div>
+ -->
+    <div class="recipe-backdrop js-recipe-backdrop is-hidden-recipe-backdrop">
+    <div class="recipe-modal">
+      <button type="button" class="modal-close-recipe-btn">
+        <svg class="modal-close-icon" width="20" height="20">
+          <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-x-close"></use>
+        </svg>
+      </button><div class ="recipe-info"></div>
+    </div>
+</div>
+    <!-- <div class="backdrop js-backdrop-order is-hidden">
+  <div class="modal-order-now">
+    <button type="button" class="modal-close-btn-order">
+      <svg class="modal-close-icon" width="20" height="20">
+        <use href="./img/icon-sprite.svg#icon-x-close"></use>
+      </svg>
+    </button>
+    <h2 class="modal-text">Order now</h2>
+    <form class="modal-form-order" name="modal_form">
+      <label class="form-label" for="user_name">Name</label>
+      <input
+        class="form-field"
+        type="text"
+        name="user_name"
+        id="user_name"
+        minlength="5"
+        required
+        min="10"
+        autofocus
+      />
+
+      <label class="form-label" for="user_phone"> Phone number</label>
+      <input
+        class="form-field"
+        type="tel"
+        name="user_phone"
+        id="user_phone"
+        required
+      />
+
+      <label class="form-label" for="user_mail_modal">Email</label>
+      <input
+        class="form-field"
+        type="email"
+        name="user_mail_modal"
+        id="user_mail_modal"
+        required
+      />
+
+      <label class="form-label" for="modal_comment">Comment</label>
+      <textarea
+        class="modal-textarea"
+        name="modal_comment"
+        id="modal_comment"
+        rows="6"
+      ></textarea>
+
+      <button class="button-send-form">Send</button>
+    </form>
+  </div>
+</div>
+ -->
+    
+
+    
+
+</body>
+
+</html>

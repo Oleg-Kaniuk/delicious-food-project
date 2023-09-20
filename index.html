@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/delicious-food-project/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delicious food</title>
+  <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css" />
+  
+  <script type="module" crossorigin src="/delicious-food-project/assets/index-0c5e87c3.js"></script>
+  <link rel="modulepreload" crossorigin href="/delicious-food-project/assets/vanilla-back-to-top-189d52b9.js">
+  <link rel="stylesheet" href="/delicious-food-project/assets/vanilla-back-to-top-77203059.css">
+  <link rel="stylesheet" href="/delicious-food-project/assets/index-cfc9f3e6.css">
+</head>
+
+<body class="dark-theme">
+  <header>
+    <div class="header-section">
+  <div class="container header-container">
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link-home heder-active main-link"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="./favorites.html" class="nav-link-favorites main-link"
+            >Favorites</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <a class="logotype" href="./index.html">
+      <span class="tasty">tasty</span>treats.
+    </a>
+
+    <div class="icons">
+      <!-- button cart -->
+
+      <button type="button" class="cart-btn">
+        <a href="tel:+380730000000" class="cart">
+          <svg class="icon-cart">
+            <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-cart"></use>
+          </svg>
+        </a>
+      </button>
+
+      <!-- button burger-menu -->
+
+      <button
+        data-modal-open
+        type="button"
+        class="burger-menu-btn js-open-menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="icon-burger-menu">
+          <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-burger-menu"></use>
+        </svg>
+      </button>
+
+      <!-- button switcher -->
+      <div class="theme-switch__control hed-switch">
+        <input
+          class="theme-switch__toggle"
+          type="checkbox"
+          name="theme"
+          id="theme-switch-toggle"
+          aria-label="Переключити між темною та світлою темою"
+        />
+        <label
+          aria-hidden="true"
+          class="theme-switch__track"
+          for="theme-switch-toggle"
+        >
+        </label>
+        <div aria-hidden="true" class="theme-switch__marker"></div>
+      </div>
+
+      <!-- <button type="button" class="switcher-btn header-switcher">
+      <svg class="icon-rectangle" width="46" height="20">
+        <use href="/img/icon-sprite.svg#icon-rectangle"></use>
+      </svg>
+      <svg class="icon-ellipse" width="19" height="19">
+        <use class="ic-el" href="/img/icon-sprite.svg#icon-ellipse"></use>
+      </svg>
+    </button> -->
+    </div>
+  </div>
+</div>
+
+    <div data-modal class="burger-menu js-menu-container" id="mobile-menu">
+  <button data-modal-close type="button" class="burger-menu-close js-close-menu">
+    <svg class="burger-menu-icon" width="32" height="32">
+      <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-x-close"></use>
+    </svg>
+  </button>
+
+  <nav class="burger-menu-nav">
+    <ul class="burger-menu-nav-list">
+      <li class="burger-menu-nav-home">
+        <a href="./index.html" class="burger-menu-nav-link js-close-menu link burger-active">Home</a>
+      </li>
+      <li class="burger-menu-nav-favorites">
+        <a href="./favorites.html" class="burger-menu-nav-link js-close-menu link">Favorites</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- <button type="button" class="switcher-btn switcher-burger-btn">
+    <svg class="icon-rectangle" width="46" height="20">
+      <use href="/img/icon-sprite.svg#icon-rectangle"></use>
+    </svg>
+    <svg class="icon-ellipse" width="19" height="19">
+      <use href="/img/icon-sprite.svg#icon-ellipse"></use>
+    </svg>
+  </button> -->
+
+  <!-- switcher-button- -->
+  <div class="theme-switch__control burger-switch">
+    <input
+      class="theme-switch__toggle"
+      type="checkbox"
+      name="theme"
+      id="theme-switch-toggle"
+      aria-label="Переключити між темною та світлою темою"
+    />
+    <label
+      aria-hidden="true"
+      class="theme-switch__track"
+      for="theme-switch-toggle"
+    >
+
+    </label>
+    <div aria-hidden="true" class="theme-switch__marker"></div>
+  </div>
+</div>
+  </header>
+
+  <main>
+    <section class="section-hero section">
+  <div class="hero-container">
+    <!-- hero main -->
+    <div class="hero-main-text ">
+      <h1 class="hero-title ">
+        Learn to Cook
+        <span class="hero-title-span ">Tasty Treats'</span> Customizable
+        Masterclass
+      </h1>
+      <p class="hero-text ">
+        TastyTreats - Customize Your Meal with Ingredient
+        <br>Options and Step-by-Step Video Guides</br>
+      </p>
+      <button class="hero-btn js-hero-btn " type="button" data-modal-open-order>Order now</button>
+    </div>
+
+    <!-- hero slider -->
+    <div class="hero-slider">
+      <div class="swiper my-swiper">
+  <!-- Additional required wrapper -->
+  <ul class="swiper-wrapper wrap">
+    <!-- Slides -->
+  
+  </ul>
+  <!-- If we need pagination -->
+ 
+
+ <div class=" swiper-pagination custom-pagination"></div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- <h2></h2> -->
+    <section class="section">
+      <div class="container main-container">
+        <div class="left-container">
+          <button type="button" class="all-categories-button js-all-categories-button">All categories</button>
+<div class="all-categores-container">
+    <ul class="categories-list"></ul>
+</div>
+          <div class="popular-recipes">
+  <h2 class="title-popular-recipes">Popular recipes</h2>
+  <div class="cards-popular-recipes"></div>
+</div>
+
+        </div>
+        <div class="right-container">
+          <div class="filters-conteiner ">
+    <form class="js-filter-form filter-form ">
+        <div class="filter-div-input ">
+            <p class="filter-title ">Search</p>
+            <div class="filter-container-input ">
+                <input class="js-input-filter filter-input" type="text" placeholder="Enter Text">
+                <!-- <div class="filter-container-icon"> -->
+                    <svg class="filter-icon-input">
+                        <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-search" class="filters-use-icon"></use>
+                    </svg>
+                    <svg class="js-icon-close filter-close-input filter-is-hidden">
+                        <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-x-close"></use>
+                    </svg>
+                <!-- </div> -->
+            </div>
+        </div>
+        <!-- <div class="filter-container-time ">
+            <p class="filter-title ">Time</p>
+            <select class="js-time-select filter-time-select filter-select "><option id="not-value" value="" disabled selected>Your option</option></select>
+        </div>
+        <div class="filter-container-area ">
+            <p class="filter-title ">Area</p>
+            <select class="js-area-select filter-area-select filter-select "><option id="not-value" value="" disabled selected>Your option</option></select>
+        </div>
+        <div class="filter-container-ingredients ">
+            <p class="filter-title ">Ingredients</p>
+            <select class="js-ingredients-select filter-Ingredients-select filter-select "><option id="not-value" value="" disabled selected>Your option</option></select>
+        </div> -->
+    </form>
+    <!-- <div class="js-filters-reset filter-div-reset ">
+        <svg class="filter-svg-reset ">
+            <use href="/img/icon-sprite.svg#icon-x-close"></use>
+        </svg>
+        <button class="filter-reset-button ">
+            <p>Reset the filter</p>
+        </button>
+    </div> -->
+</div>
+          <div class="container-for-recipes"></div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="pagination" class="tui-pagination"></div>
+
+  <div class="recipe-backdrop js-recipe-backdrop is-hidden-recipe-backdrop">
+    <div class="recipe-modal">
+      <button type="button" class="modal-close-recipe-btn">
+        <svg class="modal-close-icon" width="20" height="20">
+          <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-x-close"></use>
+        </svg>
+      </button><div class ="recipe-info"></div>
+    </div>
+</div>
+  <div class="backdrop js-backdrop-order is-hidden">
+  <div class="modal-order-now">
+    <button type="button" class="modal-close-btn-order">
+      <svg class="modal-close-icon" width="20" height="20">
+        <use href="/delicious-food-project/assets/icon-sprite-a1aee2ad.svg#icon-x-close"></use>
+      </svg>
+    </button>
+    <h2 class="modal-text">Order now</h2>
+    <form class="modal-form-order" name="modal_form">
+      <label class="form-label" for="user_name">Name</label>
+      <input
+        class="form-field"
+        type="text"
+        name="user_name"
+        id="user_name"
+        minlength="5"
+        required
+        min="10"
+        autofocus
+      />
+
+      <label class="form-label" for="user_phone"> Phone number</label>
+      <input
+        class="form-field"
+        type="tel"
+        name="user_phone"
+        id="user_phone"
+        required
+      />
+
+      <label class="form-label" for="user_mail_modal">Email</label>
+      <input
+        class="form-field"
+        type="email"
+        name="user_mail_modal"
+        id="user_mail_modal"
+        required
+      />
+
+      <label class="form-label" for="modal_comment">Comment</label>
+      <textarea
+        class="modal-textarea"
+        name="modal_comment"
+        id="modal_comment"
+        rows="6"
+      ></textarea>
+
+      <button class="button-send-form">Send</button>
+    </form>
+  </div>
+</div>
+
+  
+
+  
+</body>
+
+</html>
