@@ -17,6 +17,8 @@ import {getRecipesByCategory, evtCategories,evtStartMarkup, galleryEl,responseFr
     iconClose : document.querySelector('.js-icon-close'),
     allResetButtonFilters : document.querySelector('.js-filters-reset')
 }
+let timevalue =''
+
 // const containerForRecipes = document.querySelector('.container-for-recipes')
 if (elements.inputFilter) {
   elements.inputFilter.addEventListener('input', onInputClose)
@@ -25,62 +27,49 @@ if (elements.inputFilter) {
 if (elements.iconClose) {
   elements.iconClose.addEventListener('click', onClickResetInput)
 }
-if (elements.allResetButtonFilters) {
-  elements.allResetButtonFilters.addEventListener('click', onClickResetInputAll)
-}
+// if (elements.allResetButtonFilters) {
+//   elements.allResetButtonFilters.addEventListener('click', onClickResetInputAll)
+// }
+// if (elements.timeSelect) {
+   // elements.timeSelect.addEventListener('change', onChangeTimeCooking)
+// }
 
 // функція для рендеру select time
 marcupTime()
 function marcupTime() {
     for (let i = 5; i <= 120; i+=5) {
-     const sef = `<option value="${i} min">${i} min</option>`
+     const sef = `<option value="${i}" min">${i} min</option>`
      if (elements.timeSelect) {
       elements.timeSelect.insertAdjacentHTML('beforeend', sef)
      }
      
     }
-  //   new SlimSelect({
-  //     select: elements.timeSelect
-  //  })
   }
 
 // функця для запиту на бек-енд: країни
 function serviceGetArea() {
     return axios("https://tasty-treats-backend.p.goit.global/api/areas")
-    // перевірка чи щось прийшло з бек-енда
-    // .then((resp) => {
-    //           if (!resp.ok) {
-    //             throw new Error(resp.statusText);
-    //           }
-    //           return resp.json();
-    //         })
 
 }
 
 // функця для запиту на бек-енд: інградієнти
 function serviceGetIngredients() {
     return axios("https://tasty-treats-backend.p.goit.global/api/ingredients")
-    // .then((resp) => {
-    //     if (!resp.ok) {
-    //       throw new Error(resp.statusText);
-    //     }
-    //     console.log(resp);
-    //     return resp;
-    //   })
+
 }
 
 // функції для рендеру select area
 serviceGetArea()
 .then(data => {
   if (elements.areaSelect) {
-    elements.areaSelect.innerHTML = markupArea(data.data)
+    elements.areaSelect.insertAdjacentHTML('beforeend',markupArea(data.data)) 
   }
 })
 .catch(err => console.log(err))
 
 function markupArea(elem) {
     return elem.map(({name}) =>
-    `<option value="">${name}</option>`
+    `<option value="${name}">${name}</option>`
     ).join('')
   }
 
@@ -90,25 +79,22 @@ serviceGetIngredients()
 .then(data => {
   // console.log(data.data);
   if (elements.ingredientsSelect) {
-    elements.ingredientsSelect.innerHTML = markupIngredient(data.data)
+    elements.ingredientsSelect.insertAdjacentHTML('beforeend',markupIngredient(data.data))
   }
 })
 .catch(err => console.log(err))
 
 function markupIngredient(elem) {
     return elem.map(({name}) =>
-    `<option value="">${name}</option>`
+    `<option value="${name}">${name}</option>`
     ).join('')
 }
 
 
 // функція для відправки масива об'єктів для рендеру розмітки
 function onInpitSearch(event) {
-  // console.log(event.target.value)
 serviceGetResult(event.target.value)
 .then(data => {
-  // console.log(data.data.results)
-  // createMarkupElForFilter(data.data.results)
   elements.containerForRecipes.innerHTML = createMarkupElForFilter(data.data.results)
 
   onCreateGoldStar(data.data.results)
@@ -117,15 +103,16 @@ serviceGetResult(event.target.value)
 }
 // функція для пошуку по ключевому слову
 function serviceGetResult(value) {
-  console.log(evtCategories)
+  // console.log(evtCategories)
 if (evtCategories === '') {
   const API_URL = `https://tasty-treats-backend.p.goit.global/api/recipes?&title=${value.trim()}`
   return axios.get(API_URL)
 }
+if (evtCategories){
   const API_URL = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${evtCategories.target.textContent}&title=${value.trim()}`
   return axios.get(API_URL)
 }
-
+}
 
 
 // функції для іконки стерання input
@@ -141,25 +128,28 @@ function onClickResetInput() {
   elements.iconClose.classList.add('filter-is-hidden')
   if (elements.inputFilter.value === '') {
     if (evtCategories === '') {
-      // console.log(evtStartMarkup)
-      galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup, OPLocalStorageId)
-      return onCreateGoldStar(evtStartMarkup) 
+      
+      galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
+     return onCreateGoldStar(evtStartMarkup) 
     }
     // console.log(evtCategories);
     getRecipesByCategory(evtCategories)
   }
 }
 
-function onClickResetInputAll() {
-  elements.inputFilter.value = ''
-  elements.iconClose.classList.add('filter-is-hidden')
-  if (elements.inputFilter.value === '') {
-    if (evtCategories === '') {
-      // console.log(evtStartMarkup)
-      galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup, OPLocalStorageId)
-      return onCreateGoldStar(evtStartMarkup)
-    }
-    // console.log(evtCategories);
-    getRecipesByCategory(evtCategories)
-  }
-}
+// function onClickResetInputAll() {
+//   elements.inputFilter.value = ''
+//   elements.iconClose.classList.add('filter-is-hidden')
+//   if (elements.inputFilter.value === '') {
+//     if (evtCategories === '') {
+//       // console.log(evtStartMarkup)
+
+//       galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
+//       return onCreateGoldStar(evtStartMarkup)
+//     }
+
+//     getRecipesByCategory(evtCategories)
+//   }
+// }
+
+
