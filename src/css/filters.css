@@ -103,23 +103,23 @@ max-height:68px ;
 
     color: var( --filters-select-color);
 }
-.filter-div-reset{
+/* .filter-div-reset{
     display: flex;
     max-height: 16px;
     column-gap: 4px;
     justify-content: flex-end
-}
-.filter-svg-reset{
+} */
+/* .filter-svg-reset{
 width: 16px;
 height: 16px;
 stroke: var(--additional-text-color);
-}
-.filter-reset-button{
+} */
+/* .filter-reset-button{
     padding: 0;
     color: var(--filters-main-color);
     font-size: 12px;
     line-height: 1.33;
-}
+} */
 
 
 

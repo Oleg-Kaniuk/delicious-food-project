@@ -27,9 +27,9 @@ if (elements.inputFilter) {
 if (elements.iconClose) {
   elements.iconClose.addEventListener('click', onClickResetInput)
 }
-if (elements.allResetButtonFilters) {
-  elements.allResetButtonFilters.addEventListener('click', onClickResetInputAll)
-}
+// if (elements.allResetButtonFilters) {
+//   elements.allResetButtonFilters.addEventListener('click', onClickResetInputAll)
+// }
 // if (elements.timeSelect) {
    // elements.timeSelect.addEventListener('change', onChangeTimeCooking)
 // }
@@ -137,19 +137,19 @@ function onClickResetInput() {
   }
 }
 
-function onClickResetInputAll() {
-  elements.inputFilter.value = ''
-  elements.iconClose.classList.add('filter-is-hidden')
-  if (elements.inputFilter.value === '') {
-    if (evtCategories === '') {
-      // console.log(evtStartMarkup)
+// function onClickResetInputAll() {
+//   elements.inputFilter.value = ''
+//   elements.iconClose.classList.add('filter-is-hidden')
+//   if (elements.inputFilter.value === '') {
+//     if (evtCategories === '') {
+//       // console.log(evtStartMarkup)
 
-      galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
-      return onCreateGoldStar(evtStartMarkup)
-    }
+//       galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
+//       return onCreateGoldStar(evtStartMarkup)
+//     }
 
-    getRecipesByCategory(evtCategories)
-  }
-}
+//     getRecipesByCategory(evtCategories)
+//   }
+// }
 
 
