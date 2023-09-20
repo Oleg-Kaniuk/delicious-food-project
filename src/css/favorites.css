@@ -1,19 +1,9 @@
 .hero-image-section {
-    display: none;
-    padding-top: 49px;
     padding-bottom: 40px;
-}
-
-@media only screen and (min-width: 768px) {
-    .hero-image-section {
-        display: block;
-        padding-top: 44px;
-    }
 }
 
 @media only screen and (min-width: 1280px) {
     .hero-image-section {
-        padding-top: 34px;
         padding-bottom: 64px;
     }
 }
@@ -23,7 +13,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    display: none;
     height: 515px;
     margin: 0 auto;
     border-radius: 15px;
@@ -86,6 +75,10 @@
     text-align: center;
 }
 
+.empty-favorites-container {
+    display: none;
+}
+
 @media screen and (min-width: 375px) {
     .empty-favorites-container {
         width: 335px;
@@ -96,5 +89,17 @@
     .empty-favorites-container {
         width: 481px;
         padding-top: 64px;
+    }
+}
+
+.favorite-recipes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+    .favorite-recipes-list {
+        gap: 16px;
     }
 }

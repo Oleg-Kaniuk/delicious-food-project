@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { backdropElem} from "/js/modal-recipe/modal-recipe.js"
-import { onModal} from "/js/modal-recipe/modal-recipe.js"
+import { backdropElem } from '/js/modal-recipe/modal-recipe.js';
+import { onModal } from '/js/modal-recipe/modal-recipe.js';
 import { createMarkupElForFilter } from '/js/recipes/recipes.js';
 import { onCreateGoldStar } from '/js/recipes/recipes.js';
 const BASEURL_CATEGORIES =
@@ -8,8 +8,8 @@ const BASEURL_CATEGORIES =
 const BASEURL_RECIPES =
     'https://tasty-treats-backend.p.goit.global/api/recipes';
 export let responseFromCategoryFunction = null;
-export let evtCategories = ''
-export let evtStartMarkup = ''
+export let evtCategories = '';
+export let evtStartMarkup = '';
 const allCategoriesButton = document.querySelector('.js-all-categories-button');
 const categoriesList = document.querySelector('.categories-list');
 export const galleryEl = document.querySelector('.container-for-recipes');
@@ -30,12 +30,7 @@ const getCardPerPage = () => {
     }
 };
 export async function getRecipesByCategory(event) {
-    evtCategories = event
     const buttons = document.querySelectorAll('.categories-list-element');
-    buttons.forEach(button => {
-        button.classList.remove('is-active');
-    });
-    event.target.classList.add('is-active');
     const checkedCategory = event.target.textContent;
     const currentCardPerPage = cardsPerPage[getCardPerPage()];
     try {
@@ -51,14 +46,12 @@ export async function getRecipesByCategory(event) {
         galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
         onCreateGoldStar(response.data.results);
         //  модалка  рецепт
-        const cardsRecipesBtn = document.querySelectorAll(".btn-blok-recipes-see");
-        [...cardsRecipesBtn].forEach(function (card) {
+        const cardsRecipesBtn = document.querySelectorAll('.btn-blok-recipes-see');
+        [...cardsRecipesBtn].forEach(function(card) {
             const id = card.id;
             card.addEventListener('click', () => {
                 onRecipeClick(id);
- 
             });
-        
         });
         responseFromCategoryFunction = response.data.results;
     } catch (error) {
@@ -75,21 +68,21 @@ if (categoriesList && allCategoriesButton && galleryEl) {
                     limit: cardsPerPage[getCardPerPage()],
                 },
             });
-            evtStartMarkup = response.data.results
+            evtStartMarkup = response.data.results;
             if (galleryEl) {
                 galleryEl.innerHTML = '';
                 galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
                 onCreateGoldStar(response.data.results);
-                 //  модалка  рецепт
-        const cardsRecipesBtn = document.querySelectorAll(".btn-blok-recipes-see");
-        [...cardsRecipesBtn].forEach(function (card) {
-            const id = card.id;
-            card.addEventListener('click', () => {
-                onRecipeClick(id);
- 
-            });
-        
-        });
+                //  модалка  рецепт
+                const cardsRecipesBtn = document.querySelectorAll(
+                    '.btn-blok-recipes-see'
+                );
+                [...cardsRecipesBtn].forEach(function(card) {
+                    const id = card.id;
+                    card.addEventListener('click', () => {
+                        onRecipeClick(id);
+                    });
+                });
             }
         } catch (error) {
             console.error(`Failed to fetch images: ${error}`);
@@ -102,9 +95,9 @@ if (categoriesList && allCategoriesButton && galleryEl) {
             const categoryButtons = categories
                 .map(
                     category =>
-                    `<li>
+                    `
                 <button class="categoreis-list-element">${category.name}</button>
-                </li>`
+                `
                 )
                 .join('');
             categoriesList.innerHTML = categoryButtons;
@@ -114,14 +107,8 @@ if (categoriesList && allCategoriesButton && galleryEl) {
         }
     };
 
-
     const handleAllCategoriesBtnClick = () => {
         const buttons = document.querySelectorAll('.categories-list-element');
-        buttons.forEach(button => {
-            button.classList.remove('is-active');
-
-        });
-        allCategoriesButton.classList.add('is-active');
         galleryEl.innerHTML = '';
         evtCategories = '';
         fetchImages(evtCategories);
@@ -134,11 +121,12 @@ if (categoriesList && allCategoriesButton && galleryEl) {
     allCategoriesButton.addEventListener('click', handleAllCategoriesBtnClick);
     fetchCategories();
 } else {
-    console.log("error");
+    console.log('error');
 }
-        //  модалка  рецепт
-onRecipeClick
+//  модалка  рецепт
+onRecipeClick;
+
 function onRecipeClick(id) {
-backdropElem.classList.remove('is-hidden-recipe-backdrop')
- onModal(id)
-};
+    backdropElem.classList.remove('is-hidden-recipe-backdrop');
+    onModal(id);
+}

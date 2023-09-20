@@ -1,59 +1,47 @@
 import axios from 'axios';
-import { createMarkupElForFilter } from '/js/recipes/recipes.js'
-import { onCreateGoldStar } from '/js/recipes/recipes.js'
-import imgUrl from '../../img/icon-sprite.svg'
+import { onCreateGoldStar } from '/js/recipes/recipes.js';
+import imgUrl from '../../img/icon-sprite.svg';
+import { elements } from '/js/filters/filters.js'
 const favList = document.querySelector('.favorite-recipes-list');
-const emptyFav = document.querySelector('empty-favorites-container')
+const categories = document.querySelector('.categories');
+const emptyFav = document.querySelector('empty-favorites-container');
 const favorite = JSON.parse(localStorage.getItem('saveCheckedFavorite')) || [];
-
+const uniqueCategories = new Set();
+const categoryButtons = categories.querySelectorAll('.category-button');
+const allCategorieButton = document.querySelector('.all-categories-button');
 const BASE_FAV_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+let currentCategory = null;
 
 async function fetchFavImages(id) {
     try {
         const response = await axios.get(`${BASE_FAV_URL}/${id}`);
-        console.log(response);
         return response;
     } catch (error) {
         console.error(`Failed to fetch images: ${error}`);
     }
-};
-
-
-if (favorite.length > 0) {
-    favorite.map((idEl) => {
-        console.log(idEl);
-        const fetchObj = fetchFavImages(idEl).then((data) => {
-            console.log(data);
-            favList.insertAdjacentHTML('beforeend', createMarkupForFilter(data.data));
-            console.log(data.data);
-        });
-
-        // emptyFav.style.display = "none";
-    })
-} else {
-    console.error("Помилка");
-    // emptyFav.style.display = "block";
 }
 
 function createMarkupForFilter(el) {
     const { _id, title, preview, description, rating } = el;
 
-    // const isIdInLocalStorage = localStorageIds.includes(_id);
+    const idFromLocalSorage = JSON.parse(localStorage.getItem('saveCheckedFavorite')) || [];
+    const includesIdAtLocalStorage = idFromLocalSorage.includes(el);
+    const heartClass = includesIdAtLocalStorage ?
+        'heart-icon-action  svg-active' :
+        'heart-icon-action ';
+    const checked = includesIdAtLocalStorage
 
-    // const labelClass = isIdInLocalStorage ?
-    //     'heart-icon-action  svg-active' :
-    //     'heart-icon-action ';
-
-    return `<div class="blok-recipes " id="${_id}">
+    return `<li class="blok-recipes blok-recipes-fav" id="${_id}">
         
         <input
           id="${_id}"
           type="checkbox"
-          class="heart-icon-elem "
+          class="heart-icon-elem"
           name="heart-icon"
+          ${checked ? '':'checked'} 
           
         />
-        <label for="${_id}" aria-hidden="true" class="">
+        <label for="${_id}" aria-hidden="true" class="${heartClass}">
           <svg class="icon-heart-svg " width="22" height="22">
             <use href="${imgUrl}#icon-heart"></use>
           </svg>
@@ -87,22 +75,109 @@ function createMarkupForFilter(el) {
     <button id="${_id}" class="btn-blok-recipes-see" type="button">See recipe</button></div>
     </div>
   
-  </div>`
-};
+  </li>`;
+}
+if (favorite.length > 0) {
+    favorite.map(idEl => {
+        const fetchObj = fetchFavImages(idEl).then(data => {
+            favList.insertAdjacentHTML('beforeend', createMarkupForFilter(data.data));
+            const recipeCategory = data.data.category;
+            if (recipeCategory) {
+                uniqueCategories.add(recipeCategory);
+                const categoryButtonsHTML = [...uniqueCategories]
+                    .map(
+                        category => `
+      <button class="category-button" data-category="${category}">${category}</button>
+  `
+                    )
+                    .join('');
+
+                categories.innerHTML = categoryButtonsHTML;
+
+            }
+
+        });
+
+    });
+} else {
+    favList.innerHTML = '';
+    categories.innerHTML = '';
+
+    const emptyFavoriteMarkup = createMarkupForEmptyFav();
+    const favoritesContainer = document.querySelector('.empty-favorites-container')
+    if (favoritesContainer) {
+        favoritesContainer.innerHTML = emptyFavoriteMarkup;
+    }
+}
+
+function createMarkupForEmptyFav() {
+    return `
+<svg width="68" height="58" viewBox="0 0 37 32">
+<use xlink:href="./img/icon-sprite.svg#icon-hat"></use>
+</svg>
+<p class="empty-favorites-text">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.
+</p>
+`;
+}
+
+if (favList) {
+    favList.addEventListener('click', clickHeart);
+}
+
+function clickHeart(e) {
+    const idCard = e.target.id;
+    const indexElCard = favorite.indexOf(idCard);
+
+    if (indexElCard !== -1) {
+        favorite.splice(indexElCard, 1);
 
 
+        localStorage.setItem('saveCheckedFavorite', JSON.stringify(favorite));
 
+        const cardElement = document.getElementById(idCard);
+        const removedCategory = cardElement.getAttribute('data-category');
+        cardElement.remove();
 
-// favList.innerHTML = '';
-//         favList.innerHTML = createMarkupElForFilter(response.data.results, favorite);
-//         onCreateGoldStar(response.data.results);
-//         //  модалка  рецепт
-//         const cardsRecipesBtn = document.querySelectorAll(".btn-blok-recipes-see");
-//         [...cardsRecipesBtn].forEach(function(card) {
-//             const id = card.id;
-//             card.addEventListener('click', () => {
-//                 onRecipeClick(id);
+        if (favorite.length === 0) {
+            const emptyFavoriteMarkup = createMarkupForEmptyFav();
+            const favoritesContainer = document.getElementById('favoritesContainer');
+            favoritesContainer.innerHTML = emptyFavoriteMarkup;
 
-//             });
+        }
 
-//         });
+        updateCategories(removedCategory);
+    }
+
+}
+// видалення категорій. працює тільки коли обновити сторінку
+function updateCategories(removedCategory) {
+    const existingCategories = new Set();
+    favList.querySelectorAll('.blok-recipes').forEach(recipe => {
+        const category = recipe.getAttribute('data-category');
+        if (category) {
+            existingCategories.add(category);
+        }
+    });
+    if (removedCategory) {
+        categoryButtons.forEach(categoryButton => {
+            const category = categoryButton.getAttribute('data-category');
+            if (category === removedCategory) {
+                categoryButton.remove();
+            }
+        });
+    }
+}
+
+// function createGoldStar(el) {
+//     const starIcon = document.querySelectorAll('.star-icon')
+//     let counter = 0;
+//     for (let i = 0; i < 5; i += 1) {
+//         if (i < Math.floor(recipe.rating)) {
+//             if (starIcon) {
+//                 starIcon[counter].classList.add('star-color-icon')
+//             }
+
+//         }
+//         counter += 1;
+//     }
+// }
