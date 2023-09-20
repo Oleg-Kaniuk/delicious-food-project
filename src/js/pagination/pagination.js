@@ -41,7 +41,7 @@ const options = {
     if (pagePagination !== clickedPage) {
       pagePagination = clickedPage;
       fetchData(pagePagination);
-    
+      
     }
       },
 };
@@ -51,21 +51,15 @@ export const pagination = new Pagination(paginationContainer, options);
 let totalItems;
 const page = pagination.getCurrentPage();//почaткатова сторінка з опцій
 
-
-
- export const onCardPerPage = () => {
+ const onCardPerPage = () => {
     const windowWidth = document.documentElement.clientWidth;
-
-    if (windowWidth < 768) {
+   if (windowWidth < 768) {
       itemsPerPage;
-
-    } else if (windowWidth < 1200) {
+   } else if (windowWidth < 1200) {
       itemsPerPage = 8;
-
-    } else {
-      itemsPerPage = 9;
-
-    }
+   } else {
+     itemsPerPage = 9;
+   }
 };
 
 async function fetchData(pagePagination) {
@@ -118,7 +112,10 @@ pagination.on('afterMove', (event) => {
 
  //функція оновлює пагінацію при кліку на якусь категорію нe на пагінацію
  export function updatePagination() {
-  pagination.reset();
+  pagination.reset(totalItems);
    
-  
 }
+
+
+
+

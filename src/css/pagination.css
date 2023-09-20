@@ -8,7 +8,7 @@
     
 }
 
-.tui-pagination .tui-page-btn {
+/* .tui-pagination .tui-page-btn {
     display: inline-block;
     position: relative;
      width: 40px; 
@@ -22,7 +22,7 @@
     font-weight: 600px;
     font-size:18px;
     line-height: 1.22;
-}
+} */
 
 
 
@@ -66,9 +66,12 @@ vertical-align:baseline;
     border-radius: 50%;
     border: 1px solid var(--filters-select-color);
     background-color: var(--main-dark-text-color); 
-    margin-right: 14px;  
+    margin-right: 8px;  
 } 
-
+ /* друга кнопка зліва */
+#pagination > span.tui-page-btn.tui-is-disabled.tui-prev{
+background-color: var(--main-dark-text-color);
+}
 
 
 
@@ -96,7 +99,7 @@ vertical-align:baseline;
     border-radius: 50%;
     border: 1px solid var(--filters-select-color);
     background-color: var(--filters-select-color--primary-bg-color); 
-    margin-right: 8px; 
+    margin-right: 4px; 
 } 
 
 
@@ -107,7 +110,7 @@ vertical-align:baseline;
     border-radius: 50%;
     border: 1px solid var(--filters-select-color);
     background-color: var(--filters-select-color--primary-bg-color); 
-    margin-right: 14px; 
+    margin-right: 8px; 
 }
 /* кнопка'...' зліва прихована при завантаженні */
 #pagination > span.tui-page-btn.tui-is-disabled.tui-prev{
@@ -116,7 +119,7 @@ vertical-align:baseline;
     border-radius: 50%;
     border: 1px solid var(--filters-select-color);
     background-color: var(--filters-select-color--primary-bg-color); 
-    margin-right: 8px; 
+    margin-right: 4px; 
 }
 /* кнопка наступна сторінка */
 #pagination > a.tui-page-btn.tui-next{
@@ -124,7 +127,8 @@ width: 40px;
     height: 40px; 
     border-radius: 50%;
     border: 1px solid  var(--additional-text-color);
-    background-color: var(--additional-text-color);; 
+    background-color: var(--additional-text-color);
+    margin: 0; 
     margin-right: 4px; 
 }
 
@@ -136,7 +140,7 @@ width: 40px;
     border-radius: 50%;
     border: 1px solid  var(--additional-text-color);
     background-color: var(--additional-text-color); 
-    margin-right: 8px;
+    
 } 
 /* остання кнопка справа */
 #pagination > span.tui-page-btn.tui-is-disabled.tui-last{
@@ -145,7 +149,7 @@ width: 40px;
     border-radius: 50%;
     border: 1px solid  var(--additional-text-color);
     background-color: var(--additional-text-color); 
-    margin-right: 8px;
+    
 }
 /* передостання кнопка */
 #pagination > span.tui-page-btn.tui-is-disabled.tui-next{
@@ -154,7 +158,7 @@ width: 40px;
     border-radius: 50%;
     border: 1px solid  var(--additional-text-color);
     background-color: var(--additional-text-color); 
-    margin-right: 8px;
+    margin-right: 4px;
 }
 /* кнопка з цифрою неактивна */
 #pagination > a:nth-child(2){
@@ -169,9 +173,12 @@ width: 40px;
     line-height: 1.22;
     color: var( --main-dark-text-color);
 }
-
-/* #pagination > a:nth-child(3){
-   width: 40px;
+/* спан правий передостанній */
+#pagination > a.tui-page-btn.tui-next > span{
+top:20px;
+}
+#pagination > a:nth-child(4){
+    width: 40px;
     height: 40px; 
     border-radius: 50%;
     border: 1px solid var(--filters-select-color);
@@ -181,335 +188,26 @@ width: 40px;
     font-size:18px;
     line-height: 1.22;
     color: var( --main-dark-text-color);
- 
-} */
+}
 
-
-
-
-
-
- 
-
-
-/* .buttons-pagination{
+#pagination > a.tui-page-btn.tui-first-child{
     width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--filters-select-color);
-    background-color: var(--filters-select-color--primary-bg-color);  
-     margin-right: 8px;
-
-}
-.tui-pagination .tui-first-child.tui-is-selected{
-    background-color:var(--additional-text-color);
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--filters-select-color);
-    margin-right: 8px;
-    border-left: none; 
-    font-size: 18px;
-}
-
-.tui-pagination.tui-last-child{
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--filters-select-color);
-    margin-right: 8px;
-    border-left: none; 
-    font-size: 18px;
-} */
-/* .pagination-selected{
-   width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--additional-text-color);  
-    border: none;
-}
-.pagination-selected.tui-pagination .tui-is-selected, .tui-pagination strong {
-    color: var(--main-dark-text-color);
-    background:  var(--additional-text-color);
-    border-color:  var(--additional-text-color);;
-    cursor: default;
-} */
-
- /* #pagination.tui-pagination{
-    width: 335px;
-    height: 40px;
-    margin:0;
-    margin-bottom: 80px;
-    
-
-}
-@media only screen and (min-width: 768px) {
-    #pagination.tui-pagination{
-        display: flex;
-    margin-bottom: 100px;
-    padding-right: 161px; 
-    padding-left: 161px;  
-
-    }
-}
-@media only screen and (min-width: 1280px) {
-    #pagination.tui-pagination{
-    padding-right: 254px; 
-    padding-left: 580px;  
-
-    } */
-    
-/* .tui-pagination .tui-first{
-    width:40px;
-    height: 40px;
-    border:none;
-} */
-/* .tui-page-btn{
-    width:40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: none;
-}
-
-@media only screen and (min-width: 768px) {
-    .tui-page-btn{
-       width:44px;
-    height: 44px; 
-    }
-}
-
-.tui-first{
-   background-color: var(--main-dark-text-color); 
-} */
-
-
-
-/* .tui-page-btn{
-    width:40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--main-dark-text-color);
-   cursor: pointer;
-}
-
-
-..tui-pagination .tui-is-selected, .tui-pagination strong {
-   width:40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--additional-text-color); 
-    font-weight: 600px;
-    font-size:18px;
-    line-height: 1.22;
-    color: var( --main-dark-text-color);
-}
-@media only screen and (min-width: 768px) {
-    .tui-is-selected{
-       width:44px;
-    height: 44px; 
-    }
-}
- */ 
-
-
-
-
-/* .pagination-container{
-    width: 335px;;
-    margin-bottom: 80px;
-    display: flex;
-}
-@media only screen and (min-width: 768px) {
-    .pagination-container{
-    margin-bottom: 100px;
-    padding-right: 161px; 
-    padding-left: 161px;  
-
-    }
-}
-@media only screen and (min-width: 1280px) {
-    .pagination-container{
-    padding-right: 254px; 
-    padding-left: 580px;  
-
-    }
-}
-.left-btns-pag{
-    gap: 4px;
-    margin-right: 14px;
-    
-}
-@media only screen and (min-width: 768px) {
-    .left-btns-pag{
-        gap: 8px;
-        margin-right: 24px;
-    }
-}
-.first-btn-pag{
-    width:40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--main-dark-text-color);
-   cursor: pointer;
-}
-@media only screen and (min-width: 768px) {
-    .first-btn-pag{
-       width:44px;
-    height: 44px; 
-    }
-}
-.second-btn-pag{
-    width:40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--main-dark-text-color);
-}
-@media only screen and (min-width: 768px) {
-    .second-btn-pag{
-       width:44px;
-    height: 44px; 
-    }
-}
-.middle-btns-pag{
-    display: flex;
-    gap: 8px;
-    margin-right: 14px;
-}
-@media only screen and (min-width: 768px) {
-    .middle-btns-pag{
-        gap: 10px;
-        margin-right: 24px;
-    }
-}
-.third-btn-pag{
-   width:40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--additional-text-color); 
-    font-weight: 600px;
-    font-size:18px;
-    line-height: 1.22;
-    color: var( --main-dark-text-color);
-}
-@media only screen and (min-width: 768px) {
-    .third-btn-pag{
-       width:44px;
-    height: 44px; 
-    }
-}
-.fourth-btn-pag{
-    width:40px;
-    height: 40px;
+    height: 40px; 
     border-radius: 50%;
     border: 1px solid var(--filters-select-color);
     background-color: var(--filters-select-color--primary-bg-color); 
+    margin-right: 8px;
     font-weight: 600px;
     font-size:18px;
     line-height: 1.22;
     color: var( --main-dark-text-color);
 }
-@media only screen and (min-width: 768px) {
-    .fourth-btn-pag{
-       width:44px;
-    height: 44px; 
-    }
-}
-.fifth-btn-pag {
-    display: none;
-    width:40px;
-    height: 40px;
-    border-radius: 50%;
-    border:1px solid var(--filters-select-color);
-    background-color: var(--primary-bg-color);
-    font-weight: 600px;
-    font-size:18px;
-    line-height: 1.22;
+
+/*  останній спан */
+#pagination > span.tui-page-btn.tui-is-disabled.tui-last > span{
     color: var( --main-dark-text-color);
 }
-@media only screen and (min-width: 768px) {
-    .fifth-btn-pag{
-    display:block;
-    width:44px;
-    height: 44px; 
-    }
-}
-.sixth-btn-pag{
-   width:40px;
-    height: 40px;
-    border-radius: 50%;
-    border:1px solid var(--filters-select-color);
-    background-color: var(--primary-bg-color);
-    font-weight: 600px;
-    font-size:18px;
-    line-height: 1.22;
-    color: var( --main-dark-text-color); 
-}
-@media only screen and (min-width: 768px) {
-    .sixth-btn-pag{
-        width:44px;
-    height: 44px;  
-    }
-}
-.right-btns-pag{
-    gap: 4px;
-}
-@media only screen and (min-width: 768px) {
-    .right-btns-pag{
-    gap: 8px;
-}
+#pagination > a.tui-page-btn.tui-last{
+    color: var( --main-dark-text-color);
 }
 
-.seven-btn-pag{
-     width:40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--additional-text-color);
-}
-@media only screen and (min-width: 768px) {
-    .seven-btn-pag{
-       width:44px;
-    height: 44px; 
-    }
-}
-.eigth-btn-pag{
-   width:40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--additional-text-color); 
-}
-@media only screen and (min-width: 768px) {
-    .eigth-btn-pag{
-       width:44px;
-    height: 44px; 
-    }
-}
-.pagination-icon{
-   display: flex;
-   align-items: center;
-   
-   
-    
-}
-.icon-pagination-left{
-    fill: var(--main-light-text-color);
-    justify-content: center;
-    align-items: center;
-    
-}
-.icon-left-one{
-   width: 20px;
-   height: 20px;
-   fill: var(--main-light-text-color);
-   margin-left: 0;
-
-
-}
-.icon-left-two{
-width: 20px;
-height: 20px;
-fill: var(--main-light-text-color);
-}
-
-
-.icon-pagination-right{
-    fill: var(--main-dark-text-color);
-} */
