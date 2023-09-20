@@ -49,18 +49,18 @@
 .burger-menu-nav-favorites {
   font-size: 12px;
 }
-
-.switcher-burger-btn.switcher-burger-btn {
+.theme-switch__control.switcher-burger-btn {
+  display: block;
   align-items: center;
   width: 46px;
   height: 20px;
   border-radius: 20px;
-  padding: 2px 0;
+  padding: 1px 0;
   position: fixed;
   bottom: 20px;
   left: 20px;
 }
-/* .theme-switch__toggle.burg-toggle {
+/* .theme-switch__toggle.burger-toggle {
   position: absolute;
   left: 0;
   top: 0;
@@ -71,7 +71,7 @@
   width: 0;
   pointer-events: none;
 }
-.theme-switch__track.burg-track {
+.burger-track {
   position: absolute;
   left: 0;
   top: 0;
@@ -84,7 +84,7 @@
   z-index: 1;
   cursor: pointer;
 }
-.theme-switch__marker.burg-marker {
+.burger-marker {
   position: relative;
   background-color: #f8f8f8;
   width: 19px;
@@ -93,13 +93,23 @@
   z-index: 2;
   pointer-events: none;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  transform: translateX(3px);
-  transition: transform 250ms var(--timing-function);
+  transform: translateX(1px);
+  transition: var(--transition-dur-and-func);
 }
-.burg-toggle:checked + .burg-track {
+.theme-switch__toggle.burger-toggle:checked
+  + .theme-switch__track.burger-track {
   background-color: var(--additional-text-color);
 }
-.burg-toggle:checked ~ .burg-marker {
+.theme-switch__toggle.burger-toggle:checked
+  ~ .theme-switch__track.burger-track {
+  transition: var(--transition-dur-and-func);
+  transform: translateX(27px);
+} */
+/* .theme-switch__toggle:checked + .burger-track {
+  transition: var(--transition-dur-and-func);
+  background-color: var(--additional-text-color);
+}
+.theme-switch__toggle:checked ~ .burger-track {
   transition: var(--transition-dur-and-func);
   transform: translateX(27px);
 } */

@@ -25,13 +25,13 @@
 .swiper {
   margin-top: 48px;
   width: 497px;
-  height: 302px;
+  height: 320px;
 }
 @media only screen and (min-width: 768px) {
   .swiper {
     margin-top: 64px;
     width: 871px;
-    height: 468px;
+    height: 486px;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -46,7 +46,9 @@
   margin-top: 20px;
   background-color: var(--additional-text-color);
 }
-
+/* .custom-pagination.swiper-pagination-lock {
+  display: block;
+} */
 .slide-cont {
   display: flex;
   gap: 8px;
