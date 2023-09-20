@@ -1,27 +1,89 @@
- #pagination{
+  #pagination{
     width: 100%;
     height: 40px;
     margin-top: 0;
-    margin-bottom: 100px;;
+    margin:0;
+    margin-bottom: 80px;
+
     
+}
+.tui-pagination .tui-page-btn {
+    display: inline-block;
+    position: relative;
+     width: 40px; 
+    padding: 8px 0 6px;
+    margin-left: 0;
+     color:var(--main-dark-text-color); 
+     text-decoration: none;
+    vertical-align: middle;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+}
+
+.tui-page-btn.tui-first-child{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    margin-right: 14px;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
 }
 
 
 /* перша кнопка зліва після кліку */
-#pagination > a.tui-page-btn.tui-first{
+ #pagination > a.tui-page-btn.tui-first{
     width: 40px;
     height: 40px; 
     border-radius: 50%;
     border: 1px solid var(--filters-select-color);
-    background-color: var(--main-dark-text-color);; 
-    margin-right: 8px;
+    background-color: var(--main-dark-text-color);
+    margin-right: 4px;
+   
+} 
+
+/* спан після кліку */
+ #pagination > a.tui-page-btn.tui-first > span{
+   color: var(--main-light-text-color);
+vertical-align:text-top; 
 }
+/* перша кнопка зліва коли вона неактивна */
+ #pagination > span.tui-page-btn.tui-is-disabled.tui-first{
+   width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--main-dark-text-color); 
+    color:var(--filters-select-color);
+    margin-right: 4px; 
+    padding: 10px;
+
+} 
+/* спан першої кнопки */
+ #pagination > span.tui-page-btn.tui-is-disabled.tui-first > span{
+color: var(--main-light-text-color);
+vertical-align:baseline; 
+ } 
+/* друга кнопка злшва після кліку */
+ #pagination > a.tui-page-btn.tui-prev{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--main-dark-text-color); 
+    margin-right: 14px;  
+} 
+
+
+
 
 /* активна кнопка */
 #pagination > strong{
     background-color:var(--additional-text-color);
     border-radius: 50%;
-    border: 1px solid var(--filters-select-color);
+    border: 1px solid  var(--additional-text-color);
     width: 40px;
     height: 40px;
     margin-right: 8px;
@@ -31,35 +93,9 @@
     color: var( --main-dark-text-color);
 
 }
-/* перша кнопка зліва коли вона неактивна */
-#pagination > span.tui-page-btn.tui-is-disabled.tui-first{
-   width: 40px;
-    height: 40px; 
-    border-radius: 50%;
-    border: 1px solid var(--filters-select-color);
-    background-color: var(--main-dark-text-color); 
-    color:var(--filters-select-color);
-    margin-right: 8px; 
-}
 
-#pagination > span.tui-page-btn.tui-is-disabled.tui-prev{
-    width: 40px;
-    height: 40px; 
-    border-radius: 50%;
-    border: 1px solid var(--filters-select-color);
-    background-color: var(--main-dark-text-color); 
-    color:var(--filters-select-color);
-    margin-right: 8px; 
-}
-/* друга кнопка злшва після кліку */
-#pagination > a.tui-page-btn.tui-prev{
-    width: 40px;
-    height: 40px; 
-    border-radius: 50%;
-    border: 1px solid var(--filters-select-color);
-    background-color: var(--main-dark-text-color); 
-    margin-right: 8px; 
-}
+
+
 /* кнопка'...'зліва після кліку */
 #pagination > a.tui-page-btn.tui-prev-is-ellip.tui-first-child{
     width: 40px;
@@ -68,17 +104,17 @@
     border: 1px solid var(--filters-select-color);
     background-color: var(--filters-select-color--primary-bg-color); 
     margin-right: 8px; 
-}
+} 
 
 
-/* кнопка'...' справа при завантаженні */
+ /* кнопка'...' справа при завантаженні */
 #pagination > a.tui-page-btn.tui-next-is-ellip.tui-last-child{
      width: 40px;
     height: 40px; 
     border-radius: 50%;
     border: 1px solid var(--filters-select-color);
     background-color: var(--filters-select-color--primary-bg-color); 
-    margin-right: 8px; 
+    margin-right: 14px; 
 }
 /* кнопка'...' зліва прихована при завантаженні */
 #pagination > span.tui-page-btn.tui-is-disabled.tui-prev{
@@ -94,9 +130,9 @@
 width: 40px;
     height: 40px; 
     border-radius: 50%;
-    border: 1px solid var(--filters-select-color);
+    border: 1px solid  var(--additional-text-color);
     background-color: var(--additional-text-color);; 
-    margin-right: 8px; 
+    margin-right: 4px; 
 }
 
 
@@ -105,7 +141,7 @@ width: 40px;
     width: 40px;
     height: 40px; 
     border-radius: 50%;
-    border: 1px solid var(--filters-select-color);
+    border: 1px solid  var(--additional-text-color);
     background-color: var(--additional-text-color); 
     margin-right: 8px;
 } 
@@ -114,7 +150,7 @@ width: 40px;
     width: 40px;
     height: 40px; 
     border-radius: 50%;
-    border: 1px solid var(--filters-select-color);
+    border: 1px solid  var(--additional-text-color);
     background-color: var(--additional-text-color); 
     margin-right: 8px;
 }
@@ -123,7 +159,7 @@ width: 40px;
     width: 40px;
     height: 40px; 
     border-radius: 50%;
-    border: 1px solid var(--filters-select-color);
+    border: 1px solid  var(--additional-text-color);
     background-color: var(--additional-text-color); 
     margin-right: 8px;
 }
@@ -141,7 +177,7 @@ width: 40px;
     color: var( --main-dark-text-color);
 }
 
-#pagination > a:nth-child(3){
+/* #pagination > a:nth-child(3){
    width: 40px;
     height: 40px; 
     border-radius: 50%;
@@ -153,14 +189,14 @@ width: 40px;
     line-height: 1.22;
     color: var( --main-dark-text-color);
  
-}
+} */
 
 
 
 
 
 
-
+ 
 
 
 /* .buttons-pagination{
