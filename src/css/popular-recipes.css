@@ -10,6 +10,7 @@ overflow: hidden;
   height: 372px;
   margin-bottom: 0;
   padding-right: 0;
+  overflow: visible; 
    } 
 }
 @media only screen and (min-width: 1280px) {
@@ -17,6 +18,7 @@ overflow: hidden;
    width: 235px;
    height: 424px;
    margin-bottom: 0;
+   
   }
 }
 
@@ -128,6 +130,7 @@ overflow: hidden;
     line-height: 1.29;
     color:var(--main-dark-text-color);
     margin-bottom: 8px;
+    text-transform: uppercase;
     
     overflow: hidden;
     text-overflow: ellipsis;
