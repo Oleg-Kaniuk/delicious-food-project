@@ -189,7 +189,7 @@
   display: none;
 }
 @media only screen and (min-width: 768px) {
-  .theme-switch__control .hed-switch {
+  .theme-switch__control.hed-switch {
     display: flex;
     align-items: center;
     flex-shrink: 0;
