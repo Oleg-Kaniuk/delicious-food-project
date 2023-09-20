@@ -11,3 +11,4 @@ import './js/rating/rating';
 import './js/modal-recipe/modal-recipe';
 import './js/pagination/pagination';
 import './js/dark-theme/dark-theme';
+import './js/vanilla-back-to-top/vanilla-back-to-top';
