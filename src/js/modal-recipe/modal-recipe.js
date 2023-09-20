@@ -143,6 +143,7 @@ function onClickEscape(evt) {
   if (evt.code === 'Escape') {
     backdropElem.classList.toggle('is-hidden-recipe-backdrop');
     modalWindow.innerHTML = ''
+   
     // document.removeEventListener('keydown', onClickEscape);
   }
 }

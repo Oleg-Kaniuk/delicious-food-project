@@ -1,5 +1,5 @@
 const modalCloseBtnOrder = document.querySelector('.modal-close-btn-order');
-const backdropElNow = document.querySelector('.backdrop');
+const backdropElNow = document.querySelector('.js-backdrop-order');
 const formOrder = document.querySelector('.modal-form-order');
 
 const modalOrderNow = document.querySelector('.modal-order-now')
@@ -23,13 +23,15 @@ function onBtnCloseNow() {
 
 function onClickBackdropNow(e) {
    if (e.target===backdropElNow) {
-   backdropElNow.classList.toggle('is-hidden');
+     backdropElNow.classList.toggle('is-hidden');
+      backdropElNow.removeEventListener('click', onClickBackdropNow);
 }
 }
 
 function onClickEscapeNow(e) {
   if (e.code === "Escape") {
     backdropElNow.classList.add('is-hidden')
+     document.removeEventListener("keydown", onClickEscapeNow)
   }
 }
 
@@ -52,7 +54,9 @@ function onClickSendNow(evt) {
       })
       
       formOrder.reset()   //очищаємо поле
-         backdropElNow.classList.toggle('is-hidden');
+       formOrder.removeEventListener('submit', onClickSendNow);
+      backdropElNow.classList.toggle('is-hidden');
+      
 
   }
 }
