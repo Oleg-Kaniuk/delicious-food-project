@@ -2,6 +2,9 @@
   background-color: #1e1e1e;
   color: var(--dark-main-text-color);
 }
+.dark-theme .header-section {
+  background-color: #1e1e1e;
+}
 .dark-theme .main-link {
   color: var(--dark-main-text-color);
 }
@@ -132,4 +135,15 @@
     #050505 4.82%,
     rgba(5, 5, 5, 0) 108.72%
   );
+}
+
+.dark-theme #pagination > strong {
+  color: #fff;
+}
+.dark-theme .tui-pagination .tui-page-btn {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+.dark-theme .tui-pagination .tui-ico-ellip {
+  color: #fff;
 }
