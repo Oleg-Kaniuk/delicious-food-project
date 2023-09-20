@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Swiper from 'swiper/bundle';
 // import styles bundle
+// import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css/bundle';
 
 // Swiper.use([Pagination, Navigation])
@@ -8,35 +9,47 @@ import 'swiper/css/bundle';
 
 const swiperwrap = document.querySelector('.swiper-wrapper')
 
-const mySwiper = new Swiper(".swiper", {
-  slidesPerView: 1,
-  spaceBetween: 36,
-  breakpoints: {
-    768: {
-       spaceBetween:82,
-     }
-   },
+
+
+
+function initSlider() {
+  new Swiper(".swiper", {
+    slidesPerView: 1,
+    spaceBetween: 36,
+    breakpoints: {
+      768: {
+        spaceBetween: 82,
+      }
+    },
     loop: true,
     grabCursor: true,
     // freeMode: true,
     // spaceBetween:8,
-  pagination: {
-    el:'.swiper-pagination',
-    clickable: true,
-    // type: 'bullets',
-  },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      type: 'bullets',
+    },
     keyboard: {
-    enabled: true,
-    onlyInViewport: true,
-  },
-});
+      enabled: true,
+      onlyInViewport: true,
+    },
+  });
+}
 
-console.log(mySwiper)
+
 async function onMastersEvents() {
-    const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api'
+  const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+  try {
     const response = await axios(`${BASE_URL}/events`)
     const data = creatMarkup(response.data)
-  swiperwrap.insertAdjacentHTML('beforeend',data)
+    swiperwrap.insertAdjacentHTML('beforeend', data)
+    // дозволить Swiper оновити свою структуру DOM і працювати з новим вмістом
+    initSlider()
+  }
+  catch (error) {
+    console.error(error)
+  }
 }
 onMastersEvents()
 
@@ -75,4 +88,3 @@ function creatMarkup(data) {
             </div>
     </li>`).join('')
 }
-

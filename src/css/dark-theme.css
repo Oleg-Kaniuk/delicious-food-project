@@ -1,58 +1,58 @@
 .dark-theme {
   background-color: #1e1e1e;
-  color: var(----dark-main-text-color);
+  color: var(--dark-main-text-color);
 }
 .dark-theme .main-link {
-  color: var(----dark-main-text-color);
+  color: var(--dark-main-text-color);
 }
 .dark-theme .main-link.heder-active {
   color: var(--additional-text-color);
 }
 .dark-theme .logotype {
-  color: var(----dark-main-text-color);
+  color: var(--dark-main-text-color);
 }
 .dark-theme .icon-cart {
-  fill: var(----dark-main-text-color);
+  fill: var(--dark-main-text-color);
 }
 .dark-theme .icon-cart:hover,
 .dark-theme .icon-cart:focus {
   fill: var(--additional-text-color);
 }
 .dark-theme .burger-menu-btn {
-  stroke: var(----dark-main-text-color);
+  stroke: var(--dark-main-text-color);
 }
 .dark-theme .burger-active {
   color: var(--additional-text-color);
 }
 .dark-theme .burger-menu {
-  background-color: #050505;
+  background-color: var(--main-dark-text-color);
 }
 .dark-theme .hero-title {
-  color: var(----dark-main-text-color);
+  color: var(--dark-main-text-color);
 }
 .dark-theme .hero-text {
-  color: var(----dark-main-text-color);
+  color: var(--dark-main-text-color);
 }
 .dark-theme .hero-btn {
   background-color: #1e1e1e;
-  color: var(----dark-main-text-color);
+  color: var(--dark-main-text-color);
 }
 .dark-theme .modal-order-now {
-  background-color: #050505;
+  background-color: var(--main-dark-text-color);
 }
 .dark-theme .form-label {
   color: rgba(255, 255, 255, 0.5);
 }
 .dark-theme .form-field {
-  background-color: #050505;
+  background-color: var(--main-dark-text-color);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .dark-theme .modal-textarea {
-  background-color: #050505;
+  background-color: var(--main-dark-text-color);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .dark-theme .modal-close-icon {
-  stroke: var(----dark-main-text-color);
+  stroke: var(--dark-main-text-color);
 }
 .dark-theme .slide-preview {
   border: 1px solid rgba(155, 181, 55, 0.3);
@@ -60,10 +60,14 @@
 
 /* ...filters */
 .dark-theme .filter-input {
+  color: var(--dark-main-text-color);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .dark-theme .filter-icon-input {
   fill: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .filter-close-input {
+  stroke: var(--dark-main-text-color);
 }
 .dark-theme .filter-select {
   color: rgba(255, 255, 255, 0.5);
@@ -84,14 +88,18 @@
 .dark-theme .categoreis-list-element {
   color: rgba(255, 255, 255, 0.3);
 }
+.dark-theme .categoreis-list-element:hover,
+.dark-theme .categoreis-list-element:focus {
+  color: var(--additional-text-color);
+}
 .dark-theme .all-categores-container::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.18);
 }
 .dark-theme .title-popular-recipes {
-  color: var(----dark-main-text-color);
+  color: var(--dark-main-text-color);
 }
 .dark-theme .title-third {
-  color: var(----dark-main-text-color);
+  color: var(--dark-main-text-color);
 }
 
 .dark-theme .popular-description {
@@ -99,20 +107,20 @@
 }
 
 .dark-theme .recipe-modal {
-  background-color: #050505;
+  background-color: var(--main-dark-text-color);
 }
 .dark-theme .button__close {
-  stroke: var(----dark-main-text-color);
+  stroke: var(--dark-main-text-color);
 }
 .dark-theme .modal-title {
-  color: var(----dark-main-text-color);
+  color: var(--dark-main-text-color);
 }
 .dark-theme .instructions {
   color: rgba(255, 255, 255, 0.8);
 }
 .dark-theme .add-btn {
-  background-color: #050505;
-  color: var(----dark-main-text-color);
+  background-color: var(--main-dark-text-color);
+  color: var(--dark-main-text-color);
 }
 
 .dark-theme .nav-link-favorites {

@@ -74,20 +74,18 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 303px;
+  width: 100%;
   padding: 214px 16px 16px 16px;
 }
 @media only screen and (min-width: 768px) {
   .context-blok-recipes {
     padding-top: 143px;
-    width: 208px;
   }
 }
 
 @media only screen and (min-width: 1280px) {
   .context-blok-recipes {
     padding-top: 166px;
-    width: 218px;
   }
 }
 
@@ -107,7 +105,7 @@
   white-space: nowrap;
 }
 .text-blok-recipes {
-  margin-bottom: 22.5px;
+  margin-bottom: 16px;
 
   overflow: hidden;
   color: #f8f8f8;
@@ -133,6 +131,7 @@
   width: 303px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 @media only screen and (min-width: 768px) {

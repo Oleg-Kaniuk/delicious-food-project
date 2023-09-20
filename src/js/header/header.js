@@ -13,6 +13,8 @@ function changeActiveColor() {
   }
 }
 
+// dark theme
+
 const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
@@ -26,9 +28,12 @@ function onChengeTheme(event) {
   if (!event.currentTarget.checked) {
     body.classList.remove('dark-theme')
     localStorage.setItem('saveTheme', Theme.LIGHT)
+    checkboxTheme.checked = false;
+    
   } else {
     body.classList.add('dark-theme')
     localStorage.setItem('saveTheme', Theme.DARK)
+    checkboxTheme.checked = true;
   }
 }
 const saveTheme = localStorage.getItem('saveTheme')
@@ -37,7 +42,7 @@ if (saveTheme === Theme.LIGHT) {
   checkboxTheme.checked = false
 } else {
   body.classList.add('dark-theme')
-  checkboxTheme.checked = false
+  checkboxTheme.checked = true;
 }
 
 

@@ -1,17 +1,256 @@
-/* tui-pagination"><a href="#" class="tui-page-btn tui-first"><span class="tui-ico-first">first</span></a><a href="#" class="tui-page-btn tui-prev"><span class="tui-ico-prev">prev</span></a><a href="#" class="tui-page-btn tui-first-child">1</a><a href="#" class="tui-page-btn">2</a><a href="#" class="tui-page-btn">3</a><strong class="tui-page-btn tui-is-selected">4</strong><a href="#" class="tui-page-btn">5</a><a href="#" class="tui-page-btn tui-next-is-ellip tui-last-child"><span class="tui-ico-ellip">...</span></a><a href="#" class="tui-page-btn tui-next"><span class="tui-ico-next">next</span></a><a href="#" class="tui-page-btn tui-last"><span class="tui-ico-last">last</span></a></div>
-<a href="#" class="tui-page-btn tui-first"><span class="tui-ico-first">first</span></a>
-<a href="#" class="tui-page-btn tui-prev"><span class="tui-ico-prev">prev</span></a><a href="#" class="tui-page-btn tui-first-child">1</a>
-<a href="#" class="tui-page-btn">2</a> */
-
-
-.tui-pagination{
-   width: 335px;
+  #pagination{
     width: 100%;
+    height: 40px;
+    margin-top: 0;
+    margin:0;
     margin-bottom: 80px;
-    display: flex; 
+
+    
+}
+.tui-pagination .tui-page-btn {
+    display: inline-block;
+    position: relative;
+     width: 40px; 
+    padding: 8px 0 6px;
+    margin-left: 0;
+     color:var(--main-dark-text-color); 
+     text-decoration: none;
+    vertical-align: middle;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+}
+
+.tui-page-btn.tui-first-child{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    margin-right: 14px;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
+}
+
+
+/* перша кнопка зліва після кліку */
+ #pagination > a.tui-page-btn.tui-first{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--main-dark-text-color);
+    margin-right: 4px;
+   
+} 
+
+/* спан після кліку */
+ #pagination > a.tui-page-btn.tui-first > span{
+   color: var(--main-light-text-color);
+vertical-align:text-top; 
+}
+/* перша кнопка зліва коли вона неактивна */
+ #pagination > span.tui-page-btn.tui-is-disabled.tui-first{
+   width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--main-dark-text-color); 
+    color:var(--filters-select-color);
+    margin-right: 4px; 
+    padding: 10px;
+
+} 
+/* спан першої кнопки */
+ #pagination > span.tui-page-btn.tui-is-disabled.tui-first > span{
+color: var(--main-light-text-color);
+vertical-align:baseline; 
+ } 
+/* друга кнопка злшва після кліку */
+ #pagination > a.tui-page-btn.tui-prev{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--main-dark-text-color); 
+    margin-right: 14px;  
+} 
+
+
+
+
+/* активна кнопка */
+#pagination > strong{
+    background-color:var(--additional-text-color);
+    border-radius: 50%;
+    border: 1px solid  var(--additional-text-color);
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+    color: var( --main-dark-text-color);
+
+}
+
+
+
+/* кнопка'...'зліва після кліку */
+#pagination > a.tui-page-btn.tui-prev-is-ellip.tui-first-child{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
+    margin-right: 8px; 
+} 
+
+
+ /* кнопка'...' справа при завантаженні */
+#pagination > a.tui-page-btn.tui-next-is-ellip.tui-last-child{
+     width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
+    margin-right: 14px; 
+}
+/* кнопка'...' зліва прихована при завантаженні */
+#pagination > span.tui-page-btn.tui-is-disabled.tui-prev{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
+    margin-right: 8px; 
+}
+/* кнопка наступна сторінка */
+#pagination > a.tui-page-btn.tui-next{
+width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid  var(--additional-text-color);
+    background-color: var(--additional-text-color);; 
+    margin-right: 4px; 
+}
+
+
+/* остання кнопка справа */
+ #pagination > a.tui-page-btn.tui-last{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid  var(--additional-text-color);
+    background-color: var(--additional-text-color); 
+    margin-right: 8px;
+} 
+/* остання кнопка справа */
+#pagination > span.tui-page-btn.tui-is-disabled.tui-last{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid  var(--additional-text-color);
+    background-color: var(--additional-text-color); 
+    margin-right: 8px;
+}
+/* передостання кнопка */
+#pagination > span.tui-page-btn.tui-is-disabled.tui-next{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid  var(--additional-text-color);
+    background-color: var(--additional-text-color); 
+    margin-right: 8px;
+}
+/* кнопка з цифрою неактивна */
+#pagination > a:nth-child(2){
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
+    margin-right: 8px;
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+    color: var( --main-dark-text-color);
+}
+
+/* #pagination > a:nth-child(3){
+   width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color); 
+    margin-right: 8px;
+    font-weight: 600px;
+    font-size:18px;
+    line-height: 1.22;
+    color: var( --main-dark-text-color);
+ 
+} */
+
+
+
+
+
+
+ 
+
+
+/* .buttons-pagination{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--filters-select-color);
+    background-color: var(--filters-select-color--primary-bg-color);  
+     margin-right: 8px;
+
+}
+.tui-pagination .tui-first-child.tui-is-selected{
+    background-color:var(--additional-text-color);
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--filters-select-color);
+    margin-right: 8px;
+    border-left: none; 
+    font-size: 18px;
+}
+
+.tui-pagination.tui-last-child{
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--filters-select-color);
+    margin-right: 8px;
+    border-left: none; 
+    font-size: 18px;
+} */
+/* .pagination-selected{
+   width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--additional-text-color);  
+    border: none;
+}
+.pagination-selected.tui-pagination .tui-is-selected, .tui-pagination strong {
+    color: var(--main-dark-text-color);
+    background:  var(--additional-text-color);
+    border-color:  var(--additional-text-color);;
+    cursor: default;
+} */
+
+ /* #pagination.tui-pagination{
+    width: 335px;
+    height: 40px;
+    margin:0;
+    margin-bottom: 80px;
+    
+
 }
 @media only screen and (min-width: 768px) {
-    .tui-pagination{
+    #pagination.tui-pagination{
+        display: flex;
     margin-bottom: 100px;
     padding-right: 161px; 
     padding-left: 161px;  
@@ -19,17 +258,17 @@
     }
 }
 @media only screen and (min-width: 1280px) {
-    .tui-pagination{
+    #pagination.tui-pagination{
     padding-right: 254px; 
     padding-left: 580px;  
 
-    }
-}
-.tui-pagination .tui-first{
+    } */
+    
+/* .tui-pagination .tui-first{
     width:40px;
     height: 40px;
     border:none;
-}
+} */
 /* .tui-page-btn{
     width:40px;
     height: 40px;
