@@ -14,8 +14,8 @@ export function onModal(id) {
   backdropElem.classList.remove('is-hidden-recipe-backdrop')
   
   allInfoRecipes(id)
-    .then(response => {
-      createMarkupInfoRecipes(response);
+    .then(data => {
+      createMarkupInfoRecipes(data);
     })
     .catch(error => console.log(error));
 }
@@ -38,53 +38,56 @@ function createMarkupInfoRecipes(arr) {
   const imgData = `<img class="modal-recipe-image" src="${thumb}" alt="${title}" max-width="295px" height="295px"></img>`
   const markup = `<h2 class= "modal-title">${area}</h2>
   
-<div class ="block-info">
+
 ${youtubeWatch ? youtubeEmbed : imgData}
+<div class ="block-info">
 <ul class="tags"></ul>
 <div class="block-time">
-<div class="rating"><p class="rating-value">${rating}</p><div class="stars"></div>
-<svg class="star-icon" width="18" height="18">
+
+<div class="rating"><p class="rating-value">${rating}</p><div class="div class="block-stars">
+<svg class="icon-stars" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon " width="18" height="18">
+      <svg class="icon-stars" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon " width="18" height="18">
+      <svg class="icon-stars" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon " width="18" height="18">
+      <svg class="icon-stars" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon " width="18" height="18">
+      <svg class="icon-stars" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg></div>
 <div class="time">${time} min</div>
 </div>
 </div>
+</div>
 <ul class ="ingredients"></ul>
 <p class = instructions>${instructions}</p>
 <button class="add-btn js-add-btn" type="button">Add to favorite</button>
-<button class="add-btn js-add-rating" type="button">Give a rating</button>
+<button class="btn-rating js-add-rating" type="button">Give a rating</button>
 `;
   const markupMobile = `
   ${youtubeWatch ? youtubeEmbed : imgData}
 <h2 class= "modal-title">${area}</h2>
-<div class ="block-info">
+
 <div class="block-time">
-<div class="rating"><p class="rating-value">${rating}</p><div class="stars"></div>
-<svg class="star-icon" width="18" height="18">
+<p class="rating-value">${rating}</p><div class="block-stars">
+<svg class="icon-stars" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon " width="18" height="18">
+      <svg class="icon-stars" width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon " width="18" height="18">
+      <svg class="icon-stars " width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon " width="18" height="18">
+      <svg class="icon-stars " width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg>
-      <svg class="star-icon " width="18" height="18">
+      <svg class="icon-stars " width="18" height="18">
         <use href="/img/icon-sprite.svg#icon-star"></use>
       </svg></div>
 <div class="time">${time} min</div>
@@ -94,7 +97,7 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <ul class="tags"></ul>
 <p class = instructions>${instructions}</p>
 <button class="add-btn js-add-btn" type="button">Add to favorite</button>
-<button class="add-btn js-add-rating" type="button">Give a rating</button>
+<button class="btn-rating js-add-rating" type="button">Give a rating</button>
 `;
   if (window.innerWidth > 768) {
     modalWindow.insertAdjacentHTML('beforeend', markup);
@@ -116,48 +119,49 @@ ${youtubeWatch ? youtubeEmbed : imgData}
     .join('');
   creatTags.innerHTML = markupTags;
  
-
-  onCreateGoldStar(rating);
+onGoldStar(rating)
 }
 
 
 
-backdropElem.addEventListener('click', onclickBackdrop);
-modalClose.addEventListener('click', onCloseBtn);
-document.addEventListener('keydown', onClickEscape);
+backdropElem.addEventListener('click', onclickBackdropModalSee);
+modalClose.addEventListener('click', onCloseModalSeeBtn);
+document.addEventListener('keydown', onClickEscapeModalSee);
 
-function onCloseBtn() {
+function onCloseModalSeeBtn() {
   backdropElem.classList.add('is-hidden-recipe-backdrop');
   modalWindow.innerHTML = '';
 }
 
-function onclickBackdrop(evt) {
+function onclickBackdropModalSee(evt) {
   if (evt.target === backdropElem) {
     backdropElem.classList.toggle('is-hidden-recipe-backdrop');
     modalWindow.innerHTML = ''
-    // backdropElem.removeEventListener('click', onclickBackdrop);
+    backdropElem.removeEventListener('click', onclickBackdrop);
   }
 }
 
-function onClickEscape(evt) {
+function onClickEscapeModalSee(evt) {
   if (evt.code === 'Escape') {
     backdropElem.classList.toggle('is-hidden-recipe-backdrop');
     modalWindow.innerHTML = ''
-    // document.removeEventListener('keydown', onClickEscape);
+    document.removeEventListener('keydown', onClickEscapeModalSee);
   }
 }
 
 
 
-// function onGoldStar(arr) {
-//   const iconStar = document.querySelectorAll('.icon-star');
+// function onGoldStar(rating) {
+//   const star = document.querySelectorAll('icon-stars');
 //   let counter = 0;
+ 
 //   for (let i = 0; i < 5; i += 1) {
-//     if (i < Math.floor(arr.rating)) {
-//       if (iconStar) {
-//        const y = iconStar[counter].classList.add('star-icon-active');
+//     if (i < Math.floor(rating)) {
+//       if (star) {
+//         star[counter].classList.add('star-active');
 //       }
 //     }
 //     counter += 1;
 //   }
 // }
+
