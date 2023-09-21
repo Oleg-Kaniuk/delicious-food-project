@@ -8,7 +8,9 @@ ${g?O:v}
 <div class="block-time">
 
 <div class="rating">
-<p class="rating-value text-number-blok-recipes">${r}</p>
+
+<p class="rating-value">${r}</p>
+
 <div class="block-stars">
 <svg class="star-icon-modal " width="18" height="18">
           <use href="${K}#icon-star"></use>
@@ -37,7 +39,9 @@ ${g?O:v}
 <h2 class= "modal-title">${i}</h2>
 
 <div class="block-time">
-<p class="rating-value text-number-blok-recipes">${r}</p><div class="block-stars">
+
+<p class="rating-value ">${r}</p><div class="block-stars">
+
 <svg class="star-icon-modal " width="18" height="18">
           <use href="${K}#icon-star"></use>
         </svg>
