@@ -97,7 +97,7 @@
     }
 }
 
-.categories-list-element:hover,
-.categories-list-element:focus {
+.categoreis-list-element:hover,
+.categoreis-list-element:focus {
     color: var(--additional-text-color);
 }
