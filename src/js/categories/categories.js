@@ -3,6 +3,7 @@ import { backdropElem } from '/js/modal-recipe/modal-recipe.js';
 import { onModal } from '/js/modal-recipe/modal-recipe.js';
 import { createMarkupElForFilter } from '/js/recipes/recipes.js';
 import { onCreateGoldStar } from '/js/recipes/recipes.js';
+import {updatePagination} from '/js/pagination/pagination.js'
 const BASEURL_CATEGORIES =
     'https://tasty-treats-backend.p.goit.global/api/categories';
 const BASEURL_RECIPES =
@@ -45,6 +46,7 @@ export async function getRecipesByCategory(event) {
 
         galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
         onCreateGoldStar(response.data.results);
+        updatePagination();
         //  модалка  рецепт
         const cardsRecipesBtn = document.querySelectorAll('.btn-blok-recipes-see');
         [...cardsRecipesBtn].forEach(function(card) {
