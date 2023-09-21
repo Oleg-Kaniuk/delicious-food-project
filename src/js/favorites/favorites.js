@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { onCreateGoldStar } from '/js/recipes/recipes.js';
 import imgUrl from '../../img/icon-sprite.svg';
-import { elements } from '/js/filters/filters.js'
 const favList = document.querySelector('.favorite-recipes-list');
 const categories = document.querySelector('.categories');
 const emptyFav = document.querySelector('empty-favorites-container');
@@ -9,6 +7,7 @@ const favorite = JSON.parse(localStorage.getItem('saveCheckedFavorite')) || [];
 const uniqueCategories = new Set();
 const categoryButtons = categories.querySelectorAll('.category-button');
 const allCategorieButton = document.querySelector('.all-categories-button');
+const favoritesContainer = document.querySelector('.empty-favorites-container')
 const BASE_FAV_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 let currentCategory = null;
 
@@ -77,10 +76,13 @@ function createMarkupForFilter(el) {
   
   </li>`;
 }
+
 if (favorite.length > 0) {
     favorite.map(idEl => {
-        const fetchObj = fetchFavImages(idEl).then(data => {
+       fetchFavImages(idEl).then(data => {
             favList.insertAdjacentHTML('beforeend', createMarkupForFilter(data.data));
+           createGoldStarOneEl(data.data);
+       
             const recipeCategory = data.data.category;
             if (recipeCategory) {
                 uniqueCategories.add(recipeCategory);
@@ -103,11 +105,8 @@ if (favorite.length > 0) {
     favList.innerHTML = '';
     categories.innerHTML = '';
 
-    const emptyFavoriteMarkup = createMarkupForEmptyFav();
-    const favoritesContainer = document.querySelector('.empty-favorites-container')
-    if (favoritesContainer) {
-        favoritesContainer.innerHTML = emptyFavoriteMarkup;
-    }
+        favoritesContainer.innerHTML = createMarkupForEmptyFav();
+   
 }
 
 function createMarkupForEmptyFav() {
@@ -168,16 +167,16 @@ function updateCategories(removedCategory) {
     }
 }
 
-// function createGoldStar(el) {
-//     const starIcon = document.querySelectorAll('.star-icon')
-//     let counter = 0;
-//     for (let i = 0; i < 5; i += 1) {
-//         if (i < Math.floor(recipe.rating)) {
-//             if (starIcon) {
-//                 starIcon[counter].classList.add('star-color-icon')
-//             }
+ export function createGoldStarOneEl(el) {
+    const icon = document.querySelectorAll('.star-icon')
+    let counter = 0;
+    for (let i = 0; i < 5; i += 1) {
+        if (i < Math.floor(el.rating)) {
+            if (icon) {
+                icon[counter].classList.add('star-color-icon')
+            }
 
-//         }
-//         counter += 1;
-//     }
-// }
+        }
+        counter += 1;
+    }
+}
