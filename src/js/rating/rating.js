@@ -104,6 +104,7 @@ export function initRatings() {
   function setNewValue(e) {
     // console.log(e.target.value);
     ratingValue.innerHTML = `${e.target.value}.0`;
+    ratingValue.setAttribute('value', e.target.value)
     setActiveStars(e.target.value);
   }
   // Функция для отрисовки иконок рейтинга.
@@ -128,18 +129,23 @@ export function initRatings() {
 }
 
 
-function submitRating(params) {
+async function submitRating(params) {
     params.preventDefault()
+    const pValue = Number(refs.pElem.getAttribute('value'))
+    const inputValue =  refs.inputElem.value
     // const POST_COMMENT = `https://tasty-treats-backend.p.goit.global/api/orders/add?email=${refs.inputElem.value}&rating=${refs.pElem.textContent}`
-   return axios.post('https://tasty-treats-backend.p.goit.global/api/orders/add', {
-    name: 'Stive',
-    // email: refs.inputElem.value,
-    // rating: refs.pElem.textContent
-  })
-  .then(response => {
-    console.log(response);
-  })
-  .catch(error => {
-    console.log(error);
-  });
+  const url = `https://tasty-treats-backend.p.goit.global/api/recipes/6462a8f74c3d0ddd28897fc1/rating` 
+  const res = await axios.post(url, {
+      rate: pValue,
+      email: inputValue
+})
+.then(data =>{
+  Notiflix.Notify.success('Your evaluation has been sent');
+
+  refs.ratingModal.classList.add('is-hidden1');
+  ratingValue.innerHTML = `0.0`;
+  ratingValue.setAttribute('value', '0')
+}).catch(err =>{
+  Notiflix.Notify.failure('Error. Your score could not be submitted');
+})
 }
