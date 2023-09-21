@@ -1,5 +1,5 @@
 // import {createGoldStarOneEl} from '/js/favorites/favorites.js'
-
+import imgUrl from '../../img/icon-sprite.svg'
 
 async function allInfoRecipes(id) {
   const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
@@ -57,22 +57,23 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <ul class="tags"></ul>
 <div class="block-time">
 
-<div class="rating"><p class="rating-value">${rating}</p><div class="div class="block-stars">
-<svg class="svg-stars" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg>
-      <svg class="svg-stars" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg>
-      <svg class="svg-stars" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg>
-      <svg class="svg-stars" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg>
-      <svg class="svg-stars" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg></div>
+<div class="rating"><p class="rating-value">${rating}</p>
+<div class="block-stars">
+<svg class="star-icon " width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg>
+        <svg class="star-icon" width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg>
+        <svg class="star-icon " width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg>
+        <svg class="star-icon" width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg>
+        <svg class="star-icon" width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg></div>
 <div class="time">${time} min</div>
 </div>
 </div>
@@ -87,22 +88,23 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 
 <div class="block-time">
 <p class="rating-value">${rating}</p><div class="block-stars">
-<svg class="svg-stars" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg>
-      <svg class="svg-stars" width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg>
-      <svg class="svg-stars " width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg>
-      <svg class="svg-stars " width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg>
-      <svg class="svg-stars " width="18" height="18">
-        <use href="/img/icon-sprite.svg#icon-star"></use>
-      </svg></div>
+<svg class="star-icon " width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg>
+        <svg class="star-icon" width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg>
+        <svg class="star-icon " width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg>
+        <svg class="star-icon" width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg>
+        <svg class="star-icon" width="18" height="18">
+          <use href="${imgUrl}#icon-star"></use>
+        </svg></div>
 <div class="time">${time} min</div>
+</div>
 </div>
 </div>
 <ul class ="ingredients"></ul>
