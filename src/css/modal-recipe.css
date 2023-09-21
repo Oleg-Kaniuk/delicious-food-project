@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 200;
 
   width: 100%;
   height: 100%;
@@ -167,7 +167,7 @@ position: absolute;
 }
 
 .btn-rating {
-  margin: 20px 0 20px 14px;
+  margin: 20px 0 20px 9px;
   padding: 12px 24px;
   justify-content: center;
   font-family: Inter;
@@ -182,7 +182,7 @@ position: absolute;
 @media only screen and (min-width: 768px) {
   .btn-rating {
     padding: 14px 28px;
-    margin: 32px 0 32px 16px;
+    margin: 32px 0 32px 11px;
   }
 }
 @media (hover: hover) {
@@ -325,11 +325,11 @@ gap: 1px;
   }
 }
 
-.icon-stars {
+.svg-stars {
   z-index: 10;
   fill: var(--star-color);
 }
-.star-active {
+.svg-stars-active {
   fill: #eea10c;
 }
 
