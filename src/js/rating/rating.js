@@ -69,6 +69,8 @@ function onClickEscapeNow(e) {
   console.log(e) 
   if (e.code === "Escape") { 
   refs.ratingModal.classList.add('is-hidden1');
+  refs.body.style.position = '';
+  refs.body.style.top = '';
      document.removeEventListener("keydown", onClickEscapeNow) 
   } 
 }
