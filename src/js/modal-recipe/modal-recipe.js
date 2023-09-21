@@ -24,6 +24,8 @@ export function onModal(id) {
   allInfoRecipes(id)
     .then(data => {
       createMarkupInfoRecipes(data);
+      createGoldStarForOneEl(data)
+    
     })
     .catch(error => console.log(error));
 }
@@ -44,7 +46,7 @@ function createMarkupInfoRecipes(arr) {
     tags,
   } = arr;
 
-storageButton.id=_id;
+  storageButton.id = _id;
 // removeStorageBtn.id=_id;
 
   const youtubeWatch = youtube.replace('https://www.youtube.com/watch?v=', '');
@@ -57,21 +59,22 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <ul class="tags"></ul>
 <div class="block-time">
 
-<div class="rating"><p class="rating-value">${rating}</p>
+<div class="rating">
+<p class="rating-value text-number-blok-recipes">${rating}</p>
 <div class="block-stars">
-<svg class="star-icon " width="18" height="18">
+<svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
-        <svg class="star-icon" width="18" height="18">
+        <svg class="star-icon-modal" width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
-        <svg class="star-icon " width="18" height="18">
+        <svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
-        <svg class="star-icon" width="18" height="18">
+        <svg class="star-icon-modal" width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
-        <svg class="star-icon" width="18" height="18">
+        <svg class="star-icon-modal" width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg></div>
 <div class="time">${time} min</div>
@@ -87,20 +90,20 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <h2 class= "modal-title">${area}</h2>
 
 <div class="block-time">
-<p class="rating-value">${rating}</p><div class="block-stars">
-<svg class="star-icon " width="18" height="18">
+<p class="rating-value text-number-blok-recipes">${rating}</p><div class="block-stars">
+<svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
-        <svg class="star-icon" width="18" height="18">
+        <svg class="star-icon-modal" width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
-        <svg class="star-icon " width="18" height="18">
+        <svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
-        <svg class="star-icon" width="18" height="18">
+        <svg class="star-icon-modal" width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
-        <svg class="star-icon" width="18" height="18">
+        <svg class="star-icon-modal" width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg></div>
 <div class="time">${time} min</div>
@@ -116,7 +119,7 @@ ${youtubeWatch ? youtubeEmbed : imgData}
     modalWindow.insertAdjacentHTML('beforeend', markup);
   } else {
     modalWindow.insertAdjacentHTML('beforeend', markupMobile);
-  }
+   }
 
   const creatIngredients = document.querySelector('.ingredients');
   const markupIngradient = ingredients
@@ -159,6 +162,22 @@ function onClickEscapeModalSee(evt) {
     modalWindow.innerHTML = '';
     document.removeEventListener('keydown', onClickEscapeModalSee);
   }
+}
+
+
+
+function createGoldStarForOneEl(el) {
+    const icon = document.querySelectorAll('.star-icon-modal')
+    let counter = 0;
+    for (let i = 0; i < 5; i += 1) {
+        if (i < Math.floor(el.rating)) {
+          if (icon) {
+                icon[counter].classList.add('star-color-icon-modal')
+            }
+
+        }
+        counter += 1;
+    }
 }
 
 
