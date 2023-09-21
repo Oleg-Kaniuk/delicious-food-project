@@ -21,9 +21,9 @@ const refs = {
 if (refs.closeRatingModal) {
     refs.closeRatingModal.addEventListener('click', closeRatingModal);
 }
-// if (refs.ratingForm) {
-    refs.ratingForm.addEventListener('submit', submitRating);
-// }
+if (refs.ratingForm) {
+  refs.ratingForm.addEventListener('submit', submitRating);
+}
 if (refs.openRatingModal) {
     refs.openRatingModal.addEventListener('click', openRatingModal);
 }
@@ -64,6 +64,7 @@ function openRatingModal() {
 }
 // Экспортируем функцию initRatings для инициализации рейтинга.
 export function initRatings() {
+  
   // Получаем все элементы с классом 'rating'.
   const ratings = document.querySelectorAll('.set__rating');
   let ratingValue, ratingStars;
@@ -127,27 +128,36 @@ export function initRatings() {
       starSvg.classList.add('rating__icon');
         }
     }
+
+
+    
 }
 
-
-async function submitRating(params) {
-    params.preventDefault()
-    const pValue = Number(refs.pElem.getAttribute('value'))
-    const inputValue =  refs.inputElem.value
-    const {_id} = expId
-  // const POST_COMMENT = `https://tasty-treats-backend.p.goit.global/api/orders/add`
-  const url = `https://tasty-treats-backend.p.goit.global/api/recipes/${_id}/rating` 
-  const res = await axios.patch(url, {
-      rate: pValue,
-      email: inputValue
-})
-.then(data =>{
-  Notiflix.Notify.success('Your evaluation has been sent');
-
-  refs.ratingModal.classList.add('is-hidden1');
-  ratingValue.innerHTML = `0.0`;
-  ratingValue.setAttribute('value', '0')
+function submitRating(params) {
+  params.preventDefault()
+  const pValue = Number(refs.pElem.getAttribute('value'))
+  const inputValue =  refs.inputElem.value
+  const {_id} = expId
+// const POST_COMMENT = `https://tasty-treats-backend.p.goit.global/api/orders/add`
+const url = `https://tasty-treats-backend.p.goit.global/api/recipes/${_id}/rating` 
+const res =  axios.patch(url, {
+    rate: pValue,
+    email: inputValue
+}).then(data =>{
+Notiflix.Notify.success('Your evaluation has been sent');
+refs.pElem.innerHTML = `0.0`;
+refs.pElem.setAttribute('value', '0')
+refs.ratingModal.classList.add('is-hidden1');
+refs.body.style.position = '';
+  refs.body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
 }).catch(err =>{
-  Notiflix.Notify.failure('Error. Your score could not be submitted');
+Notiflix.Notify.failure('Error. Your score could not be submitted');
+refs.pElem.setAttribute('value', '0')
+refs.pElem.innerHTML = `0.0`;
+refs.ratingModal.classList.add('is-hidden1');
+refs.body.style.position = '';
+  refs.body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
 })
 }
