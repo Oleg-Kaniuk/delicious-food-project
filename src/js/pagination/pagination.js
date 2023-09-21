@@ -115,17 +115,3 @@ pagination.on('afterMove', (event) => {
   pagination.reset(totalItems);
 }
 
-//генерує наступну сторінку коли ти в категоріях
-function renderEvtCategories(page) {
-  fetchData(page)
-    .then(recipes => {
-    console.log(recipes);
-    pagePagination++;
-    containerForRecipes.innerHTML = createMarkupElForFilter(recipes.results);
-    onCreateGoldStar(recipes.results);
-    
-  })
-        .catch(error => console.log(error));
-}
-
-renderEvtCategories();
