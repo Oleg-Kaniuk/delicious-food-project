@@ -1,5 +1,3 @@
-
-
 async function allInfoRecipes(id) {
   const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
   const response = await fetch(`${BASE_URL}recipes/${id}`);
@@ -9,28 +7,28 @@ async function allInfoRecipes(id) {
 const modalClose = document.querySelector('.modal-close-recipe-btn');
 const modalWindow = document.querySelector('.recipe-info');
 export const backdropElem = document.querySelector('.recipe-backdrop');
-
-const addLocalRecipeSeeBtn = document.querySelector(".js-add-btn")  
+const storageButton = document.querySelector('.add-btn');
+const removeStorageBtn = document.querySelector('.remove-btn');
 
 // змінна на експорт до modal-rating
-export let expId = ''
+export let expId = '';
 
+// Відкриття модалки
 export function onModal(id) {
   document.addEventListener('keydown', onClickEscapeModalSee);
   backdropElem.addEventListener('click', onclickBackdropModalSee);
-  backdropElem.classList.remove('is-hidden-recipe-backdrop')
-allInfoRecipes(id)
+  backdropElem.classList.remove('is-hidden-recipe-backdrop');
+  allInfoRecipes(id)
     .then(data => {
       createMarkupInfoRecipes(data);
     })
     .catch(error => console.log(error));
 }
 
-
 function createMarkupInfoRecipes(arr) {
-  modalWindow.innerHTML = ''
-  expId = arr
-   const {
+  modalWindow.innerHTML = '';
+  expId = arr;
+  const {
     _id,
     thumb,
     area,
@@ -43,16 +41,13 @@ function createMarkupInfoRecipes(arr) {
     tags,
   } = arr;
 
-  if (addLocalRecipeSeeBtn) {
-    addLocalRecipeSeeBtn.id = _id;
-}
-
+storageButton.id=_id;
+// removeStorageBtn.id=_id;
 
   const youtubeWatch = youtube.replace('https://www.youtube.com/watch?v=', '');
   const youtubeEmbed = `<iframe class="modal-recipe-image" src="https://www.youtube.com/embed/${youtubeWatch}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>`;
-  const imgData = `<img class="modal-recipe-image" src="${thumb}" alt="${title}" max-width="295px" height="295px"></img>`
+  const imgData = `<img class="modal-recipe-image" src="${thumb}" alt="${title}" max-width="295px" height="295px"></img>`;
   const markup = `<h2 class= "modal-title">${area}</h2>
- 
 
 ${youtubeWatch ? youtubeEmbed : imgData}
 <div class ="block-info">
@@ -117,7 +112,7 @@ ${youtubeWatch ? youtubeEmbed : imgData}
   } else {
     modalWindow.insertAdjacentHTML('beforeend', markupMobile);
   }
-  
+
   const creatIngredients = document.querySelector('.ingredients');
   const markupIngradient = ingredients
     .map(
@@ -130,19 +125,14 @@ ${youtubeWatch ? youtubeEmbed : imgData}
   const markupTags = tags
     .map(tag => `<li class ="title-tags"><p>#${tag}</p></li>`)
     .join('');
-   
   creatTags.innerHTML = markupTags;
-  onGoldSfgStar(rating)
-  
+
+  // onGoldSfgStar(rating)
 }
 
-
-
-if(backdropElem){
-
-modalClose.addEventListener('click', onCloseModalSeeBtn);
-
-};
+if (backdropElem) {
+  modalClose.addEventListener('click', onCloseModalSeeBtn);
+}
 
 function onCloseModalSeeBtn() {
   backdropElem.classList.add('is-hidden-recipe-backdrop');
@@ -152,24 +142,22 @@ function onCloseModalSeeBtn() {
 
 function onclickBackdropModalSee(evt) {
   if (evt.target === backdropElem) {
-    modalWindow.innerHTML = ''
+    modalWindow.innerHTML = '';
     backdropElem.classList.toggle('is-hidden-recipe-backdrop');
-   backdropElem.removeEventListener('click', onclickBackdropModalSee);
+    backdropElem.removeEventListener('click', onclickBackdropModalSee);
   }
 }
 
 function onClickEscapeModalSee(evt) {
   if (evt.code === 'Escape') {
     backdropElem.classList.add('is-hidden-recipe-backdrop');
-    modalWindow.innerHTML = ''
-   
-    // document.removeEventListener('keydown', onClickEscape);
-
+    modalWindow.innerHTML = '';
+    document.removeEventListener('keydown', onClickEscape);
   }
 }
 
 
-
+// зірковий рейтинг
 // async function onGoldSfgStar(rating) {
 //   const star = document.querySelectorAll('svg-stars');
 //   let counter = 0;
@@ -183,3 +171,34 @@ function onClickEscapeModalSee(evt) {
 //   }
 // }
 // const modalCardSee = document.querySelector('.card-modal-see');
+
+
+// // дані зі сховища
+// const arrForLocalStor = JSON.parse(localStorage.getItem(KEY_FEEDBACK)) ?? [];
+
+// const KEY_FEEDBACK = 'saveCheckedFavorite';
+
+// // перевірка на унікальність id
+// if (!arrForLocalStor.includes(id)) {
+//  storageButton.style.display = 'block';
+// removeStorageBtn.style.display = 'none';
+// }else{
+//  storageButton.style.display = 'none';
+//  removeStorageBtn.style.display = 'block';
+// }
+
+// // кнопки
+// storageButton.addEventListener('click', addLocalStorage)
+// function addLocalStorage(evt){
+//   if(storageButton.textContent==="Add to favorite"){
+//     arrForLocalStor.push(idCard);
+//       localStorage.setItem(KEY_FEEDBACK, JSON.stringify(arrForLocalStor));
+//   }
+// }
+// removeStorageBtn.addEventListener('click', delLocalStorage)
+// function delLocalStorage(evt){
+//   if(storageButton.textContent==="Delete to favorite"){
+//     arrForLocalStor.splice(indexElCard, 1);
+//     localStorage.setItem(KEY_FEEDBACK, JSON.stringify(arrForLocalStor));
+//   }
+// }
