@@ -37,6 +37,7 @@ function onBackdropClick(event) {
     closeRatingModal();
   }
 }
+
 // Функция для закрытия модального окна.
 function closeRatingModal() {
   refs.ratingModal.classList.add('is-hidden1');
@@ -45,9 +46,11 @@ function closeRatingModal() {
   refs.body.style.top = '';
   window.scrollTo(0, parseInt(scrollY || '0') * -1);
   top;
+  
 }
 // Функция для открытия модального окна оценки.
 function openRatingModal() {
+  document.addEventListener("keydown", onClickEscapeNow)
   const value = document.querySelector('.set__rating' > '.rating__value');
   refs.ratingRadio.forEach(radio => {
     radio.checked = false;
@@ -62,9 +65,15 @@ function openRatingModal() {
   refs.body.style.position = 'fixed';
   refs.body.style.top = -`${window.scrollY}px`;
 }
+function onClickEscapeNow(e) { 
+  console.log(e) 
+  if (e.code === "Escape") { 
+  refs.ratingModal.classList.add('is-hidden1');
+     document.removeEventListener("keydown", onClickEscapeNow) 
+  } 
+}
 // Экспортируем функцию initRatings для инициализации рейтинга.
 export function initRatings() {
-  
   // Получаем все элементы с классом 'rating'.
   const ratings = document.querySelectorAll('.set__rating');
   let ratingValue, ratingStars;
