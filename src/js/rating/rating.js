@@ -3,6 +3,7 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 // Устанавливаем базовый URL для выполнения HTTP-запросов.
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
+import { expId } from '../modal-recipe/modal-recipe';
 // Создаем объект refs для доступа к DOM-элементам.
 const refs = {
   // Получаем ссылки на различные элементы модального окна и другие элементы.
@@ -64,7 +65,7 @@ function openRatingModal() {
 // Экспортируем функцию initRatings для инициализации рейтинга.
 export function initRatings() {
   // Получаем все элементы с классом 'rating'.
-  const ratings = document.querySelectorAll('.rating');
+  const ratings = document.querySelectorAll('.set__rating');
   let ratingValue, ratingStars;
   // Проходимся по каждому рейтингу и инициализируем его.
   ratings.forEach(rating => {
@@ -133,8 +134,9 @@ async function submitRating(params) {
     params.preventDefault()
     const pValue = Number(refs.pElem.getAttribute('value'))
     const inputValue =  refs.inputElem.value
-    // const POST_COMMENT = `https://tasty-treats-backend.p.goit.global/api/orders/add?email=${refs.inputElem.value}&rating=${refs.pElem.textContent}`
-  const url = `https://tasty-treats-backend.p.goit.global/api/recipes/6462a8f74c3d0ddd28897fc1/rating` 
+    const {_id} = expId
+  // const POST_COMMENT = `https://tasty-treats-backend.p.goit.global/api/orders/add`
+  const url = `https://tasty-treats-backend.p.goit.global/api/recipes/${_id}/rating` 
   const res = await axios.post(url, {
       rate: pValue,
       email: inputValue
