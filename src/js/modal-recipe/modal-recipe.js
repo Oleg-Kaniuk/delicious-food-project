@@ -1,5 +1,4 @@
-// import {createGoldStarOneEl} from '/js/favorites/favorites.js'
-import imgUrl from '../../img/icon-sprite.svg'
+import imgUrl from '../../img/icon-sprite.svg';
 
 async function allInfoRecipes(id) {
   const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
@@ -12,10 +11,10 @@ const modalWindow = document.querySelector('.recipe-info');
 export const backdropElem = document.querySelector('.recipe-backdrop');
 const storageButton = document.querySelector('.add-btn');
 const removeStorageBtn = document.querySelector('.remove-btn');
-
+const KEY_FEEDBACK = 'saveCheckedFavorite';
 // змінна на експорт до modal-rating
 export let expId = '';
-
+let id = '';
 // Відкриття модалки
 export function onModal(id) {
   document.addEventListener('keydown', onClickEscapeModalSee);
@@ -24,8 +23,7 @@ export function onModal(id) {
   allInfoRecipes(id)
     .then(data => {
       createMarkupInfoRecipes(data);
-      createGoldStarForOneEl(data)
-    
+      createGoldStarForOneEl(data);
     })
     .catch(error => console.log(error));
 }
@@ -33,6 +31,17 @@ export function onModal(id) {
 function createMarkupInfoRecipes(arr) {
   modalWindow.innerHTML = '';
   expId = arr;
+
+  const arrForLocalStor = JSON.parse(localStorage.getItem(KEY_FEEDBACK)) ?? [];
+  // кнопки
+
+  if (!arrForLocalStor.includes(arr._id)) {
+    storageButton.style.display = 'block';
+    removeStorageBtn.style.display = 'none';
+  } else {
+    storageButton.style.display = 'none';
+    removeStorageBtn.style.display = 'block';
+  }
   const {
     _id,
     thumb,
@@ -45,9 +54,9 @@ function createMarkupInfoRecipes(arr) {
     ingredients,
     tags,
   } = arr;
-
+  id = _id;
   storageButton.id = _id;
-// removeStorageBtn.id=_id;
+  removeStorageBtn.id = _id;
 
   const youtubeWatch = youtube.replace('https://www.youtube.com/watch?v=', '');
   const youtubeEmbed = `<iframe class="modal-recipe-image" src="https://www.youtube.com/embed/${youtubeWatch}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>`;
@@ -60,9 +69,7 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <div class="block-time">
 
 <div class="rating">
-
 <p class="rating-value">${rating}</p>
-
 <div class="block-stars">
 <svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
@@ -92,9 +99,7 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <h2 class= "modal-title">${area}</h2>
 
 <div class="block-time">
-
 <p class="rating-value ">${rating}</p><div class="block-stars">
-
 <svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
@@ -123,7 +128,7 @@ ${youtubeWatch ? youtubeEmbed : imgData}
     modalWindow.insertAdjacentHTML('beforeend', markup);
   } else {
     modalWindow.insertAdjacentHTML('beforeend', markupMobile);
-   }
+  }
 
   const creatIngredients = document.querySelector('.ingredients');
   const markupIngradient = ingredients
@@ -138,7 +143,6 @@ ${youtubeWatch ? youtubeEmbed : imgData}
     .map(tag => `<li class ="title-tags"><p>#${tag}</p></li>`)
     .join('');
   creatTags.innerHTML = markupTags;
-
 }
 
 if (backdropElem) {
@@ -167,68 +171,57 @@ function onClickEscapeModalSee(evt) {
   }
 }
 
-
-
 function createGoldStarForOneEl(el) {
-    const icon = document.querySelectorAll('.star-icon-modal')
-    let counter = 0;
-    for (let i = 0; i < 5; i += 1) {
-        if (i < Math.floor(el.rating)) {
-          if (icon) {
-                icon[counter].classList.add('star-color-icon-modal')
-            }
-
-        }
-        counter += 1;
+  const icon = document.querySelectorAll('.star-icon-modal');
+  let counter = 0;
+  for (let i = 0; i < 5; i += 1) {
+    if (i < Math.floor(el.rating)) {
+      if (icon) {
+        icon[counter].classList.add('star-color-icon-modal');
+      }
     }
+    counter += 1;
+  }
 }
 
+const addForLocalStor = JSON.parse(localStorage.getItem(KEY_FEEDBACK)) ?? [];
 
+storageButton.addEventListener('click', addLocalStorage);
 
+function addLocalStorage(evt) {
+  if ((storageButton.style.display = 'block')) {
+    addForLocalStor.push(evt.target.id);
+    localStorage.setItem(KEY_FEEDBACK, JSON.stringify(addForLocalStor));
+    storageButton.style.display = 'none';
+    removeStorageBtn.style.display = 'block';
+  }
+}
+removeStorageBtn.addEventListener('click', delLocalStorage);
 
-// зірковий рейтинг
-// async function onGoldSfgStar(rating) {
-//   const star = document.querySelectorAll('svg-stars');
-//   let counter = 0;
-// for (let i = 0; i < 5; i += 1) {
-//     if (i < Math.floor(rating)) {
-//       if (star) {
-//         star[counter].classList.add('svg-stars-active');
-//       }
-//     }
-//     counter += 1;
-//   }
-// }
-// const modalCardSee = document.querySelector('.card-modal-see');
+function delLocalStorage(evt) {
+  if ((removeStorageBtn.style.display = 'block')) {
+    addForLocalStor.splice(evt.target.id, 1);
+    localStorage.setItem(KEY_FEEDBACK, JSON.stringify(addForLocalStor));
+    storageButton.style.display = 'block';
+    removeStorageBtn.style.display = 'none';
+  }
+}
+console.log(id);
 
-
-
-// // дані зі сховища
+// // варіант II
 // const arrForLocalStor = JSON.parse(localStorage.getItem(KEY_FEEDBACK)) ?? [];
-
-// const KEY_FEEDBACK = 'saveCheckedFavorite';
-
-// // перевірка на унікальність id
-// if (!arrForLocalStor.includes(id)) {
-//  storageButton.style.display = 'block';
-// removeStorageBtn.style.display = 'none';
-// }else{
-//  storageButton.style.display = 'none';
-//  removeStorageBtn.style.display = 'block';
-// }
-
 // // кнопки
 // storageButton.addEventListener('click', addLocalStorage)
 // function addLocalStorage(evt){
-//   if(storageButton.textContent==="Add to favorite"){
-//     arrForLocalStor.push(idCard);
-//       localStorage.setItem(KEY_FEEDBACK, JSON.stringify(arrForLocalStor));
-//   }
-// }
-// removeStorageBtn.addEventListener('click', delLocalStorage)
-// function delLocalStorage(evt){
-//   if(storageButton.textContent==="Delete to favorite"){
-//     arrForLocalStor.splice(indexElCard, 1);
+//   if (!arrForLocalStor.includes(id)) {
+//     storageButton.textContent ="Delete to favorite"
+//     arrForLocalStor.push(id);
 //     localStorage.setItem(KEY_FEEDBACK, JSON.stringify(arrForLocalStor));
+//   } else {
+//     storageButton.textContent = "Delete to favorite"
+//     storageButton.textContent = 'Add to favorite'
+//     const indexElCard =arrForLocalStor.indexOf(id);
+//     arrForLocalStor.splice(indexElCard, 1);
+//     localStorage.setItem('saveCheckedFavorite', JSON.stringify(arrForLocalStor));
 //   }
-// }
+// };
