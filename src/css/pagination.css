@@ -8,24 +8,6 @@
     
 }
 
-/* .tui-pagination .tui-page-btn {
-    display: inline-block;
-    position: relative;
-     width: 40px; 
-    padding: 8px 0 6px;
-    margin-left: 0;
-     color:var(--main-dark-text-color); 
-     text-decoration: none;
-    vertical-align: middle;
-    border: 1px solid var(--filters-select-color);
-    background-color: var(--filters-select-color--primary-bg-color); 
-    font-weight: 600px;
-    font-size:18px;
-    line-height: 1.22;
-} */
-
-
-
 /* перша кнопка зліва після кліку */
  #pagination > a.tui-page-btn.tui-first{
     width: 40px;
@@ -73,6 +55,10 @@ vertical-align:baseline;
 background-color: var(--main-dark-text-color);
 }
 
+/* спан другої кнопки після кліку */
+#pagination > a.tui-page-btn.tui-prev > span{
+    vertical-align: text-bottom;
+}
 
 
 /* активна кнопка */
@@ -173,10 +159,7 @@ width: 40px;
     line-height: 1.22;
     color: var( --main-dark-text-color);
 }
-/* спан правий передостанній */
-#pagination > a.tui-page-btn.tui-next > span{
-top:20px;
-}
+
 #pagination > a:nth-child(4){
     width: 40px;
     height: 40px; 
@@ -209,5 +192,31 @@ top:20px;
 }
 #pagination > a.tui-page-btn.tui-last{
     color: var( --main-dark-text-color);
+}
+
+/* останній спан */
+#pagination > a.tui-page-btn.tui-last > span{
+    vertical-align: text-top;
+
+}
+/* останній спан активний стан */
+#pagination > span.tui-page-btn.tui-is-disabled.tui-last > span{
+vertical-align: text-top;
+}
+/* передостанній спан */
+#pagination > a.tui-page-btn.tui-next > span{
+vertical-align: text-top;
+}
+/* передостанній спан активний */
+#pagination > span.tui-page-btn.tui-is-disabled.tui-next > span{
+    vertical-align: text-top;
+}
+/* друга кнопка */
+#pagination > span.tui-page-btn.tui-is-disabled.tui-prev{
+background-color: var( --main-dark-text-color);
+}
+/* другий спан */
+#pagination > span.tui-page-btn.tui-is-disabled.tui-prev > span{
+    vertical-align: text-top;
 }
 
