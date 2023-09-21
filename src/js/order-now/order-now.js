@@ -55,7 +55,7 @@ function onClickSendNow(evt) {
     const { user_name, user_phone, user_mail_modal, modal_comment  } = evt.target.elements;
  
     // перевірка чи заповнені поля вводу
-    if (user_phone === "" || user_mail_modal.value === "" || user_name.value === '' || modal_comment.value ==='') {
+    if (user_phone === "" || user_mail_modal.value === "" || user_name.value === '' ) {
         alert('All fields must be filled')
     }
     else {
