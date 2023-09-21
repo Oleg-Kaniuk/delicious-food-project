@@ -1,3 +1,6 @@
+// import {createGoldStarOneEl} from '/js/favorites/favorites.js'
+
+
 async function allInfoRecipes(id) {
   const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
   const response = await fetch(`${BASE_URL}recipes/${id}`);
@@ -152,7 +155,7 @@ function onClickEscapeModalSee(evt) {
   if (evt.code === 'Escape') {
     backdropElem.classList.add('is-hidden-recipe-backdrop');
     modalWindow.innerHTML = '';
-    document.removeEventListener('keydown', onClickEscape);
+    document.removeEventListener('keydown', onClickEscapeModalSee);
   }
 }
 
