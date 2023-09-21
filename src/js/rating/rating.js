@@ -137,7 +137,7 @@ async function submitRating(params) {
     const {_id} = expId
   // const POST_COMMENT = `https://tasty-treats-backend.p.goit.global/api/orders/add`
   const url = `https://tasty-treats-backend.p.goit.global/api/recipes/${_id}/rating` 
-  const res = await axios.post(url, {
+  const res = await axios.patch(url, {
       rate: pValue,
       email: inputValue
 })
