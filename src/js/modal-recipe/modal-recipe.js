@@ -12,7 +12,8 @@ export const backdropElem = document.querySelector('.recipe-backdrop');
 
 const addLocalRecipeSeeBtn = document.querySelector(".js-add-btn")  
 
-
+// змінна на експорт до modal-rating
+export let expId = ''
 
 export function onModal(id) {
   document.addEventListener('keydown', onClickEscapeModalSee);
@@ -28,7 +29,8 @@ allInfoRecipes(id)
 
 function createMarkupInfoRecipes(arr) {
   modalWindow.innerHTML = ''
-  const {
+  expId = arr
+   const {
     _id,
     thumb,
     area,
