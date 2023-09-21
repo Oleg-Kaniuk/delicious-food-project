@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { onCreateGoldStar } from '/js/recipes/recipes.js';
 import imgUrl from '../../img/icon-sprite.svg';
-import { elements } from '/js/filters/filters.js'
+// import { onRecipeClick } from 'js/categories/categories.js'
+import { onModal, backdropElem } from '/js/modal-recipe/modal-recipe.js';
+
 const favList = document.querySelector('.favorite-recipes-list');
 const categories = document.querySelector('.categories');
 const emptyFav = document.querySelector('empty-favorites-container');
@@ -9,6 +10,7 @@ const favorite = JSON.parse(localStorage.getItem('saveCheckedFavorite')) || [];
 const uniqueCategories = new Set();
 const categoryButtons = categories.querySelectorAll('.category-button');
 const allCategorieButton = document.querySelector('.all-categories-button');
+const favoritesContainer = document.querySelector('.empty-favorites-container')
 const BASE_FAV_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 let currentCategory = null;
 
@@ -22,7 +24,7 @@ async function fetchFavImages(id) {
 }
 
 function createMarkupForFilter(el) {
-    const { _id, title, preview, description, rating } = el;
+    const { _id, title, preview, description, rating,category } = el;
 
     const idFromLocalSorage = JSON.parse(localStorage.getItem('saveCheckedFavorite')) || [];
     const includesIdAtLocalStorage = idFromLocalSorage.includes(el);
@@ -35,6 +37,7 @@ function createMarkupForFilter(el) {
         
         <input
           id="${_id}"
+          data-category-card="${category}"
           type="checkbox"
           class="heart-icon-elem"
           name="heart-icon"
@@ -77,10 +80,23 @@ function createMarkupForFilter(el) {
   
   </li>`;
 }
+
 if (favorite.length > 0) {
     favorite.map(idEl => {
-        const fetchObj = fetchFavImages(idEl).then(data => {
+       fetchFavImages(idEl).then(data => {
             favList.insertAdjacentHTML('beforeend', createMarkupForFilter(data.data));
+           createGoldStarOneEl(data.data);
+            const btnSeeRecipe = document.querySelectorAll(
+                    '.btn-blok-recipes-see'
+                );
+                [...btnSeeRecipe].forEach(function(card) {
+                    const id = card.id;
+                    card.addEventListener('click', () => {
+                        onBtnRecipeClick(id);
+                    });
+                });
+      
+       
             const recipeCategory = data.data.category;
             if (recipeCategory) {
                 uniqueCategories.add(recipeCategory);
@@ -103,11 +119,8 @@ if (favorite.length > 0) {
     favList.innerHTML = '';
     categories.innerHTML = '';
 
-    const emptyFavoriteMarkup = createMarkupForEmptyFav();
-    const favoritesContainer = document.querySelector('.empty-favorites-container')
-    if (favoritesContainer) {
-        favoritesContainer.innerHTML = emptyFavoriteMarkup;
-    }
+        favoritesContainer.innerHTML = createMarkupForEmptyFav();
+   
 }
 
 function createMarkupForEmptyFav() {
@@ -121,8 +134,9 @@ function createMarkupForEmptyFav() {
 }
 
 if (favList) {
-    favList.addEventListener('click', clickHeart);
+    favList.addEventListener('change', clickHeart);
 }
+
 
 function clickHeart(e) {
     const idCard = e.target.id;
@@ -134,7 +148,7 @@ function clickHeart(e) {
 
         localStorage.setItem('saveCheckedFavorite', JSON.stringify(favorite));
 
-        const cardElement = document.getElementById(idCard);
+        const cardElement = document.getElementById(`${idCard}`);
         const removedCategory = cardElement.getAttribute('data-category');
         cardElement.remove();
 
@@ -168,16 +182,31 @@ function updateCategories(removedCategory) {
     }
 }
 
-// function createGoldStar(el) {
-//     const starIcon = document.querySelectorAll('.star-icon')
-//     let counter = 0;
-//     for (let i = 0; i < 5; i += 1) {
-//         if (i < Math.floor(recipe.rating)) {
-//             if (starIcon) {
-//                 starIcon[counter].classList.add('star-color-icon')
-//             }
+ export function createGoldStarOneEl(el) {
+    const icon = document.querySelectorAll('.star-icon')
+    let counter = 0;
+    for (let i = 0; i < 5; i += 1) {
+        if (i < Math.floor(el.rating)) {
+            if (icon) {
+                icon[counter].classList.add('star-color-icon')
+            }
 
-//         }
-//         counter += 1;
-//     }
+        }
+        counter += 1;
+    }
+}
+
+
+
+// ф-я для категорій
+// function createBtnCateg(arr) {
+//   return  arr.map(category => `<button class="category-button" data-category="${category}">${category}</button>
+//   `).join('');
+    
 // }
+
+
+function onBtnRecipeClick(id) {
+    backdropElem.classList.remove('is-hidden-recipe-backdrop');
+    onModal(id);
+}
