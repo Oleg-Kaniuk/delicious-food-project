@@ -60,7 +60,9 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <div class="block-time">
 
 <div class="rating">
-<p class="rating-value text-number-blok-recipes">${rating}</p>
+
+<p class="rating-value">${rating}</p>
+
 <div class="block-stars">
 <svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
@@ -90,7 +92,9 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <h2 class= "modal-title">${area}</h2>
 
 <div class="block-time">
-<p class="rating-value text-number-blok-recipes">${rating}</p><div class="block-stars">
+
+<p class="rating-value ">${rating}</p><div class="block-stars">
+
 <svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
@@ -135,7 +139,6 @@ ${youtubeWatch ? youtubeEmbed : imgData}
     .join('');
   creatTags.innerHTML = markupTags;
 
-  // onGoldSfgStar(rating)
 }
 
 if (backdropElem) {
@@ -181,6 +184,8 @@ function createGoldStarForOneEl(el) {
 }
 
 
+
+
 // зірковий рейтинг
 // async function onGoldSfgStar(rating) {
 //   const star = document.querySelectorAll('svg-stars');
@@ -195,6 +200,7 @@ function createGoldStarForOneEl(el) {
 //   }
 // }
 // const modalCardSee = document.querySelector('.card-modal-see');
+
 
 
 // // дані зі сховища

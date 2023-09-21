@@ -114,6 +114,8 @@
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
+  line-height: 1.22;
+
 }
 @media only screen and (min-width: 768px) {
   .modal-title {
@@ -127,6 +129,7 @@
   font-family: Inter;
   font-size: 14px;
   font-weight: 400;
+  line-height: 1.28;
 }
 
 .add-btn {
@@ -138,6 +141,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+  line-height: 1.21;
   border: 1px solid var(--additional-text-color);
   color: var(--main-dark-text-color);
 }
@@ -171,6 +175,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+  line-height: 1.21;
   border: 1px solid var(--additional-text-color);
   color: var(--main-dark-text-color);
 }
@@ -202,6 +207,7 @@
   padding-bottom: 0;
   /* margin: 14px 0 33px 20px; */
   justify-content: space-between;
+  margin-bottom: 32px;
 }
 
 .tags {
@@ -213,7 +219,7 @@
 @media only screen and (min-width: 768px) {
   .tags {
     margin-bottom: 0;
-    margin: 0 32px 16px;
+    margin: 0 32px ;
   }
 }
 
@@ -224,6 +230,7 @@
   font-family: Inter;
   font-size: 12px;
   font-weight: 500;
+  line-height: 1.16;
 }
 
 .rating {
@@ -242,6 +249,7 @@
   display: flex;
   text-align: center;
   font-size: 14px;
+  line-height: 1.28;
   font-style: normal;
   font-weight: 400;
   color: var(--filters-main-color);
@@ -262,6 +270,7 @@
   font-style: normal;
   font-weight: 400;
   margin-bottom: 40px;
+  line-height: 1.28;
 }
 @media only screen and (min-width: 768px) {
   .ingredients {
@@ -294,6 +303,7 @@
   font-style: normal;
   font-weight: 400;
   margin: 24px 20px 0;
+  line-height: 1.28;
 }
 @media only screen and (min-width: 768px) {
   .instructions {
@@ -304,6 +314,7 @@
 .rating-value {
   margin-right: 6px;
 }
+
 
 /* .star{
 display: flex;
@@ -331,6 +342,7 @@ gap: 1px;
     height: 16px;
   }
 } */
+
 
 .dark-theme .measure {
   color: #fff;
@@ -388,6 +400,20 @@ gap: 1px;
 }
 
 /* ================ */
+
+.star{
+display: flex;
+gap: 1px;
+} 
+
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+  .block-stars {
+   gap: -2px;
+   margin-right: 8px;
+  }
+}
+
+
 .star-icon-modal {
   fill: rgba(5, 5, 5, 0.1);
 }
