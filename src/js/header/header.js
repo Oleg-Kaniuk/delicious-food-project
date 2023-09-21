@@ -21,7 +21,7 @@ const Theme = {
 };
 const body = document.querySelector('body')
 const checkboxTheme = document.querySelector('.theme-switch__toggle')
-console.log(checkboxTheme)
+// console.log(checkboxTheme)
 checkboxTheme.addEventListener('change', onChengeTheme)
 function onChengeTheme(event) {
   console.log(event.currentTarget.checked)

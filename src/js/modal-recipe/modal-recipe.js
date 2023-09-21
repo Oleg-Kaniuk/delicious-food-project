@@ -60,7 +60,9 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <div class="block-time">
 
 <div class="rating">
+
 <p class="rating-value">${rating}</p>
+
 <div class="block-stars">
 <svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
@@ -90,7 +92,9 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 <h2 class= "modal-title">${area}</h2>
 
 <div class="block-time">
+
 <p class="rating-value ">${rating}</p><div class="block-stars">
+
 <svg class="star-icon-modal " width="18" height="18">
           <use href="${imgUrl}#icon-star"></use>
         </svg>
@@ -178,6 +182,24 @@ function createGoldStarForOneEl(el) {
         counter += 1;
     }
 }
+
+
+
+
+// зірковий рейтинг
+// async function onGoldSfgStar(rating) {
+//   const star = document.querySelectorAll('svg-stars');
+//   let counter = 0;
+// for (let i = 0; i < 5; i += 1) {
+//     if (i < Math.floor(rating)) {
+//       if (star) {
+//         star[counter].classList.add('svg-stars-active');
+//       }
+//     }
+//     counter += 1;
+//   }
+// }
+// const modalCardSee = document.querySelector('.card-modal-see');
 
 
 

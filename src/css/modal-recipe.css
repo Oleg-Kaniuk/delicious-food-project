@@ -7,17 +7,17 @@
   width: 100%;
   height: 100%;
 
-  background-color: var(--light-main-hero-image-color);;
+  background-color: var(--light-main-hero-image-color);
   backdrop-filter: blur(5px);
 }
 
 .recipe-modal {
   background-color: var(--dark-main-text-color);
-width: 335px;
-  
-overflow-y: scroll;
+  width: 335px;
+
+  overflow-y: scroll;
   overflow-x: hidden;
-position: absolute;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -41,7 +41,6 @@ position: absolute;
     height: 0;
   }
 }
-
 
 .modal-close-recipe-btn {
   position: absolute;
@@ -94,16 +93,15 @@ position: absolute;
 .modal-recipe-image {
   margin: 40px 20px 14px;
   width: 295px;
-    height: 295px;
+  height: 295px;
   border-radius: 8px;
-  
 }
 
 @media only screen and (min-width: 768px) {
   .modal-recipe-image {
     width: 467px;
     height: 250px;
-   
+
     display: block;
     object-fit: cover;
     margin: 16px 32px;
@@ -117,14 +115,14 @@ position: absolute;
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1.22;
+
 }
 @media only screen and (min-width: 768px) {
-  .modal-title{
+  .modal-title {
     margin: 32px 0 0 32px;
     line-height: 1.22;
   }
 }
-
 
 .instructions {
   margin-bottom: 32px;
@@ -202,7 +200,6 @@ position: absolute;
   }
 }
 
-
 .block-info {
   display: flex;
   flex-wrap: wrap;
@@ -257,12 +254,11 @@ position: absolute;
   font-weight: 400;
   color: var(--filters-main-color);
   margin: 0 20px 33px 20px;
-
 }
 @media only screen and (min-width: 768px) {
-.block-time {
-  margin: 0 32px;
-}
+  .block-time {
+    margin: 0 32px;
+  }
 }
 
 .ingredients {
@@ -296,7 +292,6 @@ position: absolute;
   }
 }
 
-
 .measure {
   color: var(--filters-main-color);
 }
@@ -316,10 +311,38 @@ position: absolute;
   }
 }
 
-
 .rating-value {
   margin-right: 6px;
 }
+
+
+/* .star{
+display: flex;
+gap: 1px;
+} */
+/* 
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+  .block-stars {
+   
+    gap: -2px;
+  }
+}
+
+.svg-stars {
+  z-index: 10;
+  fill: var(--star-color);
+}
+.svg-stars-active {
+  fill: #eea10c;
+} */
+/* 
+@media only screen and (min-width: 768px) {
+  .icon-stars {
+    width: 16px;
+    height: 16px;
+  }
+} */
+
 
 .dark-theme .measure {
   color: #fff;
@@ -377,6 +400,7 @@ position: absolute;
 }
 
 /* ================ */
+
 .star{
 display: flex;
 gap: 1px;
@@ -388,6 +412,7 @@ gap: 1px;
    margin-right: 8px;
   }
 }
+
 
 .star-icon-modal {
   fill: rgba(5, 5, 5, 0.1);
