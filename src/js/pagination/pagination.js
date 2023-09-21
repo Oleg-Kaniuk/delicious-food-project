@@ -113,9 +113,19 @@ pagination.on('afterMove', (event) => {
  //функція оновлює пагінацію при кліку на якусь категорію нe на пагінацію
  export function updatePagination() {
   pagination.reset(totalItems);
-   
 }
 
+//генерує наступну сторінку коли ти в категоріях
+function renderEvtCategories(page) {
+  fetchData(page)
+    .then(recipes => {
+    console.log(recipes);
+    pagePagination++;
+    containerForRecipes.innerHTML = createMarkupElForFilter(recipes.results);
+    onCreateGoldStar(recipes.results);
+    
+  })
+        .catch(error => console.log(error));
+}
 
-
-
+renderEvtCategories();

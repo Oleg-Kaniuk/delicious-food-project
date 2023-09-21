@@ -1,5 +1,6 @@
 
-import { onModal} from "/js/modal-recipe/modal-recipe.js"
+import { onModal } from "/js/modal-recipe/modal-recipe.js"
+import { updatePagination } from '/js/pagination/pagination.js';
 const popularRecipes = document.querySelector(".cards-popular-recipes");
 
 async function servicePopularRecipes() {
@@ -38,6 +39,7 @@ function createMarkupRecipes(arr) {
     
 }
 function onPopularRecipesClick(id) {
- onModal(id)
+    onModal(id)
+    updatePagination();
 };
    
