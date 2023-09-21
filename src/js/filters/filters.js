@@ -127,6 +127,7 @@ function onClickResetInput() {
   elements.inputFilter.value = ''
   elements.iconClose.classList.add('filter-is-hidden')
   if (elements.inputFilter.value === '') {
+    console.log(evtCategories);
     if (evtCategories === '') {
       
       galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)

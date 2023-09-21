@@ -30,6 +30,8 @@ const getCardPerPage = () => {
     }
 };
 export async function getRecipesByCategory(event) {
+    //     \/ не чіпати
+    evtCategories = event
     const buttons = document.querySelectorAll('.categories-list-element');
     const checkedCategory = event.target.textContent;
     const currentCardPerPage = cardsPerPage[getCardPerPage()];
@@ -42,7 +44,7 @@ export async function getRecipesByCategory(event) {
             },
         });
         galleryEl.innerHTML = '';
-
+        
         galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
         onCreateGoldStar(response.data.results);
         //  модалка  рецепт
