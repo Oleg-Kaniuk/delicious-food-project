@@ -1,3 +1,6 @@
+body.modal-order-now {
+  overflow: hidden;
+}
 .backdrop {
   display: block;
   position: fixed;
