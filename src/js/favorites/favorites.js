@@ -1,5 +1,8 @@
 import axios from 'axios';
 import imgUrl from '../../img/icon-sprite.svg';
+// import { onRecipeClick } from 'js/categories/categories.js'
+import { onModal, backdropElem } from '/js/modal-recipe/modal-recipe.js';
+
 const favList = document.querySelector('.favorite-recipes-list');
 const categories = document.querySelector('.categories');
 const emptyFav = document.querySelector('empty-favorites-container');
@@ -21,7 +24,7 @@ async function fetchFavImages(id) {
 }
 
 function createMarkupForFilter(el) {
-    const { _id, title, preview, description, rating } = el;
+    const { _id, title, preview, description, rating,category } = el;
 
     const idFromLocalSorage = JSON.parse(localStorage.getItem('saveCheckedFavorite')) || [];
     const includesIdAtLocalStorage = idFromLocalSorage.includes(el);
@@ -34,6 +37,7 @@ function createMarkupForFilter(el) {
         
         <input
           id="${_id}"
+          data-category-card="${category}"
           type="checkbox"
           class="heart-icon-elem"
           name="heart-icon"
@@ -82,6 +86,16 @@ if (favorite.length > 0) {
        fetchFavImages(idEl).then(data => {
             favList.insertAdjacentHTML('beforeend', createMarkupForFilter(data.data));
            createGoldStarOneEl(data.data);
+            const btnSeeRecipe = document.querySelectorAll(
+                    '.btn-blok-recipes-see'
+                );
+                [...btnSeeRecipe].forEach(function(card) {
+                    const id = card.id;
+                    card.addEventListener('click', () => {
+                        onBtnRecipeClick(id);
+                    });
+                });
+      
        
             const recipeCategory = data.data.category;
             if (recipeCategory) {
@@ -120,8 +134,9 @@ function createMarkupForEmptyFav() {
 }
 
 if (favList) {
-    favList.addEventListener('click', clickHeart);
+    favList.addEventListener('change', clickHeart);
 }
+
 
 function clickHeart(e) {
     const idCard = e.target.id;
@@ -133,7 +148,7 @@ function clickHeart(e) {
 
         localStorage.setItem('saveCheckedFavorite', JSON.stringify(favorite));
 
-        const cardElement = document.getElementById(idCard);
+        const cardElement = document.getElementById(`${idCard}`);
         const removedCategory = cardElement.getAttribute('data-category');
         cardElement.remove();
 
@@ -179,4 +194,19 @@ function updateCategories(removedCategory) {
         }
         counter += 1;
     }
+}
+
+
+
+// ф-я для категорій
+// function createBtnCateg(arr) {
+//   return  arr.map(category => `<button class="category-button" data-category="${category}">${category}</button>
+//   `).join('');
+    
+// }
+
+
+function onBtnRecipeClick(id) {
+    backdropElem.classList.remove('is-hidden-recipe-backdrop');
+    onModal(id);
 }
