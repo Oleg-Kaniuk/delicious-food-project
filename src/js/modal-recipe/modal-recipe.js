@@ -162,7 +162,7 @@ function onCloseModalSeeBtn() {
 function onclickBackdropModalSee(evt) {
   if (evt.target === backdropElem) {
     modalWindow.innerHTML = '';
-  modalBody.style.position = '';
+    modalBody.style.position = '';
     backdropElem.classList.toggle('is-hidden-recipe-backdrop');
     backdropElem.removeEventListener('click', onclickBackdropModalSee);
   }
@@ -172,6 +172,7 @@ function onClickEscapeModalSee(evt) {
   if (evt.code === 'Escape') {
     backdropElem.classList.add('is-hidden-recipe-backdrop');
     modalWindow.innerHTML = '';
+  modalBody.style.position = '';
     document.removeEventListener('keydown', onClickEscapeModalSee);
   }
 }
