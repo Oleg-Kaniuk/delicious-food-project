@@ -204,7 +204,7 @@
 }
 
 .btn-rating {
-  margin: 20px 0 20px 9px;
+  margin: 40px 0 40px 14px;
   padding: 12px 24px;
   justify-content: center;
   font-family: Inter;
@@ -220,12 +220,12 @@
 @media only screen and (min-width: 768px) {
   .btn-rating {
     padding: 14px 28px;
-    margin: 32px 0 32px 11px;
+    margin: 32px 0 32px 32px;
   }
 }
 @media (hover: hover) {
-  .btn-rating:hover,
-  .btn-rating:focus {
+  .remove-btn:hover,
+  .remove-btn:focus {
     background-color: var(--additional-text-color);
     color: var(--main-light-text-color);
   }
