@@ -76,6 +76,7 @@
 .all-categories-button:focus {
     background-color: var(--additional-text-color);
     color: var(--main-light-text-color);
+    box-shadow: 1px 1px 15px var(--additional-text-color);
 }
 
 .categories-list-element {

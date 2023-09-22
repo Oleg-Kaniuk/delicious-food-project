@@ -29,9 +29,11 @@ const getCardPerPage = () => {
         return 'large';
     }
 };
+
+//  запит до сервера при клікі на кнопку для пошука по категорії
 export async function getRecipesByCategory(event) {
     //     \/ не чіпати
-    evtCategories = event
+    evtCategories = event;
     const checkedCategory = event.target.textContent;
     try {
         const response = await axios.get(BASEURL_RECIPES, {
@@ -42,7 +44,7 @@ export async function getRecipesByCategory(event) {
             },
         });
         galleryEl.innerHTML = '';
-
+        // генерує розмітку
         galleryEl.innerHTML = createMarkupElForFilter(response.data.results);
         onCreateGoldStar(response.data.results);
         //  модалка  рецепт
@@ -88,6 +90,7 @@ if (categoriesList && allCategoriesButton && galleryEl) {
             console.error(`Failed to fetch images: ${error}`);
         }
     };
+    // завантажує список категорій рецептів з сервера і додає їх до сторінки як кнопки
     const fetchCategories = async() => {
         try {
             const response = await axios.get(BASEURL_CATEGORIES);
@@ -106,9 +109,8 @@ if (categoriesList && allCategoriesButton && galleryEl) {
             console.error(error);
         }
     };
-
+    // очищає список рецептів і збирається отримати всі рецепти (без фільтрації за категоріями)
     const handleAllCategoriesBtnClick = () => {
-        const buttons = document.querySelectorAll('.categories-list-element');
         galleryEl.innerHTML = '';
         evtCategories = '';
         fetchImages(evtCategories);
