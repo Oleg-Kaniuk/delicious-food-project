@@ -2,7 +2,8 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { createMarkupElForFilter, onCreateGoldStar} from "/js/recipes/recipes.js"
-
+import { backdropElem } from '/js/modal-recipe/modal-recipe.js';
+import { onModal } from '/js/modal-recipe/modal-recipe.js';
 
 const containerForRecipes = document.querySelector(".container-for-recipes");
 const paginationContainer = document.querySelector("#pagination");
@@ -91,7 +92,15 @@ function renderEvt(page) {
     pagePagination++;
     containerForRecipes.innerHTML = createMarkupElForFilter(recipes.results);
     onCreateGoldStar(recipes.results);
-    
+    const cardsRecipesBtn = document.querySelectorAll(
+      '.btn-blok-recipes-see'
+  );
+  [...cardsRecipesBtn].forEach(function(card) {
+      const id = card.id;
+      card.addEventListener('click', () => {
+        onRecipeClickTwo(id);
+      });
+  });
   })
         .catch(error => console.log(error));
 }
@@ -114,4 +123,7 @@ pagination.on('afterMove', (event) => {
  export function updatePagination() {
   pagination.reset(totalItems);
 }
-
+function onRecipeClickTwo(id) {
+  backdropElem.classList.remove('is-hidden-recipe-backdrop');
+  onModal(id);
+}

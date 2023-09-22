@@ -3,6 +3,8 @@ import debounce from "lodash.debounce"
 import SlimSelect from 'slim-select';
 // import "simplelightbox/dist/simple-lightbox.min.css";
 // import 'slim-select/dist/slimselect.css'
+import { backdropElem } from '/js/modal-recipe/modal-recipe.js';
+import { onModal } from '/js/modal-recipe/modal-recipe.js';
 import { createMarkupElForFilter, onCreateGoldStar} from "/js/recipes/recipes.js"
 import {getRecipesByCategory, evtCategories,evtStartMarkup, galleryEl,responseFromCategoryFunction} from '/js/categories/categories.js'
 
@@ -96,8 +98,16 @@ function onInpitSearch(event) {
 serviceGetResult(event.target.value)
 .then(data => {
   elements.containerForRecipes.innerHTML = createMarkupElForFilter(data.data.results)
-
   onCreateGoldStar(data.data.results)
+  const cardsRecipesBtn = document.querySelectorAll(
+    '.btn-blok-recipes-see'
+);
+[...cardsRecipesBtn].forEach(function(card) {
+    const id = card.id;
+    card.addEventListener('click', () => {
+      onRecipeClickone(id);
+    });
+});
 })
 .catch(err => console.log(err))
 }
@@ -127,14 +137,35 @@ function onClickResetInput() {
   elements.inputFilter.value = ''
   elements.iconClose.classList.add('filter-is-hidden')
   if (elements.inputFilter.value === '') {
-    console.log(evtCategories);
+    // console.log(evtCategories);
     if (evtCategories === '') {
       
       galleryEl.innerHTML = createMarkupElForFilter(evtStartMarkup)
-     return onCreateGoldStar(evtStartMarkup) 
+     onCreateGoldStar(evtStartMarkup) 
+     const cardsRecipesBtn = document.querySelectorAll(
+      '.btn-blok-recipes-see'
+  );
+  // console.log(cardsRecipesBtn);
+  [...cardsRecipesBtn].forEach(function(card) {
+      const id = card.id;
+      card.addEventListener('click', () => {
+        onRecipeClickone(id);
+      });
+  });
     }
     // console.log(evtCategories);
     getRecipesByCategory(evtCategories)
+    const cardsRecipesBtn = document.querySelectorAll(
+      '.btn-blok-recipes-see'
+      
+  );
+  console.log(cardsRecipesBtn);
+  [...cardsRecipesBtn].forEach(function(card) {
+      const id = card.id;
+      card.addEventListener('click', () => {
+        onRecipeClickone(id);
+      });
+  });
   }
 }
 
@@ -153,4 +184,8 @@ function onClickResetInput() {
 //   }
 // }
 
+function onRecipeClickone(id) {
+  backdropElem.classList.remove('is-hidden-recipe-backdrop');
+  onModal(id);
+}
 

@@ -11,6 +11,7 @@ const modalWindow = document.querySelector('.recipe-info');
 export const backdropElem = document.querySelector('.recipe-backdrop');
 const storageButton = document.querySelector('.add-btn');
 const removeStorageBtn = document.querySelector('.remove-btn');
+const modalBody = document.body
 const KEY_FEEDBACK = 'saveCheckedFavorite';
 // змінна на експорт до modal-rating
 export let expId = '';
@@ -126,8 +127,10 @@ ${youtubeWatch ? youtubeEmbed : imgData}
 
   if (window.innerWidth > 768) {
     modalWindow.insertAdjacentHTML('beforeend', markup);
+    modalBody.style.position = 'fixed';
   } else {
     modalWindow.insertAdjacentHTML('beforeend', markupMobile);
+    modalBody.style.position = 'fixed';
   }
 
   const creatIngredients = document.querySelector('.ingredients');
@@ -152,12 +155,14 @@ if (backdropElem) {
 function onCloseModalSeeBtn() {
   backdropElem.classList.add('is-hidden-recipe-backdrop');
   modalWindow.innerHTML = '';
+  modalBody.style.position = '';
   backdropElem.removeEventListener('click', onCloseModalSeeBtn);
 }
 
 function onclickBackdropModalSee(evt) {
   if (evt.target === backdropElem) {
     modalWindow.innerHTML = '';
+  modalBody.style.position = '';
     backdropElem.classList.toggle('is-hidden-recipe-backdrop');
     backdropElem.removeEventListener('click', onclickBackdropModalSee);
   }
