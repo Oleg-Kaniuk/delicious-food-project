@@ -155,7 +155,7 @@ const res =  axios.patch(url, {
     rate: pValue,
     email: inputValue
 }).then(data =>{
-Notiflix.Notify.success('Your evaluation has been sent');
+// Notiflix.Notify.success('Your evaluation has been sent');
 refs.pElem.innerHTML = `0.0`;
 refs.pElem.setAttribute('value', '0')
 refs.ratingModal.classList.add('is-hidden1');
@@ -163,7 +163,7 @@ refs.body.style.position = '';
   refs.body.style.top = '';
   window.scrollTo(0, parseInt(scrollY || '0') * -1);
 }).catch(err =>{
-Notiflix.Notify.failure('Error. Your score could not be submitted');
+// Notiflix.Notify.failure('Error. Your score could not be submitted');
 refs.pElem.setAttribute('value', '0')
 refs.pElem.innerHTML = `0.0`;
 refs.ratingModal.classList.add('is-hidden1');
