@@ -115,7 +115,6 @@
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1.22;
-
 }
 @media only screen and (min-width: 768px) {
   .modal-title {
@@ -130,6 +129,10 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
+}
+
+.block-button {
+  display: flex;
 }
 
 .add-btn {
@@ -161,6 +164,40 @@
 }
 @media not (hover: hover) {
   .add-btn:active {
+    background-color: var(--additional-text-color);
+    color: var(--main-light-text-color);
+  }
+}
+
+.remove-btn {
+  margin: 40px 0 40px 20px;
+  padding: 12px 24px;
+  justify-content: center;
+  font-family: Inter;
+  border-radius: 15px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.21;
+  border: 1px solid var(--additional-text-color);
+  color: var(--main-dark-text-color);
+}
+
+@media only screen and (min-width: 768px) {
+  .remove-btn {
+    padding: 14px 28px;
+    margin: 32px 0 32px 32px;
+  }
+}
+@media (hover: hover) {
+  .remove-btn:hover,
+  .remove-btn:focus {
+    background-color: var(--additional-text-color);
+    color: var(--main-light-text-color);
+  }
+}
+@media not (hover: hover) {
+  .remove-btn:active {
     background-color: var(--additional-text-color);
     color: var(--main-light-text-color);
   }
@@ -219,7 +256,7 @@
 @media only screen and (min-width: 768px) {
   .tags {
     margin-bottom: 0;
-    margin: 0 32px ;
+    margin: 0 32px;
   }
 }
 
@@ -315,35 +352,6 @@
   margin-right: 6px;
 }
 
-
-/* .star{
-display: flex;
-gap: 1px;
-} */
-/* 
-@media only screen and (min-width: 768px) and (max-width: 1280px) {
-  .block-stars {
-   
-    gap: -2px;
-  }
-}
-
-.svg-stars {
-  z-index: 10;
-  fill: var(--star-color);
-}
-.svg-stars-active {
-  fill: #eea10c;
-} */
-/* 
-@media only screen and (min-width: 768px) {
-  .icon-stars {
-    width: 16px;
-    height: 16px;
-  }
-} */
-
-
 .dark-theme .measure {
   color: #fff;
 }
@@ -400,19 +408,17 @@ gap: 1px;
 }
 
 /* ================ */
-
-.star{
-display: flex;
-gap: 1px;
-} 
+.star {
+  display: flex;
+  gap: 1px;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1280px) {
   .block-stars {
-   gap: -2px;
-   margin-right: 8px;
+    gap: -2px;
+    margin-right: 8px;
   }
 }
-
 
 .star-icon-modal {
   fill: rgba(5, 5, 5, 0.1);
