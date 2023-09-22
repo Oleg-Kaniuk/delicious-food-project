@@ -119,7 +119,7 @@ if (favorite.length > 0) {
 
 function createMarkupForEmptyFav() {
     return `
-    <img class="hero-hat-icon" src="./img/hero/hat.png" alt="hat">
+    <img class="hero-hat-icon" src="../../img/hero/hat.png" alt="hat">
 <p class="empty-favorites-text">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.
 </p>
 `;
