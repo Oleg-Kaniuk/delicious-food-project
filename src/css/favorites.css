@@ -1,10 +1,10 @@
-.hero-hat {
+.hero-hat-icon {
     width: 68px;
     height: 58px;
 }
 
 @media only screen and (min-width: 768px) {
-    .hero-hat {
+    .hero-hat-icon {
         width: 97px;
         height: 83px;
     }
