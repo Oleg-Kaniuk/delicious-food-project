@@ -210,6 +210,7 @@ function delLocalStorage(evt) {
     localStorage.setItem(KEY_FEEDBACK, JSON.stringify(addForLocalStor));
     storageButton.style.display = 'block';
     removeStorageBtn.style.display = 'none';
+    location.reload();
   }
 }
 console.log(id);

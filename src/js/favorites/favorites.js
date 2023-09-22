@@ -1,5 +1,6 @@
 import axios from 'axios';
 import imgUrl from '../../img/icon-sprite.svg';
+import imgPng from '../../img/hero/hat.png'
 // import { onRecipeClick } from 'js/categories/categories.js'
 import { getRecipesByCategory } from '/js/categories/categories.js';
 import { onModal, backdropElem } from '/js/modal-recipe/modal-recipe.js';
@@ -119,7 +120,7 @@ if (favorite.length > 0) {
 
 function createMarkupForEmptyFav() {
     return `
-    <img class="hero-hat-icon" src="/img/hero/hat.png" alt="hat">
+    <img class="hero-hat-icon" src="${imgPng}" alt="hat">
 <p class="empty-favorites-text">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.
 </p>
 `;
