@@ -1,3 +1,15 @@
+.hero-hat {
+    width: 68px;
+    height: 58px;
+}
+
+@media only screen and (min-width: 768px) {
+    .hero-hat {
+        width: 97px;
+        height: 83px;
+    }
+}
+
 .hero-image-section {
     margin-top: 140px;
     padding-bottom: 40px;

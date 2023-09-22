@@ -119,9 +119,7 @@ if (favorite.length > 0) {
 
 function createMarkupForEmptyFav() {
     return `
-<svg width="68" height="58" viewBox="0 0 37 32">
-<use xlink:href="../../img/icon-sprite.svg#icon-hat"></use>
-</svg>
+    <img class="hero-hat" src="./img/hero/hat.png" alt="hat">
 <p class="empty-favorites-text">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.
 </p>
 `;
