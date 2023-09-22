@@ -128,7 +128,9 @@
   background-color: var(--main-dark-text-color);
   color: var(--dark-main-text-color);
 }
-
+.dark-theme .remove-btn {
+  color: #fff;
+}
 .dark-theme .nav-link-favorites {
 }
 .dark-theme .category-button {
