@@ -6,11 +6,9 @@ import { onModal, backdropElem } from '/js/modal-recipe/modal-recipe.js';
 const favList = document.querySelector('.favorite-recipes-list');
 const categories = document.querySelector('.categories');
 const favorite = JSON.parse(localStorage.getItem('saveCheckedFavorite')) || [];
-const allBtn = document.querySelector('.category-btn')
-const categoryButtons = document.querySelectorAll('.category-button')
+const allBtn = document.querySelector('.category-btn');
+const categoryButtons = document.querySelectorAll('.category-button');
 const uniqueCategories = new Set();
-
-const ul = document.querySelector;
 const favoritesContainer = document.querySelector('.empty-favorites-container');
 const BASE_FAV_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 let currentCategory = null;
