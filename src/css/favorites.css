@@ -137,29 +137,3 @@
     background-color: var(--additional-text-color);
     color: var(--main-light-text-color);
 }
-
-.category-btn {
-    line-height: 18px;
-    padding: 14px 18px;
-    width: 120px;
-    height: 46px;
-    color: var(--filters-main-color);
-    border-radius: 15px;
-    border: 1px solid var(--filters-main-color);
-}
-
-.category-btn:hover,
-.category-btn:focus {
-    box-shadow: 1px 1px 15px var(--additional-text-color);
-    background-color: var(--additional-text-color);
-    color: var(--main-light-text-color);
-}
-
-@media only screen and (min-width: 768px) {
-    .category-btn {
-        font-size: 16px;
-        line-height: 20px;
-        height: 48px;
-        width: 145px;
-    }
-}
